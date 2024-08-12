@@ -16,10 +16,19 @@ module.exports = {
         'dark-secondary': '#0f0c29', // Darker background, like a late evening sky
         'dark-accent': '#ff5e62', // A strong accent color, representing the last light of sunset
         'dark-text': '#e0e0e0', // Lighter text on a dark background
+        'light-primary': '##f7faff', // Example color, adjust as needed
+        'light-secondary': '#e0e7ff',
+        'light-tertiary': '#d1d7e0',
+        'light-accent': '#0057b7',
+        'light-accent-hover': '#003a8c',
+        'light-text': '#2c3e50',
       },
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
-        heading: ['Montserrat', 'sans-serif'],
+        cursive: ['cursiveFont', 'script'],
+        gothic: ['gothicFont', 'sans-serif'],
+        'gothic-bold': ['gothicBoldFont', 'sans-serif'],
+        'gothic-italic': ['gothicItalicFont', 'sans-serif'],
+        'gothic-bold-italic': ['gothicBoldItalicFont', 'sans-serif'],
       },
     },
   },

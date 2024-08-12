@@ -2,7 +2,66 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: 'cursiveFont';
+  src: url('/src/assets/fonts/COCHOCIB-SCRIPT-LATIN-PRO.TTF') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gothicFont';
+  src: url('/src/assets/fonts/GOTHIC.TTF') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gothicBoldFont';
+  src: url('/src/assets/fonts/GOTHICB.TTF') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gothicBoldItalicFont';
+  src: url('/src/assets/fonts/GOTHICBI.TTF') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'gothicItalicFont';
+  src: url('/src/assets/fonts/GOTHICI.TTF') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
 
 body {
   @apply bg-light text-dark font-sans;
+}
+/* Light Mode Sunset Animation */
+.animated-sunset {
+  background: linear-gradient(to right, #ff7e5f, #feb47b); /* Light mode sunset colors */
+  background-size: 200% 200%;
+  animation: sunsetMove 10s ease-in-out infinite alternate;
+}
+
+@keyframes sunsetMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Dark Mode Sunset Animation */
+.dark-animated-sunset {
+  background: linear-gradient(to right, #332940, #0f0c29, #ff5e62); /* Dark mode sunset colors */
+  background-size: 200% 200%;
+  animation: sunsetMove 10s ease-in-out infinite alternate;
 }

@@ -9,7 +9,7 @@ const LandingPage = () => (
     <ThemeToggle />
     <Home />
     <About />
-    <section className="bg-gradient-to-r from-primary to-secondary text-white dark:from-dark-primary dark:to-black dark:text-dark-text py-20">
+    <section className="bg-gradient-to-r from-primary to-secondary text-white dark:from-dark-primary dark:to-black dark:text-dark-text py-40">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl font-heading mb-8">Our Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

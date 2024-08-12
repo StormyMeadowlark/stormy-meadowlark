@@ -48,10 +48,10 @@ const ResumePortal = () => {
   }
 
   return (
-    <div className="min-h-screen py-20 bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 dark:from-dark-primary dark:via-dark-secondary dark:to-dark-accent text-dark dark:text-light">
+    <div className="min-h-screen py-40 bg-gradient-to-r from-indigo-200 via-indigo-100 to-indigo-300 dark:from-dark-primary dark:via-dark-secondary dark:to-dark-accent text-dark dark:text-light">
       <div className="container mx-auto">
         <motion.h1
-          className="text-5xl font-heading text-center mb-8"
+          className="text-8xl font-cursive text-center mb-12 text-indigo-900 dark:text-light"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
@@ -59,7 +59,7 @@ const ResumePortal = () => {
           Apply for a Position
         </motion.h1>
         <motion.p
-          className="text-xl max-w-2xl mx-auto text-center mb-12"
+          className="text-xl max-w-2xl mx-auto text-center mb-12 font-gothic text-indigo-900 dark:text-light"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
@@ -69,7 +69,7 @@ const ResumePortal = () => {
         </motion.p>
 
         <motion.div
-          className="max-w-lg mx-auto bg-white dark:bg-dark-primary p-8 rounded-lg shadow-lg space-y-6"
+          className="max-w-lg mx-auto bg-light dark:bg-dark-secondary p-8 rounded-lg shadow-lg space-y-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.8 }}
@@ -85,7 +85,7 @@ const ResumePortal = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-lg font-medium mb-2 text-indigo-700 dark:text-accent"
+                  className="block text-lg font-gothic-bold-italic mb-2 text-indigo-700 dark:text-accent"
                 >
                   Name
                 </label>
@@ -95,7 +95,7 @@ const ResumePortal = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className={`w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-secondary text-dark dark:text-light ${
+                  className={`w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-primary text-dark dark:text-light ${
                     errors.name ? 'border-red-500' : 'border-transparent'
                   }`}
                 />
@@ -108,7 +108,7 @@ const ResumePortal = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-lg font-medium mb-2 text-indigo-700 dark:text-accent"
+                  className="block text-lg font-gothic-bold-italic mb-2 text-indigo-700 dark:text-accent"
                 >
                   Email
                 </label>
@@ -118,7 +118,7 @@ const ResumePortal = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className={`w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-secondary text-dark dark:text-light ${
+                  className={`w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-primary text-dark dark:text-light ${
                     errors.email ? 'border-red-500' : 'border-transparent'
                   }`}
                 />
@@ -131,7 +131,7 @@ const ResumePortal = () => {
               <div>
                 <label
                   htmlFor="phone"
-                  className="block text-lg font-medium mb-2 text-indigo-700 dark:text-accent"
+                  className="block text-lg font-gothic-bold-italic mb-2 text-indigo-700 dark:text-accent"
                 >
                   Phone Number
                 </label>
@@ -141,7 +141,7 @@ const ResumePortal = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className={`w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-secondary text-dark dark:text-light ${
+                  className={`w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-primary text-dark dark:text-light ${
                     errors.phone ? 'border-red-500' : 'border-transparent'
                   }`}
                 />
@@ -154,7 +154,7 @@ const ResumePortal = () => {
               <div>
                 <label
                   htmlFor="job"
-                  className="block text-lg font-medium mb-2 text-indigo-700 dark:text-accent"
+                  className="block text-lg font-gothic-bold-italic mb-2 text-indigo-700 dark:text-accent"
                 >
                   Job Position
                 </label>
@@ -163,7 +163,7 @@ const ResumePortal = () => {
                   name="job"
                   value={formData.job}
                   onChange={handleInputChange}
-                  className={`w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-secondary text-dark dark:text-light ${
+                  className={`w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-primary text-dark dark:text-light ${
                     errors.job ? 'border-red-500' : 'border-transparent'
                   }`}
                 >
@@ -186,7 +186,7 @@ const ResumePortal = () => {
               <div>
                 <label
                   htmlFor="resume"
-                  className="block text-lg font-medium mb-2 text-indigo-700 dark:text-accent"
+                  className="block text-lg font-gothic-bold-italic mb-2 text-indigo-700 dark:text-accent"
                 >
                   Upload Resume
                 </label>
@@ -195,7 +195,7 @@ const ResumePortal = () => {
                   id="resume"
                   name="resume"
                   onChange={handleFileChange}
-                  className={`w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-secondary text-dark dark:text-light ${
+                  className={`w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-primary text-dark dark:text-light ${
                     errors.resume ? 'border-red-500' : 'border-transparent'
                   }`}
                 />
@@ -208,7 +208,7 @@ const ResumePortal = () => {
               <div>
                 <label
                   htmlFor="coverLetter"
-                  className="block text-lg font-medium mb-2 text-indigo-700 dark:text-accent"
+                  className="block text-lg font-gothic-bold-italic mb-2 text-indigo-700 dark:text-accent"
                 >
                   Cover Letter (Optional)
                 </label>
@@ -218,14 +218,14 @@ const ResumePortal = () => {
                   value={formData.coverLetter}
                   onChange={handleInputChange}
                   rows="6"
-                  className="w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-secondary text-dark dark:text-light"
+                  className="w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-primary text-dark dark:text-light"
                 />
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-indigo-600 dark:bg-accent text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 dark:hover:bg-accent-dark transition-colors"
+                className="w-full bg-indigo-600 dark:bg-accent text-light dark:text-dark font-gothic-bold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 dark:hover:bg-accent-dark transition-colors"
               >
                 Submit Application
               </button>

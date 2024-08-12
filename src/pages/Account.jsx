@@ -1,7 +1,7 @@
 
 
 const Account = () => (
-  <div className="bg-light dark:bg-dark-primary text-dark dark:text-dark-text min-h-screen py-20">
+  <div className="bg-light dark:bg-dark-primary text-dark dark:text-dark-text min-h-screen py-40">
     <div className="container mx-auto">
       <h1 className="text-4xl font-heading text-center mb-8">
         Manage Your Account

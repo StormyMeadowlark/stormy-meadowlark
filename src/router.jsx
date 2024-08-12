@@ -19,6 +19,7 @@ import FrontendDeveloper from "./pages/FrontendDeveloper.jsx"
 import UxUiDesigner from "./pages/FrontendDeveloper.jsx"
 import MarketingSpecialist from "./pages/MarketingSpecalist.jsx"
 import ResumePortal from "./components/ResusmePortal.jsx"
+import Careers from "./pages/Careers.jsx"
 
 
 const AppRouter = () => (
@@ -31,16 +32,22 @@ const AppRouter = () => (
       <Route path="/contact" element={<Contact />} />
       <Route path="/account" element={<Account />} />
       <Route path="/portfolio" element={<Portfolio />} />
-      <Route path="/web-development" element={<WebDevelopment />} />
-      <Route path="/content-creation" element={<ContentCreation />} />
+      <Route path="services/web-development" element={<WebDevelopment />} />
+      <Route path="services/content-creation" element={<ContentCreation />} />
       <Route
-        path="/social-media-management"
+        path="services/social-media-management"
         element={<SocialMediaManagement />}
       />
-      <Route path="/api-development" element={<ApiDevelopment />} />
-      <Route path="/consulting-strategy" element={<ConsultingStrategy />} />
-      <Route path="/google-ads-management" element={<GoogleAdsManagement />} />
-      <Route path="/blog" element={<BlogHome />} />
+      <Route path="services/api-development" element={<ApiDevelopment />} />
+      <Route
+        path="services/consulting-strategy"
+        element={<ConsultingStrategy />}
+      />
+      <Route
+        path="services/google-ads-management"
+        element={<GoogleAdsManagement />}
+      />
+      <Route path="/tech&tranquility" element={<BlogHome />} />
       <Route
         path="/careers/frontend-developer"
         element={<FrontendDeveloper />}
@@ -50,7 +57,8 @@ const AppRouter = () => (
         path="/careers/marketing-specialist"
         element={<MarketingSpecialist />}
       />
-      <Route path="/resume-portal" element={<ResumePortal />} />
+      <Route path="/careers/resume-portal" element={<ResumePortal />} />
+      <Route path="/careers" element={<Careers />} />
     </Routes>
     <Footer />
   </Router>

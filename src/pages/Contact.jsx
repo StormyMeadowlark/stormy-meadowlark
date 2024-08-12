@@ -39,7 +39,6 @@ const Contact = () => {
     }
   }
 
-  // Sample job openings data (replace with dynamic data if needed)
   const jobOpenings = [
     {
       id: 1,
@@ -47,15 +46,14 @@ const Contact = () => {
       location: 'Remote',
       description:
         'We are looking for a talented front-end developer to join our team.',
-      url: '/careers/frontend-developer',
+      url: '/careers/ux-ui-designer',
     },
     {
       id: 2,
-      title: 'UX/UI Designer',
-      location: 'San Francisco, CA',
-      description:
-        'Join our creative team as a UX/UI Designer to craft beautiful user experiences.',
-      url: '/careers/ux-ui-designer',
+      title: "UX/UI Designer",
+      location: "Remote",
+      description: "Join our creative team as a UX/UI Designer to craft beautiful user experiences.",
+      url: "/careers/ux-ui-designer"
     },
     {
       id: 3,
@@ -68,10 +66,10 @@ const Contact = () => {
   ]
 
   return (
-    <div className="min-h-screen py-20 bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 dark:from-dark-primary dark:via-dark-secondary dark:to-dark-accent text-dark dark:text-light">
+    <div className="min-h-screen py-40 bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 dark:from-dark-primary dark:via-dark-secondary dark:to-dark-accent text-dark dark:text-light">
       <div className="container mx-auto">
         <motion.h1
-          className="text-5xl font-heading text-center mb-8"
+          className="text-8xl font-cursive  text-center mb-8 text-dark-primary dark:text-light"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
@@ -79,7 +77,7 @@ const Contact = () => {
           Get in Touch with Stormy Meadowlark
         </motion.h1>
         <motion.p
-          className="text-xl max-w-2xl mx-auto text-center mb-12"
+          className="text-xl max-w-2xl mx-auto text-center mb-12 font-gothic-bold-italic text-dark-secondary dark:text-light"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
@@ -89,7 +87,7 @@ const Contact = () => {
         </motion.p>
 
         <motion.div
-          className="max-w-lg mx-auto bg-white dark:bg-dark-primary p-8 rounded-lg shadow-lg"
+          className="max-w-lg mx-auto bg-light dark:bg-dark-primary p-8 rounded-lg shadow-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.8 }}
@@ -99,12 +97,12 @@ const Contact = () => {
               Thank you for reaching out! We’ll get back to you soon.
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 font-gothic">
               {/* Name Field */}
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-lg font-medium mb-2 text-indigo-700 dark:text-accent"
+                  className="block text-lg font-medium mb-2 text-dark-primary dark:text-light"
                 >
                   Name
                 </label>
@@ -114,7 +112,7 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className={`w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-secondary text-dark dark:text-light ${
+                  className={`w-full p-4 rounded-lg shadow-md bg-light dark:bg-dark-secondary text-dark dark:text-light ${
                     errors.name ? 'border-red-500' : 'border-transparent'
                   }`}
                 />
@@ -127,7 +125,7 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-lg font-medium mb-2 text-indigo-700 dark:text-accent"
+                  className="block text-lg font-medium mb-2 text-dark-primary dark:text-light"
                 >
                   Email
                 </label>
@@ -137,7 +135,7 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className={`w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-secondary text-dark dark:text-light ${
+                  className={`w-full p-4 rounded-lg shadow-md bg-light dark:bg-dark-secondary text-dark dark:text-light ${
                     errors.email ? 'border-red-500' : 'border-transparent'
                   }`}
                 />
@@ -150,7 +148,7 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-lg font-medium mb-2 text-indigo-700 dark:text-accent"
+                  className="block text-lg font-medium mb-2 text-dark-primary dark:text-light"
                 >
                   Message
                 </label>
@@ -160,7 +158,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   rows="6"
-                  className={`w-full p-4 rounded-lg shadow-md bg-indigo-50 dark:bg-dark-secondary text-dark dark:text-light ${
+                  className={`w-full p-4 rounded-lg shadow-md bg-light dark:bg-dark-secondary text-dark dark:text-light ${
                     errors.message ? 'border-red-500' : 'border-transparent'
                   }`}
                 />
@@ -172,7 +170,7 @@ const Contact = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-indigo-600 dark:bg-accent text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 dark:hover:bg-accent-dark transition-colors"
+                className="w-full bg-dark-primary dark:bg-accent text-light font-gothicBoldFont py-3 px-6 rounded-lg shadow-md hover:bg-dark-accent dark:hover:bg-accent-dark transition-colors"
               >
                 Send Message
               </button>
@@ -187,10 +185,10 @@ const Contact = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
         >
-          <h2 className="text-4xl font-heading text-center mb-8">
+          <h2 className="text-7xl font-cursive text-center mb-8 text-dark-primary dark:text-light">
             Careers at Stormy Meadowlark
           </h2>
-          <p className="text-lg text-center max-w-2xl mx-auto mb-12">
+          <p className="text-lg text-center max-w-2xl mx-auto mb-12 font-gothic-italic text-dark-secondary dark:text-light">
             We’re always looking for talented individuals to join our team.
             Explore our current job openings below and become a part of our
             growing company.
@@ -199,16 +197,20 @@ const Contact = () => {
             {jobOpenings.map((job) => (
               <div
                 key={job.id}
-                className="bg-white dark:bg-dark-secondary p-6 rounded-lg shadow-md"
+                className="bg-light dark:bg-dark-primary p-6 rounded-lg shadow-md"
               >
-                <h3 className="text-2xl font-heading mb-4">{job.title}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                <h3 className="text-2xl font-gothic-bold mb-4 text-dark-primary dark:text-light">
+                  {job.title}
+                </h3>
+                <p className="text-sm font-gothic-italic text-dark-secondary dark:text-light mb-2">
                   {job.location}
                 </p>
-                <p className="text-lg mb-4">{job.description}</p>
+                <p className="text-lg text-dark dark:text-light mb-4">
+                  {job.description}
+                </p>
                 <Link
                   to={job.url}
-                  className="text-indigo-500 dark:text-accent font-bold underline mt-4 inline-block"
+                  className="text-dark-primary dark:text-accent font-bold underline mt-4 inline-block"
                 >
                   Learn More
                 </Link>

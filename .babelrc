@@ -1,0 +1,9 @@
+{
+  "presets": [
+    "@babel/preset-env", // Transpile modern JavaScript to be compatible with older environments
+    "@babel/preset-react" // Transpile JSX and other React-specific syntax
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime" // Reduce code duplication and polyfill usage
+  ]
+}

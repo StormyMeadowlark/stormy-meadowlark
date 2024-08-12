@@ -1,86 +1,145 @@
-
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+
 const ContentCreation = () => (
-  <div className="bg-light dark:bg-dark-primary text-dark dark:text-dark-text min-h-screen py-20">
+  <div className="bg-light dark:bg-dark-primary text-dark dark:text-light min-h-screen py-40">
     <div className="container mx-auto">
-      <h1 className="text-4xl font-heading text-center mb-8">
+      <motion.h1
+        className="text-8xl font-cursive text-center mb-12 text-dark-primary dark:text-light"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2 }}
+      >
         Content Creation
-      </h1>
+      </motion.h1>
 
       {/* Service Description */}
       <section className="mb-16">
-        <h2 className="text-3xl font-heading mb-4">What We Offer</h2>
-        <p className="text-lg max-w-3xl mx-auto">
-          Content is king, and at Stormy Meadowlark, we create content that
-          resonates with your audience and drives engagement. Whether you need
-          blog posts, video scripts, or social media content, we craft
-          compelling narratives that tell your brand's story and connect with
-          your customers. Our content creation services are tailored to your
-          specific needs, ensuring that every piece of content aligns with your
-          brand voice and marketing goals.
-        </p>
+        <motion.h2
+          className="text-3xl font-gothic-italic mb-8 text-dark-secondary dark:text-light"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.4 }}
+        >
+          What We Offer
+        </motion.h2>
+        <motion.p
+          className="text-lg max-w-3xl mx-auto font-gothic text-dark-primary dark:text-light"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.6 }}
+        >
+          In a world where content is king, we believe that your story deserves
+          to be told with creativity, clarity, and authenticity. At Stormy
+          Meadowlark, we craft compelling narratives that not only capture
+          attention but also resonate deeply with your audience. From blog posts
+          and video scripts to social media content, we create tailored content
+          that aligns perfectly with your brand voice and marketing goals.
+        </motion.p>
       </section>
 
       {/* Pricing Details */}
       <section className="mb-16">
-        <h2 className="text-3xl font-heading mb-4">Pricing</h2>
+        <motion.h2
+          className="text-3xl font-gothic-italic mb-8 text-dark-secondary dark:text-light"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.4 }}
+        >
+          Pricing
+        </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div className="p-6 bg-white dark:bg-dark-secondary rounded-lg shadow-md">
-            <h3 className="text-2xl font-heading mb-4">Blog Post Writing</h3>
-            <p className="text-lg">$150 per post</p>
-            <p className="mt-4">
-              Includes research, writing, and basic SEO optimization.
+          <motion.div
+            className="p-6 bg-light-accent dark:bg-dark-secondary rounded-lg shadow-lg"
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3 className="text-2xl font-gothic-bold mb-4 text-light">
+              Blog Post Writing
+            </h3>
+            <p className="text-lg font-gothic text-light">$150 per post</p>
+            <p className="mt-4 font-gothic-italic text-gray-200">
+              Engaging, well-researched blog posts that boost your SEO and
+              connect with your readers.
             </p>
-          </div>
-          <div className="p-6 bg-white dark:bg-dark-secondary rounded-lg shadow-md">
-            <h3 className="text-2xl font-heading mb-4">Video Script Writing</h3>
-            <p className="text-lg">$300 per script</p>
-            <p className="mt-4">
-              Engaging video scripts tailored to your brand's message and
+          </motion.div>
+          <motion.div
+            className="p-6 bg-light-accent dark:bg-dark-secondary rounded-lg shadow-lg"
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3 className="text-2xl font-gothic-bold mb-4 text-light">
+              Video Script Writing
+            </h3>
+            <p className="text-lg font-gothic text-light">$300 per script</p>
+            <p className="mt-4 font-gothic-italic text-gray-200">
+              Compelling video scripts that tell your story and captivate your
               audience.
             </p>
-          </div>
-          <div className="p-6 bg-white dark:bg-dark-secondary rounded-lg shadow-md">
-            <h3 className="text-2xl font-heading mb-4">
+          </motion.div>
+          <motion.div
+            className="p-6 bg-light-accent dark:bg-dark-secondary rounded-lg shadow-lg"
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3 className="text-2xl font-gothic-bold mb-4 text-light">
               Custom Content Packages
             </h3>
-            <p className="text-lg">Contact for pricing</p>
-            <p className="mt-4">
-              Packages tailored to your content needs, including a mix of
-              different content types.
+            <p className="text-lg font-gothic text-light">
+              Contact for pricing
             </p>
-          </div>
+            <p className="mt-4 font-gothic-italic text-gray-200">
+              Tailored content packages designed to meet your specific needs,
+              blending various content types to maximize impact.
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* Process Section */}
       <section className="mb-16">
-        <h2 className="text-3xl font-heading mb-4">Our Process</h2>
-        <p className="text-lg max-w-3xl mx-auto">
-          Our content creation process starts with understanding your brand and
-          audience. We work closely with you to develop content ideas that align
-          with your goals, and then bring those ideas to life through meticulous
-          research, writing, and editing. Each piece of content is crafted to
-          engage your audience and drive results, whether it's boosting your
-          SEO, increasing social media engagement, or telling your brand's
-          story.
-        </p>
+        <motion.h2
+          className="text-3xl font-gothic-italic mb-8 text-dark-secondary dark:text-light"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.4 }}
+        >
+          Our Process
+        </motion.h2>
+        <motion.p
+          className="text-lg max-w-3xl mx-auto font-gothic text-dark-primary dark:text-light"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.6 }}
+        >
+          Our content creation process begins with a deep dive into your brand's
+          identity and audience. We collaborate closely with you to develop
+          content ideas that align with your business goals. From meticulous
+          research and writing to precise editing, we ensure every piece of
+          content we produce is designed to engage your audience and drive
+          results, whether that means boosting your SEO, enhancing social media
+          presence, or telling your brand's story.
+        </motion.p>
       </section>
 
       {/* Call to Action */}
-      <section className="text-center">
-        <h2 className="text-3xl font-heading mb-4">Let's Create Together</h2>
-        <p className="text-lg max-w-2xl mx-auto mb-8">
+      <motion.section
+        className="text-center"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.6 }}
+      >
+        <h2 className="text-6xl font-cursive mb-4 text-dark-secondary dark:text-light">
+          Let's Create Together
+        </h2>
+        <p className="text-lg max-w-2xl mx-auto mb-8 font-gothic text-dark-primary dark:text-light">
           Ready to elevate your content? Contact us today to discuss your
-          content creation needs and get started.
+          content creation needs and start crafting compelling stories together.
         </p>
         <Link
           to="/contact"
-          className="bg-accent dark:bg-dark-accent text-white dark:text-dark-text font-bold py-3 px-6 rounded-full transition-colors"
+          className="bg-accent dark:bg-dark-accent text-light font-gothic-bold py-3 px-6 rounded-full transition-colors hover:bg-light-accent dark:hover:bg-accent-dark"
         >
           Get in Touch
         </Link>
-      </section>
+      </motion.section>
     </div>
   </div>
 )
