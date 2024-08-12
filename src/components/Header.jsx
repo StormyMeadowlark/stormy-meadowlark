@@ -1,86 +1,148 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import ThemeToggle from './ThemeToggle'
+import { FaHome, FaEnvelope, FaBlog, FaUser, FaEllipsisH } from 'react-icons/fa'
+import { AiFillSetting } from 'react-icons/ai'
 import GoldStormyMeadowlark from '../assets/images/GoldStormyMeadowlark.png?react'
-
+import ThemeToggle from './ThemeToggle'
 const Header = () => {
-  const [isServicesOpen, setIsServicesOpen] = useState(false)
-  const [isContactOpen, setIsContactOpen] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMoreOpen, setIsMoreOpen] = useState(false)
 
-  const servicesRef = useRef(null)
-  const contactRef = useRef(null)
-  const timerRef = useRef(null)
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
+  const toggleMoreMenu = () => {
+    setIsMoreOpen(!isMoreOpen)
   }
-
-  const handleMouseEnterServices = () => {
-    clearTimeout(timerRef.current)
-    setIsServicesOpen(true)
-    setIsContactOpen(false)
-  }
-
-  const handleMouseLeaveServices = () => {
-    timerRef.current = setTimeout(() => {
-      setIsServicesOpen(false)
-    }, 200)
-  }
-
-  const handleMouseEnterContact = () => {
-    clearTimeout(timerRef.current)
-    setIsContactOpen(true)
-    setIsServicesOpen(false)
-  }
-
-  const handleMouseLeaveContact = () => {
-    timerRef.current = setTimeout(() => {
-      setIsContactOpen(false)
-    }, 200)
-  }
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768)
-    }
-
-    const handleClickOutside = (event) => {
-      if (
-        servicesRef.current &&
-        !servicesRef.current.contains(event.target) &&
-        contactRef.current &&
-        !contactRef.current.contains(event.target)
-      ) {
-        setIsServicesOpen(false)
-        setIsContactOpen(false)
-      }
-    }
-
-    const handleScroll = () => {
-      setIsServicesOpen(false)
-      setIsContactOpen(false)
-    }
-
-    window.addEventListener('resize', handleResize)
-    document.addEventListener('mousedown', handleClickOutside)
-    document.addEventListener('scroll', handleScroll)
-
-    handleResize() // Initialize on load
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-      document.removeEventListener('mousedown', handleClickOutside)
-      document.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
 
   return (
-    <header className="bg-light dark:bg-dark-secondary text-light-text dark:text-light py-4 shadow-lg fixed w-full top-0 z-50">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <div className="flex items-center">
+    <>
+      {/* Mobile Header */}
+      <header className="fixed bottom-0 left-0 right-0 z-50 bg-light dark:bg-dark-secondary shadow-lg md:hidden">
+        <nav className="flex justify-between items-center p-4">
+          <Link to="/" className="flex flex-col items-center text-xs">
+            <FaHome className="text-2xl" />
+            <span>Home</span>
+          </Link>
+          <Link to="/services" className="flex flex-col items-center text-xs">
+            <AiFillSetting className="text-2xl" />
+            <span>Services</span>
+          </Link>
+          <Link to="/contact" className="flex flex-col items-center text-xs">
+            <FaEnvelope className="text-2xl" />
+            <span>Contact</span>
+          </Link>
+          <Link
+            to="/tech&tranquility"
+            className="flex flex-col items-center text-xs"
+          >
+            <FaBlog className="text-2xl" />
+            <span>Blog</span>
+          </Link>
+          <Link to="/account" className="flex flex-col items-center text-xs">
+            <FaUser className="text-2xl" />
+            <span>Account</span>
+          </Link>
+          <button
+            onClick={toggleMoreMenu}
+            className="flex flex-col items-center text-xs"
+          >
+            <FaEllipsisH className="text-2xl" />
+            <span>More</span>
+          </button>
+        </nav>
+      </header>
+
+      {/* More Menu Popup */}
+      {isMoreOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 flex justify-center items-center">
+          <div className="bg-light dark:bg-dark-secondary p-8 rounded-lg shadow-lg">
+            <button
+              onClick={toggleMoreMenu}
+              className="absolute top-4 right-4 text-xl font-bold text-light-text dark:text-light"
+            >
+              &times;
+            </button>
+            <ul className="space-y-4 text-center">
+              <li>
+                <Link
+                  to="/portfolio"
+                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
+                  onClick={toggleMoreMenu}
+                >
+                  Portfolio
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/resume-portal"
+                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
+                  onClick={toggleMoreMenu}
+                >
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
+                  onClick={toggleMoreMenu}
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/content-creation"
+                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
+                  onClick={toggleMoreMenu}
+                >
+                  Content Creation
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/social-media-management"
+                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
+                  onClick={toggleMoreMenu}
+                >
+                  Social Media Management
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/api-development"
+                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
+                  onClick={toggleMoreMenu}
+                >
+                  API Development
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/consulting-strategy"
+                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
+                  onClick={toggleMoreMenu}
+                >
+                  Consulting & Strategy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/google-ads-management"
+                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
+                  onClick={toggleMoreMenu}
+                >
+                  Google Ads Management
+                </Link>
+              </li>
+              <li>
+                <ThemeToggle />
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
+
+      {/* Desktop Header (remains at the top for larger screens) */}
+      <header className="hidden md:flex justify-between items-center bg-light dark:bg-dark-secondary text-light-text dark:text-light py-4 shadow-lg fixed w-full top-0 z-50">
+        <div className="container mx-auto flex justify-between items-center">
           <Link to="/" className="flex items-center">
             <img
               src={GoldStormyMeadowlark}
@@ -88,246 +150,48 @@ const Header = () => {
               className="h-16"
             />
           </Link>
-        </div>
-
-        {/* Hamburger Icon for Mobile */}
-        <div className="md:hidden">
-          <button
-            onClick={toggleMenu}
-            className="text-light-text dark:text-light focus:outline-none"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-        </div>
-
-        {/* Navigation Links */}
-        <nav
-          className={`${
-            isOpen ? 'block' : 'hidden'
-          } md:flex md:space-x-8 items-center`}
-        >
-          <div className="relative">
+          <nav className="md:flex md:space-x-8 items-center">
             <Link
               to="/about"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 px-3 py-2"
+              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
             >
               About
             </Link>
-          </div>
-          <div
-            className="relative"
-            ref={servicesRef}
-            onMouseEnter={() => !isMobile && handleMouseEnterServices()}
-            onMouseLeave={() => !isMobile && handleMouseLeaveServices()}
-          >
             <Link
               to="/services"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 px-3 py-2"
+              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
             >
               Services
             </Link>
-            {(isServicesOpen || isMobile) && (
-              <div className="absolute mt-2 bg-light dark:bg-dark-secondary shadow-lg rounded-lg py-2">
-                <Link
-                  to="/services/web-development"
-                  className="block px-4 py-2 hover:bg-light-accent hover:text-dark-text dark:hover:bg-dark-accent"
-                  onClick={() => setIsServicesOpen(false)}
-                >
-                  Web Development
-                </Link>
-                <Link
-                  to="/services/content-creation"
-                  className="block px-4 py-2 hover:bg-light-accent  hover:text-dark-text dark:hover:bg-dark-accent"
-                  onClick={() => setIsServicesOpen(false)}
-                >
-                  Content Creation
-                </Link>
-                <Link
-                  to="/services/social-media-management"
-                  className="block px-4 py-2 hover:bg-light-accent  hover:text-dark-text dark:hover:bg-dark-accent"
-                  onClick={() => setIsServicesOpen(false)}
-                >
-                  Social Media Management
-                </Link>
-                <Link
-                  to="/services/api-development"
-                  className="block px-4 py-2 hover:bg-light-accent hover:text-dark-text dark:hover:bg-dark-accent"
-                  onClick={() => setIsServicesOpen(false)}
-                >
-                  API Development
-                </Link>
-                <Link
-                  to="/services/consulting-strategy"
-                  className="block px-4 py-2 hover:bg-light-accent hover:text-dark-text dark:hover:bg-dark-accent"
-                  onClick={() => setIsServicesOpen(false)}
-                >
-                  Consulting & Strategy
-                </Link>
-                <Link
-                  to="/services/google-ads-management"
-                  className="block px-4 py-2 hover:bg-light-accent hover:text-dark-text dark:hover:bg-dark-accent"
-                  onClick={() => setIsServicesOpen(false)}
-                >
-                  Google Ads Management
-                </Link>
-              </div>
-            )}
-          </div>
-
-          <div
-            className="relative"
-            ref={contactRef}
-            onMouseEnter={() => !isMobile && handleMouseEnterContact()}
-            onMouseLeave={() => !isMobile && handleMouseLeaveContact()}
-          >
+            <Link
+              to="/portfolio"
+              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
+            >
+              Portfolio
+            </Link>
             <Link
               to="/contact"
-              className="hover:text-light-accent  dark:hover:text-dark-accent transition-colors duration-300 px-3 py-2"
+              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
             >
               Contact
             </Link>
-            {(isContactOpen || isMobile) && (
-              <div className="absolute mt-2 bg-light dark:bg-dark-secondary shadow-lg rounded-lg py-2">
-                <Link
-                  to="/portfolio"
-                  className="block px-4 py-2 hover:bg-light-accent  hover:text-dark-text dark:hover:bg-dark-accent"
-                  onClick={() => setIsContactOpen(false)}
-                >
-                  Portfolio
-                </Link>
-                <Link
-                  to="/careers"
-                  className="block px-4 py-2 hover:bg-light-accent  hover:text-dark-text dark:hover:bg-dark-accent"
-                  onClick={() => setIsContactOpen(false)}
-                >
-                  Careers
-                </Link>
-              </div>
-            )}
-          </div>
-
-          <Link
-            to="/tech&tranquility"
-            className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 px-3 py-2"
-          >
-            Blog
-          </Link>
-
-          <Link
-            to="/account"
-            className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 px-3 py-2"
-          >
-            Account
-          </Link>
-        </nav>
-
-        {/* Theme Toggle */}
-        <div className="hidden md:block">
-          <ThemeToggle />
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-light-primary dark:bg-dark-primary text-light-text dark:text-light p-4">
-          <nav className="flex flex-col space-y-4">
-            <Link
-              to="/"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
-              onClick={toggleMenu}
-            >
-              Home
-            </Link>
-            <div className="relative">
-              <button
-                onClick={toggleServices}
-                className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
-              >
-                Services
-              </button>
-              {isServicesOpen && (
-                <div className="absolute mt-2 bg-light-primary dark:bg-dark-secondary shadow-lg rounded-lg py-2">
-                  <Link
-                    to="/service1"
-                    className="block px-4 py-2 hover:bg-light-accent dark:hover:bg-dark-accent"
-                    onClick={toggleMenu}
-                  >
-                    Service 1
-                  </Link>
-                  <Link
-                    to="/service2"
-                    className="block px-4 py-2 hover:bg-light-accent dark:hover:bg-dark-accent"
-                    onClick={toggleMenu}
-                  >
-                    Service 2
-                  </Link>
-                  <Link
-                    to="/service3"
-                    className="block px-4 py-2 hover:bg-light-accent dark:hover:bg-dark-accent"
-                    onClick={toggleMenu}
-                  >
-                    Service 3
-                  </Link>
-                </div>
-              )}
-            </div>
-            <div className="relative">
-              <button
-                onClick={toggleContact}
-                className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
-              >
-                Contact
-              </button>
-              {isContactOpen && (
-                <div className="absolute mt-2 bg-light-primary dark:bg-dark-secondary shadow-lg rounded-lg py-2">
-                  <Link
-                    to="/portfolio"
-                    className="block px-4 py-2 hover:bg-light-accent dark:hover:bg-dark-accent"
-                    onClick={toggleMenu}
-                  >
-                    Portfolio
-                  </Link>
-                  <Link
-                    to="/resume-portal"
-                    className="block px-4 py-2 hover:bg-light-accent dark:hover:bg-dark-accent"
-                    onClick={toggleMenu}
-                  >
-                    Careers
-                  </Link>
-                </div>
-              )}
-            </div>
             <Link
               to="/tech&tranquility"
               className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
-              onClick={toggleMenu}
             >
               Blog
             </Link>
             <Link
               to="/account"
               className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
-              onClick={toggleMenu}
             >
               Account
             </Link>
           </nav>
+          <ThemeToggle />
         </div>
-      )}
-    </header>
+      </header>
+    </>
   )
 }
 
