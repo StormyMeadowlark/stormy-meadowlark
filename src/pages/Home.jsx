@@ -1,54 +1,86 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import SunsetImage from '../assets/images/AI-Generated-Sunset.webp' // Ensure the path is correct
+import LogoImage from '../assets/images/GoldStormyMeadowlark.png?react' // Ensure the path is correct
 
 const Home = () => (
   <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-dark-text min-h-screen font-gothic">
     {/* Hero Section */}
-    <div className="relative overflow-hidden min-h-screen flex flex-col items-center justify-center text-center bg-light-primary dark:bg-dark-primary text-light-text dark:text-light">
+    <div className="relative overflow-hidden min-h-screen flex flex-col items-center justify-center text-center bg-light-primary dark:bg-dark-primary text-light dark:text-light">
+      {/* Blurred Background Image */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${SunsetImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'blur(8px)', // Apply blur filter
+          opacity: 0.7, // Reduce opacity for more emphasis on text
+          transform: 'scaleX(-1)'
+        }}
       />
-      <motion.h1
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="text-8xl font-cursive z-10"
-      >
-        Welcome to Stormy Meadowlark
-      </motion.h1>
-      <motion.p
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="text-2xl mt-4 z-10"
-      >
-        Tranquility Among the Storm
-      </motion.p>
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
-        className="text-lg font-gothic-italic mt-8 z-10 max-w-xl"
-      >
-        We help small business owners find peace & clarity through tailored
-        digital strategies & creative solutions.
-      </motion.p>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2.5 }}
-        className="z-10 mt-10"
-      >
-        <Link
-          to="/contact"
-          className="bg-light-accent dark:bg-dark-secondary text-white dark:text-light font-bold py-3 px-6 rounded-full transition-colors hover:bg-light-accent-hover dark:hover:bg-dark-accent"
+
+      {/* Black Overlay */}
+      <div className="absolute inset-0 bg-black opacity-30 z-10" />
+
+      {/* Content Section */}
+      <div className="z-20">
+        {/* Logo */}
+        <motion.img
+          src={LogoImage}
+          alt="Stormy Meadowlark Logo"
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="w-72 h-72 mb-8 mx-auto mt-10"
+        />
+
+        {/* Hero Text */}
+        <motion.h1
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="text-8xl font-cursive text-shadow-lg mx-auto"
         >
-          Get Started
-        </Link>
-      </motion.div>
+          Welcome to Stormy Meadowlark
+        </motion.h1>
+
+        <motion.p
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="text-2xl mt-4 text-shadow-lg mx-auto"
+        >
+          Tranquility Among the Storm
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          className="text-lg font-gothic-italic mt-8 max-w-xl text-shadow-lg mx-auto"
+        >
+          We help small business owners find peace & clarity through tailored
+          digital strategies & creative solutions.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2.5 }}
+          className="my-10"
+        >
+          <Link
+            to="/contact"
+            className="bg-light-accent dark:bg-dark-secondary text-white dark:text-light font-bold py-3 px-6 rounded-full transition-colors hover:bg-light-accent-hover dark:hover:bg-dark-accent"
+          >
+            Get Started
+          </Link>
+        </motion.div>
+      </div>
     </div>
 
     {/* Services Section */}
