@@ -144,21 +144,21 @@ const Footer = () => {
 
         <div className="mt-4 md:mt-0">
           <Link
-            to="/disclaimer"
+            to="/documents/disclaimer"
             className="hover:text-indigo-700 dark:hover:text-indigo-400"
           >
             Disclaimer
           </Link>
           {' | '}
           <Link
-            to="/privacy-policy"
+            to="/documents/privacy-policy"
             className="hover:text-indigo-700 dark:hover:text-indigo-400"
           >
             Privacy Policy
           </Link>
           {' | '}
           <Link
-            to="/terms-of-service"
+            to="/documents/terms-of-service"
             className="hover:text-indigo-700 dark:hover:text-indigo-400"
           >
             Terms of Service

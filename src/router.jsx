@@ -1,29 +1,31 @@
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Services from "./pages/Services";
-import Contact from "./pages/Contact";
-import Footer from "./components/Footer";
-import Portfolio from "./pages/Portfolio";
-import Account from "./pages/Account";
-import WebDevelopment from "./pages/WebDevelopment";
-import ContentCreation from "./pages/ContentCreation";
-import SocialMediaManagement from "./pages/SocialMediaManagement.jsx";
-import ApiDevelopment from "./pages/ApiDevelopment.jsx";
-import ConsultingStrategy from "./pages/ConsultingStrategy.jsx"
-import GoogleAdsManagement from "./pages/GoogleAdsManagement.jsx";
-import BlogHome from "./pages/BlogHome.jsx"
-import FrontendDeveloper from "./pages/FrontendDeveloper.jsx"
-import UxUiDesigner from "./pages/FrontendDeveloper.jsx"
-import MarketingSpecialist from "./pages/MarketingSpecalist.jsx"
-import ResumePortal from "./components/ResusmePortal.jsx"
-import Careers from "./pages/Careers.jsx"
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop' // Import the ScrollToTop component
+import Home from './pages/Home'
+import About from './pages/About'
+import Services from './pages/Services'
+import Contact from './pages/Contact'
+import Portfolio from './pages/Portfolio'
+import Account from './pages/Account'
+import InitialCreationBundles from './pages/InitialCreationBundles'
+import BlogHome from './pages/BlogHome'
+import FrontendDeveloper from './pages/FrontendDeveloper'
+import UxUiDesigner from './pages/UxUiDesigner'
+import MarketingSpecialist from './pages/MarketingSpecialist'
+import ResumePortal from './components/ResumePortal'
+import Careers from './pages/Careers'
+import OngoingPackages from './pages/OngoingPackages'
+import APIAccess from './pages/APIAccess'
+import DigitalMarketing from './pages/DigitalMarketing'
+import CustomSolutions from './pages/CustomSolutions'
+import Disclaimer from './pages/Disclaimer'
+import TermsOfService from './pages/TermsOfService'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 const AppRouter = () => (
   <Router>
+    <ScrollToTop /> {/* Ensure this is included at the top of your Router */}
     <Header /> {/* Include the Header at the top of your app */}
     <Routes>
       <Route path="/" element={<Home />} />
@@ -32,20 +34,9 @@ const AppRouter = () => (
       <Route path="/contact" element={<Contact />} />
       <Route path="/account" element={<Account />} />
       <Route path="/portfolio" element={<Portfolio />} />
-      <Route path="services/web-development" element={<WebDevelopment />} />
-      <Route path="services/content-creation" element={<ContentCreation />} />
       <Route
-        path="services/social-media-management"
-        element={<SocialMediaManagement />}
-      />
-      <Route path="services/api-development" element={<ApiDevelopment />} />
-      <Route
-        path="services/consulting-strategy"
-        element={<ConsultingStrategy />}
-      />
-      <Route
-        path="services/google-ads-management"
-        element={<GoogleAdsManagement />}
+        path="services/initial-creation-bundles"
+        element={<InitialCreationBundles />}
       />
       <Route path="/tech&tranquility" element={<BlogHome />} />
       <Route
@@ -59,6 +50,19 @@ const AppRouter = () => (
       />
       <Route path="/careers/resume-portal" element={<ResumePortal />} />
       <Route path="/careers" element={<Careers />} />
+      <Route
+        path="/services/ongoing-monthly-packages"
+        element={<OngoingPackages />}
+      />
+      <Route path="/services/api-access" element={<APIAccess />} />
+      <Route
+        path="/services/digital-marketing-campaigns"
+        element={<DigitalMarketing />}
+      />
+      <Route path="/services/custom-solutions" element={<CustomSolutions />} />
+      <Route path="/documents/disclaimer" element={<Disclaimer />} />
+      <Route path="/documents/terms-of-service" element={<TermsOfService />} />
+      <Route path="/documents/privacy-policy" element={<PrivacyPolicy />} />
     </Routes>
     <Footer />
   </Router>
