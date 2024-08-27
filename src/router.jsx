@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import ScrollToTop from './components/ScrollToTop' // Import the ScrollToTop component
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -22,11 +22,12 @@ import CustomSolutions from './pages/CustomSolutions'
 import Disclaimer from './pages/Disclaimer'
 import TermsOfService from './pages/TermsOfService'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import VerifyAccount from './pages/VerifyAccount' // Import the new verification page
 
 const AppRouter = () => (
   <Router>
-    <ScrollToTop /> {/* Ensure this is included at the top of your Router */}
-    <Header /> {/* Include the Header at the top of your app */}
+    <ScrollToTop />
+    <Header />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
@@ -63,6 +64,7 @@ const AppRouter = () => (
       <Route path="/documents/disclaimer" element={<Disclaimer />} />
       <Route path="/documents/terms-of-service" element={<TermsOfService />} />
       <Route path="/documents/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/verify" element={<VerifyAccount />} /> {/* Add this line */}
     </Routes>
     <Footer />
   </Router>
