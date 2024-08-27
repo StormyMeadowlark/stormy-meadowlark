@@ -1,4 +1,3 @@
-import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Home from './pages/Home'
@@ -8,6 +7,7 @@ import Contact from './pages/Contact'
 import Footer from './components/Footer' // Import the Footer component
 import Portfolio from './pages/Portfolio'
 import Account from './pages/Account'
+import VerifyAccount from './pages/VerifyAccount'
 
 
 const App = () => (
@@ -20,6 +20,7 @@ const App = () => (
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/account" element={<Account />} />
+      <Route path="/verify" element={<VerifyAccount />} />
     </Routes>
     <Footer /> {/* Add Footer at the bottom */}
   </Router>
