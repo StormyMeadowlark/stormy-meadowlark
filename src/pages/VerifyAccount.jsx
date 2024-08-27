@@ -6,6 +6,7 @@ const VerifyAccount = () => {
   const location = useLocation()
   const navigate = useNavigate()
 
+  // Extract the token and tenantId from the URL query parameters
   const queryParams = new URLSearchParams(location.search)
   const token = queryParams.get('token')
   const tenantId = queryParams.get('tenantId')
@@ -15,6 +16,11 @@ const VerifyAccount = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    console.log('Attempting to verify account...')
+    console.log('Verification Token:', verificationToken)
+    console.log('Tenant ID:', tenantId)
+
     try {
       const response = await axios.post(
         `https://skynetrix.tech/api/v1/users/${tenantId}/verify-email/${verificationToken}`,
@@ -25,9 +31,16 @@ const VerifyAccount = () => {
           },
         },
       )
+
+      console.log('Verification response status:', response.status)
+      console.log('Verification response data:', response.data)
+
       setMessage('Your account has been successfully verified!')
       navigate('/verified-success') // Redirect to a success page or show a success message
     } catch (error) {
+      console.error('Verification failed.')
+      console.error('Error status:', error.response?.status)
+      console.error('Error data:', error.response?.data)
       setMessage('Verification failed. Please try again or contact support.')
     }
   }
