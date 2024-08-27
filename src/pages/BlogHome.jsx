@@ -1,47 +1,35 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-
-const blogPostsData = [
-  {
-    id: 1,
-    title: 'Navigating the Digital Storm: Tips for Small Business Owners',
-    excerpt:
-      'In this post, we discuss key strategies for small business owners to thrive in the digital landscape.',
-    date: 'August 10, 2024',
-    url: '/blog/navigating-digital-storm',
-    tags: ['Business', 'Digital', 'Strategy'],
-  },
-  {
-    id: 2,
-    title: 'Why Content Creation is Crucial for Your Business',
-    excerpt:
-      'Learn how content creation can elevate your brand and drive engagement with your audience.',
-    date: 'August 5, 2024',
-    url: '/blog/why-content-creation-matters',
-    tags: ['Content', 'Marketing', 'Strategy'],
-  },
-  {
-    id: 3,
-    title: 'The Importance of API Development in Modern Web Applications',
-    excerpt:
-      'Explore the role of APIs in modern web development and how they can improve your business operations.',
-    date: 'July 30, 2024',
-    url: '/blog/api-development-importance',
-    tags: ['API', 'Development', 'Technology'],
-  },
-]
+import axios from 'axios'
 
 const BlogHome = () => {
   const [blogPosts, setBlogPosts] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
   const [filteredPosts, setFilteredPosts] = useState([])
   const [selectedTag, setSelectedTag] = useState('')
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  const tenantId = '66c722e0c17e4a7ff29243a6' // Replace with actual tenant ID or pass it as a prop
 
   useEffect(() => {
-    setBlogPosts(blogPostsData)
-    setFilteredPosts(blogPostsData)
-  }, [])
+    const fetchBlogPosts = async () => {
+      try {
+        const response = await axios.get(
+          `https://skynetrix.tech/api/v1/posts/${tenantId}`,
+        )
+        setBlogPosts(response.data.posts) // Assuming the API returns a list of posts in `posts`
+        setFilteredPosts(response.data.posts)
+        setLoading(false)
+      } catch (err) {
+        setError('Failed to fetch blog posts.')
+        setLoading(false)
+      }
+    }
+
+    fetchBlogPosts()
+  }, [tenantId])
 
   useEffect(() => {
     const filtered = blogPosts.filter(
@@ -59,6 +47,22 @@ const BlogHome = () => {
 
   const handleTagClick = (tag) => {
     setSelectedTag(tag)
+  }
+
+  if (loading) {
+    return (
+      <div className="text-center py-40">
+        <p>Loading blog posts...</p>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="text-center py-40">
+        <p>{error}</p>
+      </div>
+    )
   }
 
   return (
@@ -114,14 +118,18 @@ const BlogHome = () => {
             <button
               key={tag}
               onClick={() => handleTagClick(tag)}
-              className={`px-4 py-2 rounded-full text-white ${selectedTag === tag ? 'bg-light-accent dark:bg-dark-accent' : 'bg-light-accent dark:bg-dark-primary hover:bg-light-accent-hover dark:hover:bg-dark-accent'}`}
+              className={`px-4 py-2 rounded-full text-white ${
+                selectedTag === tag
+                  ? 'bg-light-accent dark:bg-dark-accent'
+                  : 'bg-light-accent dark:bg-dark-primary hover:bg-light-accent-hover dark:hover:bg-dark-accent'
+              }`}
             >
               {tag}
             </button>
           ))}
           <button
             onClick={() => handleTagClick('')}
-            className="px-4 py-2 rounded-full text-white bg-light-acent dark:bg-dark-primary hover:bg-light-accent-hover dark:hover:bg-dark-accent"
+            className="px-4 py-2 rounded-full text-white bg-light-accent dark:bg-dark-primary hover:bg-light-accent-hover dark:hover:bg-dark-accent"
           >
             All
           </button>

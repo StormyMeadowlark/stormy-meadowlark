@@ -23,6 +23,7 @@ import Disclaimer from './pages/Disclaimer'
 import TermsOfService from './pages/TermsOfService'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import VerifyAccount from './pages/VerifyAccount' // Import the new verification page
+import VerifiedSuccess from './pages/VerifiedSuccess'
 
 const AppRouter = () => (
   <Router>
@@ -65,6 +66,7 @@ const AppRouter = () => (
       <Route path="/documents/terms-of-service" element={<TermsOfService />} />
       <Route path="/documents/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/verify" element={<VerifyAccount />} /> {/* Add this line */}
+      <Route path="/verified-success" element={<VerifiedSuccess />} />
     </Routes>
     <Footer />
   </Router>

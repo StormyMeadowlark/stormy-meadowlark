@@ -1,48 +1,69 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const VerifyAccount = () => {
-  const [message, setMessage] = useState('')
   const location = useLocation()
   const navigate = useNavigate()
 
-  useEffect(() => {
-    const queryParams = new URLSearchParams(location.search)
-    const token = queryParams.get('token')
-    const tenantId = queryParams.get('tenantId')
+  const queryParams = new URLSearchParams(location.search)
+  const token = queryParams.get('token')
+  const tenantId = queryParams.get('tenantId')
 
-    if (token && tenantId) {
-      verifyAccount(token, tenantId)
-    } else {
-      setMessage('Invalid verification link.')
-    }
-  }, [location.search])
+  const [verificationToken, setVerificationToken] = useState(token || '')
+  const [message, setMessage] = useState('')
 
-  const verifyAccount = async (token, tenantId) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     try {
       const response = await axios.post(
-        `https://skynetrix.tech/api/v1/users/${tenantId}/verify-email/${token}`,
+        `https://skynetrix.tech/api/v1/users/${tenantId}/verify-email/${verificationToken}`,
         {},
         {
           headers: {
-            'Content-Type': 'application/json',
             'X-Tenant-Id': tenantId,
           },
         },
       )
       setMessage('Your account has been successfully verified!')
+      navigate('/verified-success') // Redirect to a success page or show a success message
     } catch (error) {
-      console.error('Verification error:', error)
       setMessage('Verification failed. Please try again or contact support.')
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-light dark:bg-dark-primary text-dark dark:text-dark-text">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Account Verification</h1>
-        <p className="text-lg">{message}</p>
+    <div className="min-h-screen flex items-center justify-center bg-light-primary dark:bg-dark-primary text-dark dark:text-light">
+      <div className="max-w-lg w-full p-6 bg-light-secondary dark:bg-dark-secondary rounded-lg shadow-lg">
+        <h1 className="text-2xl font-bold mb-4">Verify Your Account</h1>
+        {message && <p className="text-lg mb-4">{message}</p>}
+        {!message && (
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label
+                className="block text-sm font-medium mb-2"
+                htmlFor="verificationToken"
+              >
+                Verification Token
+              </label>
+              <input
+                type="text"
+                id="verificationToken"
+                name="verificationToken"
+                value={verificationToken}
+                onChange={(e) => setVerificationToken(e.target.value)}
+                className="w-full p-4 rounded-lg shadow-md bg-light-primary dark:bg-dark-primary text-dark dark:text-light"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-light-accent dark:bg-dark-accent text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-light-accent-hover dark:hover:bg-dark-accent-dark"
+            >
+              Verify Account
+            </button>
+          </form>
+        )}
       </div>
     </div>
   )
