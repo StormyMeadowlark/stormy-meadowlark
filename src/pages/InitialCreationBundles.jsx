@@ -8,7 +8,7 @@ const InitialCreationBundles = () => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2 }}
     >
-      <h1 className="text-8xl font-cursive text-center mb-12">
+      <h1 className="text-8xl font-gothic-bold text-center mb-12">
         Initial Creation Bundles
       </h1>
       <p className="text-center text-xl max-w-4xl mx-auto mb-16">
@@ -32,15 +32,18 @@ const InitialCreationBundles = () => (
           Starter Creation Bundle
         </h2>
         <p className="text-4xl font-bold mb-4">$8,000</p>
-        <p className="text-lg mb-4">Estimated Hours: 80 hours</p>
         <ul className="text-left list-disc list-inside mb-4">
-          <li>Custom Website Development (up to 10 pages)</li>
-          <li>Basic SEO Setup</li>
-          <li>Initial Brand Guide & Voice Guide</li>
+          <li>
+            Custom Website Development (up to 10 pages) to showcase your brand
+          </li>
+          <li>Basic SEO Setup to improve visibility</li>
+          <li>
+            Initial Brand Guide & Voice Guide to define your brand’s identity
+          </li>
           <li>Social Media Setup (Google My Business, Facebook, Instagram)</li>
           <li>
             1 Month of Content Creation (8 social media posts, basic
-            photography)
+            photography) to kickstart engagement
           </li>
           <li>Basic API Development for simple integrations</li>
         </ul>
@@ -55,47 +58,55 @@ const InitialCreationBundles = () => (
           Growth Creation Bundle
         </h2>
         <p className="text-4xl font-bold mb-4">$12,500</p>
-        <p className="text-lg mb-4">Estimated Hours: 125 hours</p>
         <ul className="text-left list-disc list-inside mb-4">
-          <li>Custom Web Application Development (basic functionality)</li>
-          <li>Enhanced SEO Strategy</li>
           <li>
-            Full Brand Identity Package (including content creation, logo
-            design)
+            Custom Web Application Development with essential functionality
           </li>
-          <li>API Portal Development</li>
+          <li>Enhanced SEO Strategy to drive traffic and conversions</li>
+          <li>
+            Full Brand Identity Package, including logo design and content
+            creation
+          </li>
+          <li>API Portal Development for seamless integrations</li>
           <li>
             Initial Digital Marketing Campaign Setup (Google Ads, Meta Ads)
           </li>
           <li>
-            3 Months of Social Media Content Creation (12 posts per month)
+            3 Months of Social Media Content Creation (12 posts per month) for
+            consistent engagement
           </li>
         </ul>
       </motion.div>
 
       {/* Premium Creation Bundle */}
       <motion.div
-        className="p-8 bg-light-secondary dark:bg-dark-secondary text-dark-Primary dark:text-light rounded-lg shadow-md"
+        className="p-8 bg-light-secondary dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-md"
         whileHover={{ scale: 1.05 }}
       >
         <h2 className="text-3xl font-gothic-bold mb-4">
           Premium Creation Bundle
         </h2>
         <p className="text-4xl font-bold mb-4">$18,750</p>
-        <p className="text-lg mb-4">Estimated Hours: 187.5 hours</p>
         <ul className="text-left list-disc list-inside mb-4">
-          <li>Comprehensive Website and Web Application Development</li>
-          <li>Advanced SEO Implementation</li>
+          <li>
+            Comprehensive Website and Web Application Development tailored to
+            your needs
+          </li>
+          <li>Advanced SEO Implementation for sustained growth</li>
           <li>
             Full-Scale Branding and Strategy Package (content creation,
             photography, videography, voice and brand guides)
           </li>
-          <li>Full API Development and Integration</li>
           <li>
-            Initial Setup for Multi-Channel Digital Marketing Campaigns (Google,
-            Meta, YouTube, TikTok)
+            Complete API Development and Integration for robust functionality
           </li>
-          <li>3 Months of Social Media Management and Analytics</li>
+          <li>
+            Multi-Channel Digital Marketing Campaign Setup (Google, Meta,
+            YouTube, TikTok) to maximize reach
+          </li>
+          <li>
+            3 Months of Social Media Management and Analytics to refine strategy
+          </li>
         </ul>
       </motion.div>
     </motion.section>

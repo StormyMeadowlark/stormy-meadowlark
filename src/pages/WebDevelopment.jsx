@@ -5,7 +5,7 @@ const WebDevelopment = () => (
   <div className="bg-light dark:bg-dark-primary text-dark dark:text-light min-h-screen py-40">
     <div className="container mx-auto">
       <motion.h1
-        className="text-8xl font-cursive text-center mb-12 text-dark-primary dark:text-light"
+        className="text-8xl font-gothic-bold text-center mb-12 text-dark-primary dark:text-light"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}
@@ -131,7 +131,7 @@ const WebDevelopment = () => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.6 }}
       >
-        <h2 className="text-6xl font-cursive mb-4 text-dark-secondary dark:text-light">
+        <h2 className="text-6xl font-gothic-bold mb-4 text-dark-secondary dark:text-light">
           Ready to Get Started?
         </h2>
         <p className="text-lg max-w-2xl mx-auto mb-8 font-gothic text-dark-primary dark:text-light">

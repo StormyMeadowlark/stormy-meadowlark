@@ -8,12 +8,12 @@ const CustomSolutions = () => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2 }}
     >
-      <h1 className="text-8xl font-cursive text-center mb-12">
+      <h1 className="text-8xl font-gothic-bold text-center mb-12">
         Custom Solutions
       </h1>
       <p className="text-center text-xl max-w-4xl mx-auto mb-16">
-        Tailor your digital experience with our custom solutions, designed to
-        meet your unique business needs.
+        At Stormy Meadowlark, we create bespoke digital experiences that capture
+        your brand&apos;s essence and engage your audience in meaningful ways.
       </p>
     </motion.div>
 
@@ -26,94 +26,136 @@ const CustomSolutions = () => (
       {/* Website Development */}
       <motion.div
         className="p-8 bg-light-secondary dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-md"
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.05, rotate: 1 }}
         style={{ minHeight: '450px' }}
       >
         <h2 className="text-4xl font-gothic-bold mb-4">Website Development</h2>
         <ul className="text-left list-disc list-inside mb-4">
-          <li>Basic 5-Page Website: $3,000 - 30 hours</li>
-          <li>10-Page Custom Website: $5,000 - 50 hours</li>
-          <li>E-Commerce Website Setup: $6,000 - 60 hours</li>
+          <li>Dynamic 5-Page Website: Starting at $3,000</li>
+          <li>Custom 10-Page Website: Starting at $5,000</li>
+          <li>E-Commerce Storefront: Starting at $6,000</li>
         </ul>
+        <p>
+          Our websites are not just digital spaces; they are vibrant experiences
+          that drive engagement, optimized for speed, and SEO-friendly to boost
+          your visibility.
+        </p>
       </motion.div>
 
       {/* Web Application Development */}
       <motion.div
         className="p-8 bg-light-secondary dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-md"
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.05, rotate: 1 }}
         style={{ minHeight: '450px' }}
       >
         <h2 className="text-4xl font-gothic-bold mb-4">
           Web Application Development
         </h2>
         <ul className="text-left list-disc list-inside mb-4">
-          <li>Basic Web Application: $6,000 - 60 hours</li>
-          <li>Advanced Web Application: $10,000 - 100 hours</li>
-          <li>E-Commerce Web Application: $12,000 - 120 hours</li>
+          <li>Interactive Web Applications: Starting at $6,000</li>
+          <li>Advanced Custom Platforms: Starting at $10,000</li>
+          <li>E-Commerce Applications: Starting at $12,000</li>
         </ul>
+        <p>
+          Custom-built applications tailored to your needs, designed for
+          scalability and efficiency, with a focus on user experience and
+          innovation.
+        </p>
       </motion.div>
 
       {/* API Development */}
       <motion.div
         className="p-8 bg-light-secondary dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-md"
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.05, rotate: 1 }}
         style={{ minHeight: '450px' }}
       >
         <h2 className="text-4xl font-gothic-bold mb-4">API Development</h2>
         <ul className="text-left list-disc list-inside mb-4">
-          <li>Basic API Setup: $3,000 - 30 hours</li>
-          <li>Advanced API Development: $6,000 - 60 hours</li>
-          <li>API Integration for E-Commerce: $4,000 - 40 hours</li>
+          <li>Seamless API Integration: Starting at $3,000</li>
+          <li>Custom API Solutions: Starting at $6,000</li>
+          <li>API for E-Commerce Platforms: Starting at $4,000</li>
         </ul>
+        <p>
+          Our APIs are crafted to connect and enhance your digital ecosystem,
+          enabling seamless data flow and improving your operational efficiency.
+        </p>
       </motion.div>
 
       {/* SEO Services */}
       <motion.div
         className="p-8 bg-light-secondary dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-md"
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.05, rotate: 1 }}
         style={{ minHeight: '450px' }}
       >
         <h2 className="text-4xl font-gothic-bold mb-4">SEO Services</h2>
         <ul className="text-left list-disc list-inside mb-4">
-          <li>Basic On-Page SEO (up to 5 pages): $1,500 - 15 hours</li>
-          <li>
-            Comprehensive SEO (10 pages, includes on-page and off-page): $3,500
-            - 35 hours
-          </li>
-          <li>E-Commerce SEO Optimization: $4,500 - 45 hours</li>
+          <li>On-Page SEO Optimization: Starting at $1,500</li>
+          <li>Comprehensive SEO Strategy: Starting at $3,500</li>
+          <li>SEO for E-Commerce Sites: Starting at $4,500</li>
         </ul>
+        <p>
+          Our SEO services go beyond keywords. We use data-driven strategies to
+          boost your visibility and ensure your brand stands out in a crowded
+          marketplace.
+        </p>
       </motion.div>
 
       {/* Branding and Strategy */}
       <motion.div
         className="p-8 bg-light-secondary dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-md"
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.05, rotate: 1 }}
         style={{ minHeight: '450px' }}
       >
         <h2 className="text-4xl font-gothic-bold mb-4">
           Branding and Strategy
         </h2>
         <ul className="text-left list-disc list-inside mb-4">
-          <li>Brand Style Guide: $2,000 - 20 hours</li>
-          <li>Voice Guide: $1,500 - 15 hours</li>
-          <li>Full Brand Identity Package: $5,000 - 50 hours</li>
-          <li>Marketing Strategy Development: $3,000 - 30 hours</li>
+          <li>Brand Style Guide Development: Starting at $2,000</li>
+          <li>Comprehensive Brand Identity: Starting at $5,000</li>
+          <li>Strategic Marketing Plans: Starting at $3,000</li>
         </ul>
+        <p>
+          Build a brand that resonates. We craft unique identities and
+          strategies that connect with your audience and drive long-term
+          success.
+        </p>
       </motion.div>
 
       {/* Content Creation */}
       <motion.div
         className="p-8 bg-light-secondary dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-md"
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.05, rotate: 1 }}
         style={{ minHeight: '450px' }}
       >
         <h2 className="text-4xl font-gothic-bold mb-4">Content Creation</h2>
         <ul className="text-left list-disc list-inside mb-4">
-          <li>Photography (Basic Shoot, up to 10 images): $1,000 - 10 hours</li>
-          <li>Videography (Basic Video, 1-2 minutes): $2,000 - 20 hours</li>
-          <li>Copywriting (5 Pages of Web Content): $1,500 - 15 hours</li>
-          <li>Social Media Graphics (5 Custom Graphics): $1,000 - 10 hours</li>
+          <li>Engaging Photography Sessions: Starting at $1,000</li>
+          <li>Compelling Videography Packages: Starting at $2,000</li>
+          <li>Custom Copywriting Services: Starting at $1,500</li>
+          <li>Social Media Graphics Packages: Starting at $1,000</li>
         </ul>
+        <p>
+          Transform your content into a powerful marketing tool with stunning
+          visuals and compelling messaging that aligns with your brand&apos;s voice.
+        </p>
+      </motion.div>
+
+      {/* Sellable Merchandise */}
+      <motion.div
+        className="p-8 bg-light-secondary dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-md"
+        whileHover={{ scale: 1.05, rotate: 1 }}
+        style={{ minHeight: '450px' }}
+      >
+        <h2 className="text-4xl font-gothic-bold mb-4">Branded Merchandise</h2>
+        <ul className="text-left list-disc list-inside mb-4">
+          <li>Custom T-Shirts and Apparel: Starting at $12 each</li>
+          <li>Sublimated Mugs and Tumblers: Starting at $15 each</li>
+          <li>Unique Branded Hoodies and Jackets: Starting at $15 each</li>
+        </ul>
+        <p>
+          Extend your brand&apos;s reach with unique merchandise, designed to engage
+          and connect with your audience, from apparel to custom accessories.
+        </p>
       </motion.div>
     </motion.section>
   </div>

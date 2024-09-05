@@ -3,12 +3,12 @@ import { motion } from 'framer-motion'
 const ApiAccess = () => (
   <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-light min-h-screen font-gothic">
     <motion.div
-      className="container mx-auto py-20"
+      className="container mx-auto py-32"
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2 }}
     >
-      <h1 className="text-8xl font-cursive text-center mb-12">
+      <h1 className="text-8xl font-gothic-bold text-center mb-12">
         API Access Pricing
       </h1>
       <p className="text-center text-xl max-w-4xl mx-auto mb-16">
@@ -33,10 +33,10 @@ const ApiAccess = () => (
         aria-label="Basic Plan"
       >
         <h2 className="text-4xl font-gothic-bold mb-4">Basic Plan</h2>
-        <p className="text-4xl font-bold mb-4">$150/month</p>
+        <p className="text-4xl font-bold mb-4">$10/month</p>
         <ul className="text-left list-disc list-inside mb-4">
           <li>Access to core API endpoints (limited to basic operations)</li>
-          <li>Up to 10,000 API requests per month</li>
+          <li>Up to 1,000 API requests per month</li>
           <li>Basic support (email support with a 48-hour response time)</li>
         </ul>
       </motion.div>
@@ -50,10 +50,10 @@ const ApiAccess = () => (
         aria-label="Standard Plan"
       >
         <h2 className="text-4xl font-gothic-bold mb-4">Standard Plan</h2>
-        <p className="text-4xl font-bold mb-4">$350/month</p>
+        <p className="text-4xl font-bold mb-4">$30/month</p>
         <ul className="text-left list-disc list-inside mb-4">
           <li>Access to core and advanced API endpoints</li>
-          <li>Up to 50,000 API requests per month</li>
+          <li>Up to 10,000 API requests per month</li>
           <li>
             Standard support (email and chat support with a 24-hour response
             time)
@@ -70,10 +70,10 @@ const ApiAccess = () => (
         aria-label="Premium Plan"
       >
         <h2 className="text-4xl font-gothic-bold mb-4">Premium Plan</h2>
-        <p className="text-4xl font-bold mb-4">$750/month</p>
+        <p className="text-4xl font-bold mb-4">$70/month</p>
         <ul className="text-left list-disc list-inside mb-4">
           <li>Access to all API endpoints, including premium features</li>
-          <li>Up to 100,000 API requests per month</li>
+          <li>Up to 50,000 API requests per month</li>
           <li>
             Priority support (phone, chat, and email with a 12-hour response
             time)
@@ -91,7 +91,7 @@ const ApiAccess = () => (
         aria-label="Enterprise Plan"
       >
         <h2 className="text-4xl font-gothic-bold mb-4">Enterprise Plan</h2>
-        <p className="text-4xl font-bold mb-4">Starting at $2,000/month</p>
+        <p className="text-4xl font-bold mb-4">Custom Pricing</p>
         <ul className="text-left list-disc list-inside mb-4">
           <li>Everything in the Premium Plan</li>
           <li>Custom SLAs (Service Level Agreements)</li>

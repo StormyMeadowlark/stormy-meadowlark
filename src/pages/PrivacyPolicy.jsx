@@ -8,7 +8,7 @@ const PrivacyPolicy = () => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2 }}
     >
-      <h1 className="text-8xl font-cursive text-center mb-12">
+      <h1 className="text-8xl font-gothic-bold text-center mb-12">
         Privacy Policy
       </h1>
       <p className="text-center text-xl max-w-4xl mx-auto mb-16">

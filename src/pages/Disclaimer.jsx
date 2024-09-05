@@ -8,7 +8,7 @@ const Disclaimer = () => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2 }}
     >
-      <h1 className="text-8xl font-cursive text-center mb-12">Disclaimer</h1>
+      <h1 className="text-8xl font-gothic-bold text-center mb-12">Disclaimer</h1>
       <p className="text-center text-xl max-w-4xl mx-auto mb-16">
         The following disclaimer outlines the limitations and responsibilities
         associated with the use of our website and services.

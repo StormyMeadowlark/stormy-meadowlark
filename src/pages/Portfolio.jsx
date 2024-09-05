@@ -4,7 +4,7 @@ const Portfolio = () => (
   <div className="bg-light dark:bg-dark-primary text-dark dark:text-light min-h-screen py-40">
     <div className="container mx-auto">
       <motion.h1
-        className="text-8xl font-cursive text-center mb-12 text-dark-primary dark:text-light"
+        className="text-8xl text-center mb-12 text-dark-primary dark:text-light"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}
@@ -33,10 +33,7 @@ const Portfolio = () => (
               HEM Automotive is a robust automotive repair and service platform
               designed to deliver an exceptional user experience. With a focus
               on advanced technology, this project integrates a secure backend
-              API with a modern, responsive frontend. Features include
-              comprehensive user management, real-time vehicle diagnostics, and
-              seamless data updates, all crafted to provide a top-tier
-              experience for both users and service providers.
+              API with a modern, responsive frontend. 
             </p>
             <p className="mt-4">
               <a
@@ -102,7 +99,7 @@ const Portfolio = () => (
           Additional Projects
         </h2>
         <p className="text-lg max-w-2xl mx-auto text-center mb-12 font-gothic text-dark-primary dark:text-light">
-          Explore other projects where I've applied my expertise in web
+          Explore other projects where I&apos;ve applied my expertise in web
           development, API integration, and digital design to create solutions
           that meet client needs and drive business success.
         </p>

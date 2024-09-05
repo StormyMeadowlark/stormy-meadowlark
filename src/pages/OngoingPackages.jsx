@@ -8,7 +8,7 @@ const OngoingPackages = () => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2 }}
     >
-      <h1 className="text-8xl font-cursive text-center mb-12">
+      <h1 className="text-8xl font-gothic-bold text-center mb-12">
         Ongoing Monthly Packages
       </h1>
       <p className="text-center text-xl max-w-4xl mx-auto mb-16">
@@ -33,19 +33,17 @@ const OngoingPackages = () => (
         <h2 className="text-4xl font-gothic-bold mb-4">
           Basic Ongoing Package
         </h2>
-        <p className="text-4xl font-bold mb-4">
-          $2,000/month - Estimated 20 hours/month
-        </p>
+        <p className="text-4xl font-bold mb-4">$2,000/month</p>
         <ul className="text-left list-disc list-inside mb-4">
-          <li>Website Maintenance and Updates</li>
-          <li>Basic SEO Maintenance</li>
-          <li>Monthly Social Media Management (up to 8 posts)</li>
-          <li>Monthly Analytics Reports</li>
-          <li>Basic Content Creation (as needed)</li>
+          <li>Regular Website Maintenance and Updates</li>
+          <li>Ongoing Basic SEO to enhance visibility</li>
+          <li>Monthly Social Media Management (up to 8 engaging posts)</li>
+          <li>Monthly Analytics Reports to measure progress</li>
+          <li>Basic Content Creation tailored to your needs</li>
         </ul>
         <p className="text-lg">
-          This package is ideal for small businesses that need regular updates
-          and maintenance without a full-scale digital strategy.
+          Ideal for small businesses looking for regular updates and
+          foundational support to maintain their digital presence.
         </p>
       </motion.div>
 
@@ -58,19 +56,20 @@ const OngoingPackages = () => (
         <h2 className="text-4xl font-gothic-bold mb-4">
           Standard Ongoing Package
         </h2>
-        <p className="text-4xl font-bold mb-4">
-          $3,000/month - Estimated 30 hours/month
-        </p>
+        <p className="text-4xl font-bold mb-4">$3,000/month</p>
         <ul className="text-left list-disc list-inside mb-4">
-          <li>Web Application and API Maintenance</li>
-          <li>Comprehensive SEO Management</li>
-          <li>Ongoing Social Media Management (up to 12 posts)</li>
+          <li>Comprehensive Web Application and API Maintenance</li>
+          <li>Strategic SEO Management for sustained growth</li>
+          <li>Active Social Media Management (up to 12 dynamic posts)</li>
           <li>Continuous Digital Marketing Campaigns (Google Ads, Meta Ads)</li>
-          <li>Monthly Content Creation (photography, graphics, copywriting)</li>
+          <li>
+            Creative Monthly Content Production (photography, graphics,
+            copywriting)
+          </li>
         </ul>
         <p className="text-lg">
-          This package is perfect for businesses looking to maintain and grow
-          their digital presence with a more hands-on approach.
+          Perfect for businesses looking to enhance their digital presence with
+          continuous support and strategic growth.
         </p>
       </motion.div>
 
@@ -83,26 +82,23 @@ const OngoingPackages = () => (
         <h2 className="text-4xl font-gothic-bold mb-4">
           Premium Ongoing Package
         </h2>
-        <p className="text-4xl font-bold mb-4">
-          $4,500/month - Estimated 45 hours/month
-        </p>
+        <p className="text-4xl font-bold mb-4">$4,500/month</p>
         <ul className="text-left list-disc list-inside">
           <li>Full Website, Web Application, and API Support</li>
-          <li>Advanced SEO with Continuous Optimization</li>
+          <li>Advanced SEO with ongoing optimization for top rankings</li>
           <li>
-            Full Social Media and Digital Marketing Management (across all major
-            platforms)
+            Comprehensive Social Media and Digital Marketing Management (across
+            all major platforms)
           </li>
           <li>
-            Extensive Content Creation (including videography and custom
-            photography)
+            Extensive Content Creation (videography, custom photography,
+            graphics)
           </li>
-          <li>Monthly Strategy Sessions and In-Depth Analytics</li>
+          <li>Monthly Strategy Sessions and Detailed Analytics</li>
         </ul>
         <p className="text-lg">
-          This package is designed for businesses that require full-scale
-          digital support and are looking to leverage advanced strategies for
-          continuous growth.
+          Designed for businesses seeking comprehensive digital support to
+          maximize their growth and digital footprint.
         </p>
       </motion.div>
     </motion.section>

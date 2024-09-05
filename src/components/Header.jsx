@@ -1,11 +1,14 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { FaHome, FaEnvelope, FaBlog, FaUser, FaEllipsisH } from 'react-icons/fa'
 import { AiFillSetting } from 'react-icons/ai'
 import GoldStormyMeadowlark from '../assets/images/GoldStormyMeadowlark.png?react'
 import ThemeToggle from './ThemeToggle'
+import { AuthContext } from '../context/AuthContext' // Import AuthContext
+
 const Header = () => {
-  const [isMoreOpen, setIsMoreOpen] = useState(false)
+  const { isLoggedIn, user, logout } = useContext(AuthContext) // Use logout function from context
+  const [isMoreOpen, setIsMoreOpen] = useState(false) // Define state for more menu
 
   const toggleMoreMenu = () => {
     setIsMoreOpen(!isMoreOpen)
@@ -35,10 +38,25 @@ const Header = () => {
             <FaBlog className="text-2xl" />
             <span>Blog</span>
           </Link>
-          <Link to="/account" className="flex flex-col items-center text-xs">
-            <FaUser className="text-2xl" />
-            <span>Account</span>
-          </Link>
+          {/* Conditionally Render Profile or Account */}
+          {isLoggedIn ? (
+            <Link
+              to={
+                user.role === 'SuperAdmin'
+                  ? '/superadmin/profile'
+                  : '/user/profile'
+              }
+              className="flex flex-col items-center text-xs"
+            >
+              <FaUser className="text-2xl" />
+              <span>Profile</span>
+            </Link>
+          ) : (
+            <Link to="/account" className="flex flex-col items-center text-xs">
+              <FaUser className="text-2xl" />
+              <span>Account</span>
+            </Link>
+          )}
           <button
             onClick={toggleMoreMenu}
             className="flex flex-col items-center text-xs"
@@ -60,77 +78,16 @@ const Header = () => {
               &times;
             </button>
             <ul className="space-y-4 text-center">
+              {/* Additional Links Here */}
               <li>
-                <Link
-                  to="/portfolio"
-                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
-                  onClick={toggleMoreMenu}
-                >
-                  Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/resume-portal"
-                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
-                  onClick={toggleMoreMenu}
-                >
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/about"
-                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
-                  onClick={toggleMoreMenu}
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/content-creation"
-                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
-                  onClick={toggleMoreMenu}
-                >
-                  Content Creation
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/social-media-management"
-                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
-                  onClick={toggleMoreMenu}
-                >
-                  Social Media Management
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/api-development"
-                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
-                  onClick={toggleMoreMenu}
-                >
-                  API Development
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/consulting-strategy"
-                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
-                  onClick={toggleMoreMenu}
-                >
-                  Consulting & Strategy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/google-ads-management"
-                  className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
-                  onClick={toggleMoreMenu}
-                >
-                  Google Ads Management
-                </Link>
+                {isLoggedIn && (
+                  <button
+                    onClick={logout}
+                    className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
+                  >
+                    Logout
+                  </button>
+                )}
               </li>
               <li>
                 <ThemeToggle />
@@ -140,7 +97,7 @@ const Header = () => {
         </div>
       )}
 
-      {/* Desktop Header (remains at the top for larger screens) */}
+      {/* Desktop Header */}
       <header className="hidden md:flex justify-between items-center bg-light dark:bg-dark-secondary text-light-text dark:text-light py-4 shadow-lg fixed w-full top-0 z-50">
         <div className="container mx-auto flex justify-between items-center">
           <Link to="/" className="flex items-center">
@@ -149,6 +106,9 @@ const Header = () => {
               alt="Stormy Meadowlark Logo"
               className="h-16"
             />
+            <span className="ml-4 text-2xl font-bold text-light-text dark:text-light">
+              Stormy Meadowlark
+            </span>
           </Link>
           <nav className="md:flex md:space-x-8 items-center">
             <Link
@@ -181,12 +141,33 @@ const Header = () => {
             >
               Blog
             </Link>
-            <Link
-              to="/account"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
-            >
-              Account
-            </Link>
+            {isLoggedIn ? (
+              <Link
+                to={
+                  user.role === 'SuperAdmin'
+                    ? '/superadmin/profile'
+                    : '/user/profile'
+                }
+                className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
+              >
+                Profile
+              </Link>
+            ) : (
+              <Link
+                to="/account"
+                className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
+              >
+                Account
+              </Link>
+            )}
+            {isLoggedIn && (
+              <button
+                onClick={logout}
+                className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
+              >
+                Logout
+              </button>
+            )}
           </nav>
           <ThemeToggle />
         </div>

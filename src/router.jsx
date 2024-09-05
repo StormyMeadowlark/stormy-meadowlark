@@ -10,6 +10,7 @@ import Portfolio from './pages/Portfolio'
 import Account from './pages/Account'
 import InitialCreationBundles from './pages/InitialCreationBundles'
 import BlogHome from './pages/BlogHome'
+import SinglePost from './pages/SinglePost'
 import FrontendDeveloper from './pages/FrontendDeveloper'
 import UxUiDesigner from './pages/UxUiDesigner'
 import MarketingSpecialist from './pages/MarketingSpecialist'
@@ -22,8 +23,11 @@ import CustomSolutions from './pages/CustomSolutions'
 import Disclaimer from './pages/Disclaimer'
 import TermsOfService from './pages/TermsOfService'
 import PrivacyPolicy from './pages/PrivacyPolicy'
-import VerifyAccount from './pages/VerifyAccount' // Import the new verification page
+import VerifyAccount from './pages/VerifyAccount'
 import VerifiedSuccess from './pages/VerifiedSuccess'
+import Profile from './pages/Profile'
+import SuperAdminProfile from './pages/SuperAdminProfile'
+import ProtectedRoute from './context/ProtectedRoutes' // Import ProtectedRoute
 
 const AppRouter = () => (
   <Router>
@@ -41,6 +45,7 @@ const AppRouter = () => (
         element={<InitialCreationBundles />}
       />
       <Route path="/tech&tranquility" element={<BlogHome />} />
+      <Route path="/blog/:postId" element={<SinglePost />} />
       <Route
         path="/careers/frontend-developer"
         element={<FrontendDeveloper />}
@@ -65,8 +70,25 @@ const AppRouter = () => (
       <Route path="/documents/disclaimer" element={<Disclaimer />} />
       <Route path="/documents/terms-of-service" element={<TermsOfService />} />
       <Route path="/documents/privacy-policy" element={<PrivacyPolicy />} />
-      <Route path="/verify" element={<VerifyAccount />} /> {/* Add this line */}
+      <Route path="/verify" element={<VerifyAccount />} />
       <Route path="/verified-success" element={<VerifiedSuccess />} />
+      {/* Protect profile routes */}
+      <Route
+        path="/user/profile"
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/superadmin/profile"
+        element={
+          <ProtectedRoute adminOnly>
+            <SuperAdminProfile />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
     <Footer />
   </Router>

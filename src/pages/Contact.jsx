@@ -69,7 +69,7 @@ const Contact = () => {
     <div className="min-h-screen py-40 bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 dark:from-dark-primary dark:via-dark-secondary dark:to-dark-accent text-dark dark:text-light">
       <div className="container mx-auto">
         <motion.h1
-          className="text-8xl font-cursive  text-center mb-8 text-dark-primary dark:text-light"
+          className="text-6xl font-Gothic  text-center mb-8 text-dark-primary dark:text-light"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
@@ -82,7 +82,7 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
         >
-          Have a question, feedback, or a project you'd like to discuss? We'd
+          Have a question, feedback, or a project you&apos;d like to discuss? We&apos;d
           love to hear from you.
         </motion.p>
 
@@ -94,7 +94,7 @@ const Contact = () => {
         >
           {formSubmitted ? (
             <div className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 p-4 rounded-lg">
-              Thank you for reaching out! We’ll get back to you soon.
+              Thank you for reaching out! We&apos;ll get back to you soon.
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6 font-gothic">
@@ -185,11 +185,11 @@ const Contact = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
         >
-          <h2 className="text-7xl font-cursive text-center mb-8 text-dark-primary dark:text-light">
+          <h2 className="text-5xl  text-center mb-8 text-dark-primary dark:text-light">
             Careers at Stormy Meadowlark
           </h2>
           <p className="text-lg text-center max-w-2xl mx-auto mb-12 font-gothic-italic text-dark-secondary dark:text-light">
-            We’re always looking for talented individuals to join our team.
+            We&apos;re always looking for talented individuals to join our team.
             Explore our current job openings below and become a part of our
             growing company.
           </p>

@@ -5,24 +5,48 @@ import axios from 'axios'
 
 const BlogHome = () => {
   const [blogPosts, setBlogPosts] = useState([])
-  const [searchQuery, setSearchQuery] = useState('')
   const [filteredPosts, setFilteredPosts] = useState([])
+  const [searchQuery, setSearchQuery] = useState('')
   const [selectedTag, setSelectedTag] = useState('')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  const tenantId = '66c722e0c17e4a7ff29243a6' // Replace with actual tenant ID or pass it as a prop
+  const tenantId = '66cf01edfc069c867b6fbca9'
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
       try {
+        console.log(`Fetching blog posts for tenant ID: ${tenantId}`)
         const response = await axios.get(
           `https://skynetrix.tech/api/v1/posts/${tenantId}`,
+          {
+            params: { status: 'Published' },
+            headers: {
+              'x-tenant-id': tenantId,
+            },
+          },
         )
-        setBlogPosts(response.data.posts) // Assuming the API returns a list of posts in `posts`
-        setFilteredPosts(response.data.posts)
+        console.log('API Response:', response.data)
+
+        const posts = response.data || []
+        if (!posts.length) {
+          throw new Error('No posts found in the response.')
+        }
+
+        const publishedPosts = posts.filter(
+          (post) => post.publishStatus === 'Published',
+        )
+        const draftPosts = posts.filter(
+          (post) => post.publishStatus !== 'Published',
+        )
+
+        const sortedPosts = [...publishedPosts, ...draftPosts]
+
+        setBlogPosts(sortedPosts)
+        setFilteredPosts(sortedPosts)
         setLoading(false)
       } catch (err) {
+        console.error('Failed to fetch blog posts:', err.message)
         setError('Failed to fetch blog posts.')
         setLoading(false)
       }
@@ -35,7 +59,8 @@ const BlogHome = () => {
     const filtered = blogPosts.filter(
       (post) =>
         (post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          post.excerpt.toLowerCase().includes(searchQuery.toLowerCase())) &&
+          (post.excerpt &&
+            post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()))) &&
         (selectedTag === '' || post.tags.includes(selectedTag)),
     )
     setFilteredPosts(filtered)
@@ -75,13 +100,41 @@ const BlogHome = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
         >
-          <h1 className="text-8xl font-cursive mb-4">Tech & Tranquility</h1>
+          <h1 className="text-8xl mb-4">Tech & Tranquility</h1>
           <p className="text-xl max-w-2xl mx-auto">
             Explore our latest insights, tips, and stories to help you navigate
             the digital storm with tranquility and purpose.
           </p>
         </motion.div>
-
+        {/* Featured Section */}
+        <motion.section
+          className="mb-16"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+        >
+          <h2 className="text-4xl font-gothic-bold text-center mb-8">
+            Featured Posts
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Sample featured posts */}
+            {blogPosts.slice(0, 3).map((post) => (
+              <div
+                key={post._id}
+                className="p-6 bg-light-accent dark:bg-dark-accent text-white rounded-lg shadow-md"
+              >
+                <h3 className="text-2xl font-gothic-bold mb-4">{post.title}</h3>
+                <p className="text-lg mb-4">{post.excerpt}</p>
+                <Link
+                  to={`/blog/${post._id}`}
+                  className="text-white underline mt-4 inline-block"
+                >
+                  Read More
+                </Link>
+              </div>
+            ))}
+          </div>
+        </motion.section>
         {/* Search Bar */}
         <motion.div
           className="mb-8"
@@ -139,7 +192,7 @@ const BlogHome = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {filteredPosts.map((post) => (
             <motion.div
-              key={post.id}
+              key={post._id}
               className="p-6 bg-light-secondary dark:bg-dark-secondary rounded-lg shadow-md"
               whileHover={{ scale: 1.05 }}
               initial={{ opacity: 0 }}
@@ -148,11 +201,13 @@ const BlogHome = () => {
             >
               <h2 className="text-2xl font-gothic-bold mb-4">{post.title}</h2>
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                {post.date}
+                {new Date(post.createdAt).toLocaleDateString()}
               </p>
-              <p className="text-lg mb-4">{post.excerpt}</p>
+              <p className="text-lg mb-4">
+                {post.excerpt || 'No Excerpt Available'}
+              </p>
               <Link
-                to={post.url}
+                to={`/blog/${post._id}`}
                 className="text-light-accent dark:text-dark-accent mt-4 inline-block"
               >
                 Read More
@@ -160,63 +215,6 @@ const BlogHome = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Featured Section */}
-        <motion.section
-          className="mb-16"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-        >
-          <h2 className="text-4xl font-gothic-bold text-center mb-8">
-            Featured Posts
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="p-6 bg-light-accent dark:bg-dark-accent text-white rounded-lg shadow-md">
-              <h3 className="text-2xl font-gothic-bold mb-4">
-                Featured Post Title
-              </h3>
-              <p className="text-lg mb-4">
-                An engaging excerpt from one of the featured posts that
-                showcases its importance and relevance.
-              </p>
-              <Link
-                to="/blog/featured-post"
-                className="text-white underline mt-4 inline-block"
-              >
-                Read More
-              </Link>
-            </div>
-            <div className="p-6 bg-light-accent dark:bg-dark-accent text-white rounded-lg shadow-md">
-              <h3 className="text-2xl font-gothic-bold mb-4">
-                Another Featured Post
-              </h3>
-              <p className="text-lg mb-4">
-                A snippet from another post that deserves special attention for
-                its valuable content.
-              </p>
-              <Link
-                to="/blog/another-featured-post"
-                className="text-white underline mt-4 inline-block"
-              >
-                Read More
-              </Link>
-            </div>
-            <div className="p-6 bg-light-accent dark:bg-dark-accent text-white rounded-lg shadow-md">
-              <h3 className="text-2xl font-gothic-bold mb-4">One More Post</h3>
-              <p className="text-lg mb-4">
-                Highlighting one more post that provides essential insights for
-                your readers.
-              </p>
-              <Link
-                to="/blog/one-more-post"
-                className="text-white underline mt-4 inline-block"
-              >
-                Read More
-              </Link>
-            </div>
-          </div>
-        </motion.section>
 
         {/* Newsletter Signup Section */}
         <motion.section
@@ -274,14 +272,14 @@ const BlogHome = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 2.6 }}
         >
-          <h2 className="text-6xl font-cursive mb-8">
+          <h2 className="text-5xl mb-8">
             Ready to Join the Conversation?
           </h2>
           <p className="text-lg max-w-2xl mx-auto mb-8">
-            Whether you're here to learn, share, or connect, the Stormy
+            Whether you&apos;re here to learn, share, or connect, the Stormy
             Meadowlark blog is your place to explore the digital landscape with
             us. Dive into our posts, leave your thoughts in the comments, and
-            let's grow together.
+            let&apos;s grow together.
           </p>
           <Link
             to="/contact"
