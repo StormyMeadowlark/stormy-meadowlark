@@ -30,6 +30,14 @@ module.exports = {
         'gothic-italic': ['gothicItalicFont', 'sans-serif'],
         'gothic-bold-italic': ['gothicBoldItalicFont', 'sans-serif'],
       },
+      screens: {
+        // Add custom screen sizes here
+        sm: '640px', // Small screen breakpoint (default is 640px)
+        md: '768px', // Medium screen breakpoint (default is 768px)
+        lg: '1044px', // Custom large screen breakpoint set to 1044px
+        xl: '1280px', // Extra large screen breakpoint (default is 1280px)
+        '2xl': '1536px', // 2xl screen breakpoint (default is 1536px)
+      },
     },
   },
   plugins: [],

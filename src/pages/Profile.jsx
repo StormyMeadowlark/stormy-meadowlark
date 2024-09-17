@@ -5,19 +5,15 @@ import { useNavigate } from 'react-router-dom'
 const Profile = () => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
+  const [role, setRole] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
   const tenantId = '66cf01edfc069c867b6fbca9' // Tenant ID
 
-  const handleRedirectBasedOnRole = useCallback(
-    (role) => {
-      if (role === 'SuperAdmin') {
-        navigate('/superadmin/profile')
-      }
-    },
-    [navigate],
-  )
+  const handleRedirectToSuperAdminProfile = useCallback(() => {
+    navigate('/superadmin/profile')
+  }, [navigate])
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -29,10 +25,6 @@ const Profile = () => {
       }
 
       try {
-        // Log headers to verify
-        console.log('Authorization Header:', `Bearer ${token}`)
-        console.log('x-tenant-id Header:', tenantId)
-
         const response = await axios.get(
           `https://skynetrix.tech/api/v1/users/${tenantId}/profile`,
           {
@@ -43,33 +35,31 @@ const Profile = () => {
           },
         )
 
-        console.log('API Response:', response) // Log entire response
-        console.log('Response Status:', response.status) // Log response status
-        console.log('Response Data:', response.data) // Log response data
-
-        if (response.data) {
-          const { username, email, role } = response.data // Destructure needed fields
-          setUsername(username) // Set username state
-          setEmail(email) // Set email state
-          handleRedirectBasedOnRole(role) // Handle role-based redirection
+        if (response.status === 200 && response.data) {
+          const { username, email, role } = response.data
+          setUsername(username)
+          setEmail(email)
+          setRole(role) // Store role in state
         } else {
-          setError('Profile data is empty.')
-          console.log('Empty Profile Data:', response.data) // Log empty data
+          setError('Failed to load profile data.')
+          console.log('Empty or Invalid Profile Data:', response.data)
         }
       } catch (err) {
-        setError('Failed to load profile data. Please try again.')
-        console.error('Error fetching profile:', err)
-        if (err.response) {
-          console.error('Error Status:', err.response.status)
-          console.error('Error Data:', err.response.data)
+        const status = err.response ? err.response.status : null
+        if (status === 401) {
+          setError('Unauthorized access. Please log in again.')
+          navigate('/account')
+        } else {
+          setError('Failed to load profile data. Please try again.')
         }
+        console.error('Error fetching profile:', err)
       } finally {
         setLoading(false)
       }
     }
 
     fetchUserProfile()
-  }, [navigate, tenantId, handleRedirectBasedOnRole])
+  }, [navigate, tenantId])
 
   if (loading) {
     return <div>Loading profile...</div>
@@ -79,12 +69,25 @@ const Profile = () => {
     return <div className="error">{error}</div>
   }
 
-  // Render with the specific states for username and email
   return (
-    <div className="profile-container mt-80">
-      <h1>{username}&apos;s Profile</h1>
-      <p>Email: {email}</p>
-      {/* Display other profile details as needed */}
+    <div className="profile-container mt-80 max-w-md mx-auto p-6 bg-white shadow-md rounded-lg">
+      <h1 className="text-3xl font-semibold mb-4">{username}&apos;s Profile</h1>
+      <p className="text-lg">
+        <strong>Email:</strong> {email}
+      </p>
+      <p className="text-lg">
+        <strong>Role:</strong> {role}
+      </p>
+
+      {/* Show the button if the user is a SuperAdmin */}
+      {role === 'SuperAdmin' && (
+        <button
+          onClick={handleRedirectToSuperAdminProfile}
+          className="mt-6 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200"
+        >
+          Go to SuperAdmin Profile
+        </button>
+      )}
     </div>
   )
 }

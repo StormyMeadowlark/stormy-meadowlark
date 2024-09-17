@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 import {
   FaFacebookF,
-  FaTwitter,
+  FaPinterest,
   FaLinkedinIn,
   FaInstagram,
 } from 'react-icons/fa'
@@ -10,11 +11,33 @@ import {
 const Footer = () => {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState(null)
+  const tenantId = '66cf01edfc069c867b6fbca9' // Tenant ID
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Handle form submission, e.g., send email to an API
-    setSubmitted(true)
+
+    try {
+      const response = await axios.post(
+        `https://skynetrix.tech/api/v1/newsletters/${tenantId}/subscribe`, // Use tenantId in the URL
+        { email }, // Send email in the request body
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'x-tenant-id': tenantId, // Use extracted tenantId in the headers
+          },
+        },
+      )
+
+      if (response.status === 200) {
+        setSubmitted(true) // Mark the form as submitted if the request was successful
+      } else {
+        setError('Failed to subscribe. Please try again.')
+      }
+    } catch (error) {
+      console.error('Error subscribing to newsletter:', error)
+      setError('An error occurred. Please try again later.')
+    }
   }
 
   return (
@@ -29,7 +52,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-6 mb-6 md:mb-0">
+        <nav className="flex flex-col md:flex-row gap-6 mb-6 md:mb-0">
           <Link
             to="/"
             className="hover:text-indigo-700 dark:hover:text-indigo-400"
@@ -58,7 +81,7 @@ const Footer = () => {
             to="/tech&tranquility"
             className="hover:text-indigo-700 dark:hover:text-indigo-400"
           >
-            Blog
+            Tech & Tranquility
           </Link>
           <Link
             to="/contact"
@@ -72,7 +95,7 @@ const Footer = () => {
           >
             Careers
           </Link>
-        </div>
+        </nav>
 
         <div className="text-center">
           <h3 className="text-xl font-heading mb-4 text-dark dark:text-light">
@@ -103,6 +126,7 @@ const Footer = () => {
               Thank you for subscribing!
             </p>
           )}
+          {error && <p className="text-red-600 dark:text-red-400">{error}</p>}
         </div>
       </div>
 
@@ -117,15 +141,15 @@ const Footer = () => {
             <FaFacebookF />
           </a>
           <a
-            href="https://twitter.com"
+            href="https://pinterest.com/StormyMeadowlark"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-indigo-700 dark:hover:text-indigo-400"
           >
-            <FaTwitter />
+            <FaPinterest />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://linkedin.com/company/stormy-meadowlark"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-indigo-700 dark:hover:text-indigo-400"
@@ -133,7 +157,7 @@ const Footer = () => {
             <FaLinkedinIn />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://instagram.com/stormymeadowlark"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-indigo-700 dark:hover:text-indigo-400"

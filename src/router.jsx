@@ -84,7 +84,7 @@ const AppRouter = () => (
       <Route
         path="/superadmin/profile"
         element={
-          <ProtectedRoute adminOnly>
+          <ProtectedRoute SuperAdmin>
             <SuperAdminProfile />
           </ProtectedRoute>
         }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import axios from 'axios' // Import axios for making API requests
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,10 @@ const Contact = () => {
   })
   const [errors, setErrors] = useState({})
   const [formSubmitted, setFormSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false) // Loading state for API call
+  const [apiError, setApiError] = useState('') // Error state for API call
+
+  const tenantId = '66cf01edfc069c867b6fbca9' // Replace with your actual tenant ID
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -28,12 +33,37 @@ const Contact = () => {
     return newErrors
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const validationErrors = validateForm()
     if (Object.keys(validationErrors).length === 0) {
-      setFormSubmitted(true)
-      // Handle form submission, e.g., send data to an API
+      setIsLoading(true)
+      setErrors({})
+      setApiError('')
+
+      try {
+        // Make the API call to the backend
+        const response = await axios.post(
+          `https://skynetrix.tech/api/v1/email/${tenantId}/contact`, // Update with your API endpoint
+          formData,
+          {
+            headers: {
+              'x-tenant-id': tenantId,
+            },
+          },
+        )
+
+        if (response.status === 200) {
+          setFormSubmitted(true)
+        } else {
+          setApiError('An error occurred. Please try again.')
+        }
+      } catch (error) {
+        console.error('Error submitting contact form:', error)
+        setApiError('Failed to send your message. Please try again.')
+      } finally {
+        setIsLoading(false)
+      }
     } else {
       setErrors(validationErrors)
     }
@@ -50,10 +80,11 @@ const Contact = () => {
     },
     {
       id: 2,
-      title: "UX/UI Designer",
-      location: "Remote",
-      description: "Join our creative team as a UX/UI Designer to craft beautiful user experiences.",
-      url: "/careers/ux-ui-designer"
+      title: 'UX/UI Designer',
+      location: 'Remote',
+      description:
+        'Join our creative team as a UX/UI Designer to craft beautiful user experiences.',
+      url: '/careers/ux-ui-designer',
     },
     {
       id: 3,
@@ -69,7 +100,7 @@ const Contact = () => {
     <div className="min-h-screen py-40 bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 dark:from-dark-primary dark:via-dark-secondary dark:to-dark-accent text-dark dark:text-light">
       <div className="container mx-auto">
         <motion.h1
-          className="text-6xl font-Gothic  text-center mb-8 text-dark-primary dark:text-light"
+          className="text-6xl font-Gothic text-center mb-8 text-dark-primary dark:text-light"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
@@ -82,8 +113,8 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
         >
-          Have a question, feedback, or a project you&apos;d like to discuss? We&apos;d
-          love to hear from you.
+          Have a question, feedback, or a project you&apos;d like to discuss?
+          We&apos;d love to hear from you.
         </motion.p>
 
         <motion.div
@@ -98,7 +129,6 @@ const Contact = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6 font-gothic">
-              {/* Name Field */}
               <div>
                 <label
                   htmlFor="name"
@@ -121,7 +151,6 @@ const Contact = () => {
                 )}
               </div>
 
-              {/* Email Field */}
               <div>
                 <label
                   htmlFor="email"
@@ -144,7 +173,6 @@ const Contact = () => {
                 )}
               </div>
 
-              {/* Message Field */}
               <div>
                 <label
                   htmlFor="message"
@@ -167,12 +195,16 @@ const Contact = () => {
                 )}
               </div>
 
-              {/* Submit Button */}
+              {apiError && (
+                <p className="text-red-500 text-sm mt-2">{apiError}</p>
+              )}
+
               <button
                 type="submit"
+                disabled={isLoading}
                 className="w-full bg-dark-primary dark:bg-accent text-light font-gothicBoldFont py-3 px-6 rounded-lg shadow-md hover:bg-dark-accent dark:hover:bg-accent-dark transition-colors"
               >
-                Send Message
+                {isLoading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           )}
@@ -185,7 +217,7 @@ const Contact = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
         >
-          <h2 className="text-5xl  text-center mb-8 text-dark-primary dark:text-light">
+          <h2 className="text-5xl text-center mb-8 text-dark-primary dark:text-light">
             Careers at Stormy Meadowlark
           </h2>
           <p className="text-lg text-center max-w-2xl mx-auto mb-12 font-gothic-italic text-dark-secondary dark:text-light">

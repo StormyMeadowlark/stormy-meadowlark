@@ -166,6 +166,10 @@ const SuperAdminProfile = () => {
     }
   }
 
+  const handleCancel = () => {
+    setEditingBlog(null) // Reset the editing state to cancel
+  }
+
   if (loading) {
     return <div>Loading blogs...</div>
   }
@@ -241,7 +245,7 @@ const SuperAdminProfile = () => {
         }`}
       >
         {editingBlog ? (
-          <div className="">
+          <div className="text-black">
             <PostEditor
               initialTitle={editingBlog.title || ''} // Pass the current blog title or an empty string
               initialContent={editingBlog.content || ''} // Pass the current blog content or an empty string
@@ -251,8 +255,16 @@ const SuperAdminProfile = () => {
               initialStatus={editingBlog.publishStatus || 'Draft'} // Pass the current status or default to Draft
               onSave={handleSave}
             />
-            {isSaving && <div>Saving changes...</div>}{' '}
-            {/* Show saving status */}
+            <div className="flex gap-4 mt-4">
+              <button
+                className="bg-gray-500 text-white px-4 py-2 rounded"
+                onClick={handleCancel}
+                disabled={isSaving}
+              >
+                Cancel
+              </button>
+            </div>
+            {isSaving && <div>Saving changes...</div>}
           </div>
         ) : (
           <div></div>

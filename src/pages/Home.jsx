@@ -11,8 +11,8 @@ import Image3 from '../assets/images/DALLE2~3.JPG'
 const Home = () => {
   const controls = useAnimation()
   const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
+    threshold: 0,
+    triggerOnce: false,
   })
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Home = () => {
 
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1.4 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
   }
 
   return (
@@ -48,13 +48,13 @@ const Home = () => {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2 }}
-          className="w-96 mb-6 z-10"
+          className="w-96 mb-6 pt-10 z-10"
         />
         <motion.h1
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2 }}
-          className="text-7xl font-bold text-white z-10"
+          className="sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white z-10"
         >
           Elevate Your Digital Presence
         </motion.h1>
@@ -73,12 +73,14 @@ const Home = () => {
           transition={{ duration: 2 }}
           className="mt-8 z-10"
         >
-          <Link
-            to="/contact"
-            className="bg-light-accent dark:bg-dark-secondary text-white font-bold py-3 px-6 rounded-full transition-colors hover:bg-light-accent-hover"
-          >
-            Get Started
-          </Link>
+          <div className='pb-20'>
+            <Link
+              to="/contact"
+              className="bg-light-accent dark:bg-dark-secondary text-white font-bold py-3 px-6 rounded-full transition-colors hover:bg-light-accent-hover"
+            >
+              Get Started
+            </Link>
+          </div>
         </motion.div>
       </div>
 

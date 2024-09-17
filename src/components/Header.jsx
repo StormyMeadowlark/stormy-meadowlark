@@ -36,16 +36,12 @@ const Header = () => {
             className="flex flex-col items-center text-xs"
           >
             <FaBlog className="text-2xl" />
-            <span>Blog</span>
+            <span>Tech & Tranquility</span>
           </Link>
           {/* Conditionally Render Profile or Account */}
           {isLoggedIn ? (
             <Link
-              to={
-                user.role === 'SuperAdmin'
-                  ? '/superadmin/profile'
-                  : '/user/profile'
-              }
+              to={'/user/profile'}
               className="flex flex-col items-center text-xs"
             >
               <FaUser className="text-2xl" />
@@ -106,56 +102,52 @@ const Header = () => {
               alt="Stormy Meadowlark Logo"
               className="h-16"
             />
-            <span className="ml-4 text-2xl font-bold text-light-text dark:text-light">
+            <span className="ml-4 text-2xl md:text-base lg:text-2xl font-bold text-light-text dark:text-light">
               Stormy Meadowlark
             </span>
           </Link>
-          <nav className="md:flex md:space-x-8 items-center">
+          <nav className="md:flex md:space-x-4 items-center">
             <Link
               to="/about"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
+              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
             >
               About
             </Link>
             <Link
               to="/services"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
+              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
             >
               Services
             </Link>
             <Link
               to="/portfolio"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
+              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
             >
               Portfolio
             </Link>
             <Link
               to="/contact"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
+              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
             >
               Contact
             </Link>
             <Link
               to="/tech&tranquility"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
+              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
             >
-              Blog
+              Tech & Tranquility
             </Link>
             {isLoggedIn ? (
               <Link
-                to={
-                  user.role === 'SuperAdmin'
-                    ? '/superadmin/profile'
-                    : '/user/profile'
-                }
-                className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
+                to={'/user/profile'}
+                className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
               >
                 Profile
               </Link>
             ) : (
               <Link
                 to="/account"
-                className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
+                className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
               >
                 Account
               </Link>
@@ -163,7 +155,7 @@ const Header = () => {
             {isLoggedIn && (
               <button
                 onClick={logout}
-                className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300"
+                className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
               >
                 Logout
               </button>
