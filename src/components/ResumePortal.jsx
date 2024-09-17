@@ -51,7 +51,7 @@ const ResumePortal = () => {
     <div className="min-h-screen py-40 bg-gradient-to-r from-indigo-200 via-indigo-100 to-indigo-300 dark:from-dark-primary dark:via-dark-secondary dark:to-dark-accent text-dark dark:text-light">
       <div className="container mx-auto">
         <motion.h1
-          className="text-8xl font-cursive text-center mb-12 text-indigo-900 dark:text-light"
+          className="text-8xl font-gothic text-center mb-12 text-indigo-900 dark:text-light"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
