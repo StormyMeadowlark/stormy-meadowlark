@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import HeadshotImage from '../assets/images/Ashlee-Headshot.png?react'
 import axios from 'axios'
 
 const BlogHome = () => {
@@ -255,7 +256,7 @@ const BlogHome = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center">
               <img
-                src="/path-to-team-member-photo1.jpg"
+                src={HeadshotImage}
                 alt="Team Member 1"
                 className="w-32 h-32 rounded-full mx-auto mb-4"
               />

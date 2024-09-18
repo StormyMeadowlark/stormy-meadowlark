@@ -27,6 +27,9 @@ import VerifyAccount from './pages/VerifyAccount'
 import VerifiedSuccess from './pages/VerifiedSuccess'
 import Profile from './pages/Profile'
 import SuperAdminProfile from './pages/SuperAdminProfile'
+import HEMAutomotive from './pages/HEMProjectPage'
+import APIGatewayProjectPage from './pages/APIGatewayProjectPage'
+import SolarAthleticsProjectPage from './pages/SolarAthleticsProject'
 import ProtectedRoute from './context/ProtectedRoutes' // Import ProtectedRoute
 
 const AppRouter = () => (
@@ -88,6 +91,12 @@ const AppRouter = () => (
             <SuperAdminProfile />
           </ProtectedRoute>
         }
+      />
+      <Route path="/projects/hem-automotive" element={<HEMAutomotive />} />
+      <Route path="/projects/api-gateway" element={<APIGatewayProjectPage />} />
+      <Route
+        path="/projects/solar-athletics"
+        element={<SolarAthleticsProjectPage />}
       />
     </Routes>
     <Footer />

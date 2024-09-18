@@ -162,7 +162,7 @@ const Home = () => {
               {
                 image: Image3,
                 title: 'Solar Athletics Rebrand',
-                link: '/projects/solar-athletics-rebrand',
+                link: '/projects/solar-athletics',
               },
             ].map((project, index) => (
               <Link to={project.link} key={index}>
