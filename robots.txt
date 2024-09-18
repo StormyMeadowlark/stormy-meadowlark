@@ -5,6 +5,6 @@ Disallow: /register/
 Disallow: /checkout/
 Disallow: /cart/
 Disallow: /profile/
-Disallow: /SuperAdmin/
+Disallow: /superadmin/
 
 Sitemap: https://yourwebsite.com/sitemap.xml
