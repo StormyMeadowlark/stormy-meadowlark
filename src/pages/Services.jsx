@@ -134,32 +134,12 @@ const Services = () => (
             Built to seamlessly connect and empower your digital solutions, our API gateway stands as the storm-tested core of innovation, ensuring your business flows smoothly in any weather.
             </p>
             <Link
-              to="/projects/hem-automotive"
+              to="/projects/api-gateway"
               className="text-indigo-500 font-bold"
             >
               Learn More &rarr;
             </Link>
           </motion.div>
-          <motion.div
-            className="p-8 bg-white text-dark-primary rounded-lg shadow-md"
-            whileHover={{
-              scale: 1.05,
-              rotate: 2,
-              boxShadow: '0 6px 15px rgba(0,0,0,0.2)',
-            }}
-          >
-            <h3 className="text-3xl font-gothic-bold mb-4">Custom CMS</h3>
-            <p className="text-lg mb-4">
-Our Custom CMS is designed to put the power of content in your hands, offering a flexible, user-friendly platform that adapts to your unique business needs, helping you create, manage, and thrive effortlessly.
-            </p>
-            <Link
-              to="/projects/hem-automotive"
-              className="text-indigo-500 font-bold"
-            >
-              Learn More &rarr;
-            </Link>
-          </motion.div>
-          {/* Add more project cards as needed */}
         </div>
       </div>
     </motion.section>

@@ -133,7 +133,7 @@ const Footer = () => {
       <div className="mt-8 flex flex-col md:flex-row justify-between items-center text-indigo-800 dark:text-gray-400 text-sm px-8 md:px-16 lg:px-24">
         <div className="flex gap-6">
           <a
-            href="https://facebook.com"
+            href="https://facebook.com/StormyMeadowlark"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-indigo-700 dark:hover:text-indigo-400"
