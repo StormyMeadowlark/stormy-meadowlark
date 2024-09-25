@@ -10,12 +10,12 @@ const RequestPasswordReset = () => {
     e.preventDefault()
     setIsLoading(true)
 
-    const tenantId = '66cf01edfc069c867b6fbca9' // This should be dynamically set if needed
+    const tenantId = '66cf01edfc069c867b6fbca9' // Ideally, get this dynamically if needed
 
     try {
       const response = await axios.post(
         `https://skynetrix.tech/api/v1/users/${tenantId}/forgot-password`,
-        { email }, // This is the correct placement for the email body
+        { email }, // Pass email as the body
         {
           headers: {
             'x-tenant-id': tenantId,
