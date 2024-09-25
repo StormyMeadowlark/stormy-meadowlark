@@ -29,7 +29,13 @@ const ResetPassword = () => {
       const response = await axios.post(
         `https://skynetrix.tech/api/v1/users/${tenantId}/reset-password/${token}`,
         { password },
+        {
+          headers: {
+            'x-tenant-id': tenantId, // Ensure the tenant ID is included as a header
+          },
+        },
       )
+
       console.log('Password reset successful:', response.data)
       setMessage('Your password has been successfully reset!')
       navigate('/login') // Redirect to login after success
