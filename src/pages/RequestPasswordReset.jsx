@@ -6,24 +6,26 @@ const RequestPasswordReset = () => {
   const [message, setMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsLoading(true)
+const handleSubmit = async (e) => {
+  e.preventDefault()
+  setIsLoading(true)
 
-    try {
-      const response = await axios.post(
-        'https://skynetrix.tech/api/v1/users/forgot-password',
-        { email },
-      )
-      console.log('Password reset email sent:', response.data)
-      setMessage('Password reset email has been sent to your inbox.')
-    } catch (error) {
-      console.error('Error requesting password reset:', error.response?.data)
-      setMessage('Failed to send password reset email. Please try again.')
-    } finally {
-      setIsLoading(false)
-    }
+  const tenantId = '66cf01edfc069c867b6fbca9' // This should be dynamically set based on your logic
+
+  try {
+    const response = await axios.post(
+      `https://skynetrix.tech/api/v1/users/${tenantId}/forgot-password`, // Use backticks for template literals
+      { email },
+    )
+    console.log('Password reset email sent:', response.data)
+    setMessage('Password reset email has been sent to your inbox.')
+  } catch (error) {
+    console.error('Error requesting password reset:', error.response?.data)
+    setMessage('Failed to send password reset email. Please try again.')
+  } finally {
+    setIsLoading(false)
   }
+}
 
   return (
     <div className="min-h-screen flex items-center justify-center">
