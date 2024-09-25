@@ -14,7 +14,12 @@ const handleSubmit = async (e) => {
 
   try {
     const response = await axios.post(
-      `https://skynetrix.tech/api/v1/users/${tenantId}/forgot-password`, // Use backticks for template literals
+      `https://skynetrix.tech/api/v1/users/${tenantId}/forgot-password`,
+      {
+        headers: {
+          'x-tenant-id': tenantId,
+        },
+      }, // Use backticks for template literals
       { email },
     )
     console.log('Password reset email sent:', response.data)
