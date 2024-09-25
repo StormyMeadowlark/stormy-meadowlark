@@ -33,7 +33,8 @@ import SolarAthleticsProjectPage from './pages/SolarAthleticsProject'
 import ContentLibrary from './pages/ContentLibrary'
 import BlogManagement from './pages/BlogManagement'
 import ProtectedRoute from './context/ProtectedRoutes' // Import ProtectedRoute
-
+import RequestPasswordReset from './pages/RequestPasswordReset' 
+import ResetPassword from './pages/ResetPassword' 
 
 const AppRouter = () => (
   <Router>
@@ -95,12 +96,7 @@ const AppRouter = () => (
           </ProtectedRoute>
         }
       />
-      <Route
-        path="/superadmin/content-library"
-        element={
-            <ContentLibrary />
-        }
-      />
+      <Route path="/superadmin/content-library" element={<ContentLibrary />} />
       <Route
         path="/superadmin/content-library/blog-management"
         element={
@@ -111,6 +107,8 @@ const AppRouter = () => (
       />
       <Route path="/projects/hem-automotive" element={<HEMAutomotive />} />
       <Route path="/projects/api-gateway" element={<APIGatewayProjectPage />} />
+      <Route path="/user/forgot-password" element={<RequestPasswordReset />} />
+      <Route path="/user/reset-password" element={<ResetPassword />} />
       <Route
         path="/projects/solar-athletics"
         element={<SolarAthleticsProjectPage />}
