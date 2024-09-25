@@ -1,25 +1,38 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import axios from 'axios'
-import PostEditor from '../components/PostEditor' // Import PostEditor component
+import { useNavigate } from 'react-router-dom'
+import {
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+  Popover,
+  PopoverButton,
+} from '@headlessui/react'
+
 
 const SuperAdminProfile = () => {
-  const [blogs, setBlogs] = useState([])
+  const [comments, setComments] = useState([]) // New: For comments
+  const [likedBlogs, setLikedBlogs] = useState([])
+  const [oldPassword, setOldPassword] = useState('')
+  const [newPassword, setNewPassword] = useState('')
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [role, setRole] = useState('')
+  const [error, setError] = useState('')
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-  const [editingBlog, setEditingBlog] = useState(null)
-  const [isSaving, setIsSaving] = useState(false) // State to manage saving status
+  const [avatar, setAvatar] = useState('')
+  const [editMode, setEditMode] = useState(false)
+  const [recentActivities, setRecentActivities] = useState([])
+  const navigate = useNavigate()
+  const tenantId = '66cf01edfc069c867b6fbca9' // Tenant ID
 
-  const tenantId = '66cf01edfc069c867b6fbca9' // Tenant ID for the SuperAdmin
-
-  // Function to fetch the list of blogs
-  const fetchBlogs = async () => {
-    setLoading(true) // Start loading when fetching
-    setError(null) // Reset error before fetching
-    const token = localStorage.getItem('token') // Retrieve token from localStorage
-
+  const handleChangePassword = async () => {
     try {
-      const response = await axios.get(
-        `https://skynetrix.tech/api/v1/posts/${tenantId}`,
+      const token = localStorage.getItem('token')
+      await axios.post(
+        `https://skynetrix.tech/api/v1/users/${tenantId}/change-password`,
+        { oldPassword, newPassword },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -27,249 +40,465 @@ const SuperAdminProfile = () => {
           },
         },
       )
-
-      if (Array.isArray(response.data)) {
-        const validBlogs = response.data.filter(
-          (blog) => blog && blog._id && blog.title,
-        )
-        setBlogs(validBlogs)
-      } else {
-        console.error('Unexpected API response structure:', response.data)
-        setError('Failed to fetch blogs - unexpected response format.')
-      }
+      alert('Password changed successfully')
+      setOldPassword('')
+      setNewPassword('')
     } catch (err) {
-      console.error('Failed to fetch blogs:', err)
-      if (err.response) {
-        console.error('Error Response Data:', err.response.data)
-        console.error('Error Status:', err.response.status)
-      }
-      setError('Failed to fetch blogs.')
-    } finally {
-      setLoading(false) // End loading when fetch is complete
+      setError('Failed to change password.')
     }
   }
+
+  const handleRedirectToSuperAdminProfile = useCallback(() => {
+    navigate('/superadmin/profile')
+  }, [navigate])
 
   useEffect(() => {
-    fetchBlogs() // Fetch blogs when the component mounts
-  }, [])
-
-  const handleEditClick = (blog) => {
-    setEditingBlog(blog) // Set the blog to be edited
-  }
-
-  const handleCreateClick = () => {
-    setEditingBlog({
-      title: '',
-      content: '',
-      metaTitle: '',
-      metaDescription: '',
-      metaKeywords: '',
-      status: 'Draft',
-    }) // Open the editor for creating a new blog
-  }
-
-  const handleSave = async ({
-    title,
-    content,
-    metaTitle,
-    metaDescription,
-    metaKeywords,
-    status,
-  }) => {
-    setIsSaving(true) // Start saving
-    setError(null) // Reset error before saving
-    const token = localStorage.getItem('token') // Retrieve token from localStorage
-
-    try {
-      if (editingBlog._id) {
-        // If editing an existing blog
-        await axios.put(
-          `https://skynetrix.tech/api/v1/posts/${tenantId}/${editingBlog._id}`, // Correct URL with postId
-          { title, content, metaTitle, metaDescription, metaKeywords, status }, // Send the updated details
-          {
-            headers: {
-              'x-tenant-id': tenantId,
-              Authorization: `Bearer ${token}`,
-            },
-          },
-        )
-      } else {
-        // If creating a new blog
-        await axios.post(
-          `https://skynetrix.tech/api/v1/posts/${tenantId}`, // URL for creating a new post
-          { title, content, metaTitle, metaDescription, metaKeywords, status }, // Send the new details
-          {
-            headers: {
-              'x-tenant-id': tenantId,
-              Authorization: `Bearer ${token}`,
-            },
-          },
-        )
+    const fetchUserProfile = async () => {
+      const token = localStorage.getItem('token')
+      if (!token) {
+        setError('Unauthorized access. Please log in.')
+        navigate('/account')
+        return
       }
 
-      setEditingBlog(null) // Clear the editing state
-      fetchBlogs() // Fetch the updated list of blogs
-    } catch (error) {
-      console.error('Failed to save the blog:', error)
-      setError('Failed to save the blog.')
-    } finally {
-      setIsSaving(false) // End saving
-    }
-  }
-
-  const handleDelete = async (postId) => {
-    const confirmDelete = window.confirm(
-      'Are you sure you want to delete this post?',
-    )
-    if (!confirmDelete) return
-
-    const token = localStorage.getItem('token') // Retrieve token from localStorage
-
-    try {
-      await axios.delete(
-        `https://skynetrix.tech/api/v1/posts/${tenantId}/${postId}`,
-        {
-          headers: {
-            'x-tenant-id': tenantId,
-            Authorization: `Bearer ${token}`,
+      try {
+        const response = await axios.get(
+          `https://skynetrix.tech/api/v1/users/${tenantId}/profile`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'x-tenant-id': tenantId,
+            },
           },
-        },
-      )
-      fetchBlogs() // Fetch the updated list of blogs after deletion
-    } catch (error) {
-      console.error('Failed to delete the blog:', error)
-      setError('Failed to delete the blog.')
+        )
+
+        if (response.status === 200 && response.data) {
+          const { username, email, role } = response.data
+          setUsername(username)
+          setEmail(email)
+          setRole(role)
+        } else {
+          setError('Failed to load profile data.')
+          console.log('Empty or Invalid Profile Data:', response.data)
+        }
+      } catch (err) {
+        const status = err.response ? err.response.status : null
+        if (status === 401) {
+          setError('Unauthorized access. Please log in again.')
+          navigate('/account')
+        } else {
+          setError('Failed to load profile data. Please try again.')
+        }
+        console.error('Error fetching profile:', err)
+      } finally {
+        setLoading(false)
+      }
     }
-  }
 
-  const handlePublishToggle = async (postId, currentStatus) => {
-    const token = localStorage.getItem('token') // Retrieve token from localStorage
-    const newStatus = currentStatus === 'Published' ? 'Draft' : 'Published'
-
-    try {
-      await axios.post(
-        `https://skynetrix.tech/api/v1/posts/${tenantId}/${postId}/${
-          newStatus === 'Published' ? 'publish' : 'unpublish'
-        }`,
-        {},
-        {
-          headers: {
-            'x-tenant-id': tenantId,
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      )
-      fetchBlogs() // Fetch the updated list of blogs after the status change
-    } catch (error) {
-      console.error('Failed to toggle publish status:', error)
-      setError('Failed to toggle publish status.')
-    }
-  }
-
-  const handleCancel = () => {
-    setEditingBlog(null) // Reset the editing state to cancel
-  }
+    fetchUserProfile()
+  }, [navigate, tenantId])
 
   if (loading) {
-    return <div>Loading blogs...</div>
+    return (
+      <div className="text-center text-gray-500 mt-10">Loading profile...</div>
+    )
   }
 
   if (error) {
-    return <div>{error}</div>
+    return <div className="error text-red-500 text-center mt-10">{error}</div>
+  }
+
+  const handleAvatarChange = (e) => {
+    const file = e.target.files[0]
+    if (file) {
+      setAvatar(URL.createObjectURL(file))
+    }
+  }
+
+  const handleSaveProfile = async () => {
+    try {
+      const token = localStorage.getItem('token')
+      await axios.put(
+        `https://skynetrix.tech/api/v1/users/${tenantId}/profile`,
+        { username, email, role },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'x-tenant-id': tenantId,
+          },
+        },
+      )
+      setEditMode(false)
+    } catch (err) {
+      setError('Failed to save profile data.')
+    }
+  }
+
+  const handleBookConsultation = () => {
+    navigate('/consultation')
+  }
+
+  const navigation = [
+    { name: 'Home', href: '#', current: true },
+    { name: 'Projects', href: '#', current: false },
+    { name: 'Content Management', href: '#', current: false },
+    { name: 'Analytics', href: '#', current: false },
+    { name: 'Documents', href: '#', current: false },
+  ]
+
+  const userNavigation = [
+    { name: 'Your Profile', href: '#' },
+    { name: 'Settings', href: '#' },
+    { name: 'Billing & Subscription', href: '/billing' }, // Billing Panel
+    { name: 'Advanced Settings', href: '/advanced-settings' }, // Advanced Settings
+    { name: 'Sign out', href: '#' },
+  ]
+
+  const marketingStats = [
+    { label: 'Leads generated', value: 320 },
+    { label: 'Conversion rate', value: '2.4%' },
+    { label: 'Total revenue', value: '$15,500' },
+  ]
+
+  const actions = [
+    { name: 'Manage Campaigns', href: '#', icon: '📝' },
+    { name: 'Content Library', href: '/superadmin/content-library', icon: '📚' },
+    { name: 'View Analytics', href: '#', icon: '📊' },
+    { name: 'Schedule Emails', href: '#', icon: '✉️' },
+    { name: 'Manage Ads', href: '#', icon: '📢' },
+    { name: 'Create Project', href: '#', icon: '🛠️' },
+  ]
+
+  const metricMinute = [
+    { label: 'Website Traffic', value: '5k visits/day' },
+    { label: 'Ad Spend', value: '$3,200' },
+  ]
+
+  const resources = [
+    { name: 'Webinar: Advanced SEO', href: '#', date: 'Sep 20, 2024' },
+    { name: 'Class: Social Media Strategy', href: '#', date: 'Oct 05, 2024' },
+  ]
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
   }
 
   return (
-    <div className="flex min-h-screen bg-light-primary dark:bg-dark-primary text-light-text dark:text-dark-text font-gothic pt-32 mx-auto">
-      {/* Sidebar */}
-      <div
-        className={`transition-all duration-300 bg-light-secondary dark:bg-dark-secondary p-4 overflow-y-auto ${
-          editingBlog ? 'w-20' : 'w-full'
-        }`}
+    <div className="min-h-full bg-light dark:bg-dark-primary">
+      {/* Header with Navigation */}
+      <Popover
+        as="header"
+        className="bg-gradient-to-r from-primary to-secondary dark:from-dark-primary dark:to-dark-secondary pb-24 pt-40"
       >
-        <button
-          className="bg-green-500 text-white px-4 py-2 rounded mb-4 w-full"
-          onClick={handleCreateClick}
-        >
-          {editingBlog ? '+' : 'Create New Post'}
-        </button>
-        {!editingBlog && (
-          <div className="space-y-4">
-            {blogs.map(
-              (blog) =>
-                blog &&
-                blog._id && (
-                  <div
-                    key={blog._id}
-                    className="flex justify-between items-center border-b border-gray-200 py-2"
-                  >
-                    <span className="text-sm font-bold">{blog.title}</span>
-                    <div className="flex gap-2">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative flex flex-wrap items-center justify-between">
+            {/* Logo */}
+            <div className="py-5">
+              <a href="#">
+                <img
+                  alt="Stormy Meadowlark"
+                  src="https://your-logo-url.com"
+                  className="h-8 w-auto"
+                />
+              </a>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex space-x-4">
+              {/* Bell Icon with dropdown */}
+              <Menu as="div" className="relative">
+                <MenuButton className="relative flex-shrink-0 rounded-full p-1 text-cyan-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+                  <span className="sr-only">View notifications</span>
+                </MenuButton>
+              </Menu>
+
+              <Menu as="div" className="relative">
+                <MenuButton className="relative flex-shrink-0 rounded-full p-1 text-cyan-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+                  <span className="sr-only">View notifications</span>
+                  <img
+                    alt="Profile"
+                    src={`https://your-image-url.com`}
+                    className="h-6 w-6"
+                    aria-hidden="true"
+                  />
+                </MenuButton>
+
+                <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  {userNavigation.map((item) => (
+                    <MenuItem key={item.name}>
+                      {({ active }) => (
+                        <a
+                          href={item.href}
+                          className={classNames(
+                            active ? 'bg-gray-100' : '',
+                            'block px-4 py-2 text-sm text-gray-700',
+                          )}
+                        >
+                          {item.name}
+                        </a>
+                      )}
+                    </MenuItem>
+                  ))}
+                </MenuItems>
+              </Menu>
+            </div>
+
+            {/* Mobile Menu */}
+            <div className="flex items-center lg:hidden">
+              <PopoverButton className="p-2 rounded-md text-cyan-200 hover:bg-white hover:bg-opacity-10">
+              </PopoverButton>
+            </div>
+          </div>
+        </div>
+      </Popover>
+
+      {/* Main Section */}
+      <main className="-mt-24 pb-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+            {/* Center Panel */}
+            <div className="lg:col-span-2">
+              {/* Welcome Section */}
+              <section
+                aria-labelledby="profile-overview-title"
+                className="overflow-hidden rounded-lg bg-white shadow"
+              >
+                <div className="p-6">
+                  <div className="sm:flex sm:items-center sm:justify-between">
+                    <div className="sm:flex sm:space-x-5">
+                      <div className="flex-shrink-0">
+                        <img
+                          alt="Profile"
+                          src={`https://your-image-url.com`}
+                          className="mx-auto h-20 w-20 rounded-full"
+                        />
+                      </div>
+                      <div className="mt-4 text-center sm:mt-0 sm:pt-1 sm:text-left">
+                        <p className="text-sm font-medium text-gray-600">
+                          Welcome back,
+                        </p>
+                        <p className="text-xl font-bold text-gray-900 sm:text-2xl">
+                          {username}
+                        </p>
+                        <p className="text-sm font-medium text-gray-600">
+                          {role}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="ml-4">
                       <button
-                        className="bg-blue-500 text-white px-2 py-1 rounded"
-                        onClick={() => handleEditClick(blog)}
+                        onClick={handleBookConsultation}
+                        className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-blue-600"
                       >
-                        Edit
-                      </button>
-                      <button
-                        className={`px-2 py-1 rounded ${
-                          blog.publishStatus === 'Published'
-                            ? 'bg-yellow-500'
-                            : 'bg-purple-500'
-                        } text-white`}
-                        onClick={() =>
-                          handlePublishToggle(blog._id, blog.publishStatus)
-                        }
-                      >
-                        {blog.publishStatus === 'Published'
-                          ? 'Unpublish'
-                          : 'Publish'}
-                      </button>
-                      <button
-                        className="bg-red-500 text-white px-2 py-1 rounded"
-                        onClick={() => handleDelete(blog._id)}
-                      >
-                        Delete
+                        Book a Consultation
                       </button>
                     </div>
+                    <button
+                      className="mt-2 text-blue-600 hover:underline"
+                      onClick={() => setEditMode(!editMode)}
+                    >
+                      {editMode ? 'Cancel' : 'Edit Profile'}
+                    </button>
                   </div>
-                ),
-            )}
-          </div>
-        )}
-      </div>
+                  {editMode && (
+                    <div className="mt-6 space-y-4">
+                      <input
+                        type="text"
+                        className="w-full p-2 border rounded"
+                        placeholder="Username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                      />
+                      <input
+                        type="email"
+                        className="w-full p-2 border rounded"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                      <input
+                        type="text"
+                        className="w-full p-2 border rounded"
+                        placeholder="Role"
+                        value={role}
+                        onChange={(e) => setRole(e.target.value)}
+                      />
+                      <div className="flex space-x-4">
+                        <input type="file" onChange={handleAvatarChange} />
+                        <button
+                          onClick={handleSaveProfile}
+                          className="bg-green-500 text-white px-4 py-2 rounded"
+                        >
+                          Save Profile
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
 
-      {/* Main Content */}
-      <div
-        className={`flex-1 p-8 transition-all duration-300 ${
-          editingBlog ? 'ml-20' : 'ml-0'
-        }`}
-      >
-        {editingBlog ? (
-          <div className="text-black">
-            <PostEditor
-              initialTitle={editingBlog.title || ''} // Pass the current blog title or an empty string
-              initialContent={editingBlog.content || ''} // Pass the current blog content or an empty string
-              initialMetaTitle={editingBlog.metaTitle || ''} // Pass the current meta title or an empty string
-              initialMetaDescription={editingBlog.metaDescription || ''} // Pass the current meta description or an empty string
-              initialMetaKeywords={editingBlog.metaKeywords || ''} // Pass the current meta keywords or an empty string
-              initialStatus={editingBlog.publishStatus || 'Draft'} // Pass the current status or default to Draft
-              onSave={handleSave}
-            />
-            <div className="flex gap-4 mt-4">
-              <button
-                className="bg-gray-500 text-white px-4 py-2 rounded"
-                onClick={handleCancel}
-                disabled={isSaving}
-              >
-                Cancel
-              </button>
+                {/* Marketing Metrics */}
+                <div className="grid grid-cols-1 border-t bg-gray-50 divide-y sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
+                  {marketingStats.map((stat) => (
+                    <div
+                      key={stat.label}
+                      className="px-6 py-5 text-center text-sm font-medium"
+                    >
+                      <span className="text-gray-900">{stat.value}</span>{' '}
+                      <span className="text-gray-600">{stat.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Actions Panel */}
+              <section className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {actions.map((action) => (
+                  <div
+                    key={action.name}
+                    className="bg-white shadow-sm p-6 rounded-lg"
+                  >
+                    <h3 className="text-lg font-medium">
+                      <a href={action.href} className="hover:underline">
+                        {action.icon} {action.name}
+                      </a>
+                    </h3>
+                  </div>
+                ))}
+              </section>
+              {/* New: Comments Section */}
+              <section className="mt-6 bg-white p-6 rounded-lg shadow-md">
+                <h2 className="text-xl font-semibold">My Comments</h2>
+                <ul className="mt-4 space-y-2">
+                  {comments.length > 0 ? (
+                    comments.map((comment) => (
+                      <li key={comment.id} className="text-sm text-gray-600">
+                        On{' '}
+                        <a
+                          href={`/blog/${comment.blogId}`}
+                          className="text-blue-500 hover:underline"
+                        >
+                          {comment.blogTitle}
+                        </a>
+                        : {comment.text}
+                      </li>
+                    ))
+                  ) : (
+                    <p className="text-sm text-gray-600">
+                      You haven't commented on any posts yet.
+                    </p>
+                  )}
+                </ul>
+              </section>
+
+              {/* New: Liked Blogs Section */}
+              <section className="mt-6 bg-white p-6 rounded-lg shadow-md">
+                <h2 className="text-xl font-semibold">Blogs I Liked</h2>
+                <ul className="mt-4 space-y-2">
+                  {likedBlogs.length > 0 ? (
+                    likedBlogs.map((blog) => (
+                      <li key={blog.id} className="text-sm text-gray-600">
+                        <a
+                          href={`/blog/${blog.id}`}
+                          className="text-blue-500 hover:underline"
+                        >
+                          {blog.title}
+                        </a>
+                      </li>
+                    ))
+                  ) : (
+                    <p className="text-sm text-gray-600">
+                      You haven't liked any blogs yet.
+                    </p>
+                  )}
+                </ul>
+              </section>
             </div>
-            {isSaving && <div>Saving changes...</div>}
+
+            {/* Right Sidebar */}
+            <div className="grid grid-cols-1 gap-4">
+              {/* Metric Minute */}
+              <section
+                aria-labelledby="metric-minute-title"
+                className="overflow-hidden rounded-lg bg-white shadow"
+              >
+                <div className="p-6">
+                  <h2
+                    id="metric-minute-title"
+                    className="text-base font-medium text-gray-900"
+                  >
+                    Metric Minute
+                  </h2>
+                  <div className="mt-4">
+                    {metricMinute.map((metric) => (
+                      <div key={metric.label} className="mb-4">
+                        <p className="text-sm text-gray-600">{metric.label}</p>
+                        <p className="text-xl font-semibold text-gray-900">
+                          {metric.value}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              {/* Resource List */}
+              <section
+                aria-labelledby="resources-title"
+                className="overflow-hidden rounded-lg bg-white shadow"
+              >
+                <div className="p-6">
+                  <h2
+                    id="resources-title"
+                    className="text-base font-medium text-gray-900"
+                  >
+                    Resources
+                  </h2>
+                  <ul className="mt-4 divide-y divide-gray-200">
+                    {resources.map((resource) => (
+                      <li key={resource.name} className="py-4">
+                        <a
+                          href={resource.href}
+                          className="text-sm font-medium text-blue-600 hover:underline"
+                        >
+                          {resource.name}
+                        </a>
+                        <p className="text-xs text-gray-500">{resource.date}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </section>
+
+              {/* Change Password */}
+              <section className="bg-white p-6 rounded-lg shadow-md">
+                <h2 className="text-xl font-semibold">Change Password</h2>
+                <div className="mt-4 space-y-2">
+                  <input
+                    type="password"
+                    className="w-full p-2 border rounded"
+                    placeholder="Old Password"
+                    value={oldPassword}
+                    onChange={(e) => setOldPassword(e.target.value)}
+                  />
+                  <input
+                    type="password"
+                    className="w-full p-2 border rounded"
+                    placeholder="New Password"
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                  />
+                  <button
+                    onClick={handleChangePassword}
+                    className="bg-blue-500 text-white px-4 py-2 rounded"
+                  >
+                    Change Password
+                  </button>
+                </div>
+              </section>
+            </div>
           </div>
-        ) : (
-          <div></div>
-        )}
-      </div>
+        </div>
+      </main>
     </div>
   )
 }

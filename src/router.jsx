@@ -30,7 +30,10 @@ import SuperAdminProfile from './pages/SuperAdminProfile'
 import HEMAutomotive from './pages/HEMProjectPage'
 import APIGatewayProjectPage from './pages/APIGatewayProjectPage'
 import SolarAthleticsProjectPage from './pages/SolarAthleticsProject'
+import ContentLibrary from './pages/ContentLibrary'
+import BlogManagement from './pages/BlogManagement'
 import ProtectedRoute from './context/ProtectedRoutes' // Import ProtectedRoute
+
 
 const AppRouter = () => (
   <Router>
@@ -89,6 +92,20 @@ const AppRouter = () => (
         element={
           <ProtectedRoute SuperAdmin>
             <SuperAdminProfile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/superadmin/content-library"
+        element={
+            <ContentLibrary />
+        }
+      />
+      <Route
+        path="/superadmin/content-library/blog-management"
+        element={
+          <ProtectedRoute SuperAdmin>
+            <BlogManagement />
           </ProtectedRoute>
         }
       />

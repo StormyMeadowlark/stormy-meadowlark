@@ -21,18 +21,17 @@ const VerifyAccount = () => {
     setIsLoading(true) // Start loading
 
     try {
-      const { status, data } = await axios.get(
+      const response = await axios.get(
         `https://skynetrix.tech/api/v1/users/${tenantId}/verify-email/${verificationToken}`,
-        {},
         {
           headers: {
-            'x-tenant-id': tenantId, // Use lowercase for consistency
+            'x-tenant-id': tenantId, // Pass the tenant ID as a header
           },
         },
       )
 
-      console.log('Verification response status:', status)
-      console.log('Verification response data:', data)
+      console.log('Verification response status:', response.status)
+      console.log('Verification response data:', response.data)
 
       setMessage('Your account has been successfully verified!')
       navigate('/verified-success')
@@ -45,7 +44,6 @@ const VerifyAccount = () => {
       setIsLoading(false) // End loading
     }
   }
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-light-primary dark:bg-dark-primary text-dark dark:text-light">
       <div className="max-w-lg w-full p-6 bg-light-secondary dark:bg-dark-secondary rounded-lg shadow-lg">

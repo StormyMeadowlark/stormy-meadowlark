@@ -1,10 +1,10 @@
-// src/pages/SinglePost.jsx
-
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import axios from 'axios'
-import CommentsSection from '../components/CommentsSection' // Import the new CommentsSection component
+import DOMPurify from 'dompurify' // Import DOMPurify
+import CommentsSection from '../components/CommentsSection'
+
 
 const SinglePost = () => {
   const { postId } = useParams() // Get the postId from the URL
@@ -16,9 +16,9 @@ const SinglePost = () => {
   const [dislikeCount, setDislikeCount] = useState(0)
   const [liked, setLiked] = useState(false)
   const [disliked, setDisliked] = useState(false)
-  const [isAuthenticated, setIsAuthenticated] = useState(false) // Check if the user is logged in
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
-  const tenantId = '66cf01edfc069c867b6fbca9' // Replace with actual tenant ID or pass it as a prop
+  const tenantId = '66cf01edfc069c867b6fbca9' // Replace with actual tenant ID
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -31,8 +31,6 @@ const SinglePost = () => {
             },
           },
         )
-        console.log('API Response:', response.data)
-
         setPost(response.data)
         setLikeCount(response.data.likes.length)
         setDislikeCount(response.data.dislikes.length)
@@ -72,58 +70,6 @@ const SinglePost = () => {
     fetchSuggestedPosts()
   }, [tenantId, postId])
 
-  const handleLike = async () => {
-    if (!isAuthenticated) {
-      alert('Please log in to like the post.')
-      return
-    }
-
-    try {
-      await axios.post(
-        `https://skynetrix.tech/api/v1/posts/${tenantId}/${postId}/like`,
-        {},
-        {
-          headers: {
-            'x-tenant-id': tenantId,
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-        },
-      )
-
-      setLiked(true)
-      setDisliked(false)
-      setLikeCount((prevCount) => prevCount + 1)
-    } catch (err) {
-      console.error('Failed to like the post:', err.message)
-    }
-  }
-
-  const handleDislike = async () => {
-    if (!isAuthenticated) {
-      alert('Please log in to dislike the post.')
-      return
-    }
-
-    try {
-      await axios.post(
-        `https://skynetrix.tech/api/v1/posts/${tenantId}/${postId}/dislike`,
-        {},
-        {
-          headers: {
-            'x-tenant-id': tenantId,
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-        },
-      )
-
-      setDisliked(true)
-      setLiked(false)
-      setDislikeCount((prevCount) => prevCount + 1)
-    } catch (err) {
-      console.error('Failed to dislike the post:', err.message)
-    }
-  }
-
   if (loading) {
     return (
       <div className="text-center py-40">
@@ -140,12 +86,15 @@ const SinglePost = () => {
     )
   }
 
+  // Sanitize the post content using DOMPurify before rendering
+  const sanitizedContent = DOMPurify.sanitize(post.content)
+
   return (
     <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-light min-h-screen pt-40">
       <div className="container mx-auto">
         {/* Post Content */}
         <motion.div
-          className="mb-16"
+          className="prose dark:prose-dark max-w-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2 }}
@@ -154,22 +103,20 @@ const SinglePost = () => {
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
             {new Date(post.createdAt).toLocaleDateString()}
           </p>
-          <div className="prose dark:prose-dark max-w-none">
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
-          </div>
+          <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </motion.div>
 
         {/* Like and Dislike Section */}
         <div className="flex items-center gap-4 mb-8">
           <button
             className={`px-4 py-2 rounded ${liked ? 'bg-green-500' : 'bg-gray-300'} text-white`}
-            onClick={handleLike}
+            onClick={() => setLiked(!liked)}
           >
             👍 {likeCount}
           </button>
           <button
             className={`px-4 py-2 rounded ${disliked ? 'bg-red-500' : 'bg-gray-300'} text-white`}
-            onClick={handleDislike}
+            onClick={() => setDisliked(!disliked)}
           >
             👎 {dislikeCount}
           </button>

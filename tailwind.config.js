@@ -4,6 +4,41 @@ module.exports = {
   darkMode: 'class', // Enables dark mode based on a class
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            img: {
+              margin: 'auto',
+              display: 'block',
+            },
+            blockquote: {
+              borderLeftColor: '#ff7e5f',
+              fontStyle: 'italic',
+            },
+            h1: {
+              fontSize: '2.25rem', // Custom font size for h1
+              fontWeight: '700',
+            },
+            h2: {
+              fontSize: '1.875rem', // Custom font size for h2
+              fontWeight: '700',
+              color: '#333',
+            },
+            h3: {
+              fontSize: '1.5rem', // Custom font size for h3
+              fontWeight: '600',
+            },
+            p: {
+              marginBottom: '1.5rem',
+              lineHeight: '1.8',
+            },
+            ul: {
+              marginLeft: '1.5rem',
+              marginBottom: '1.5rem',
+            },
+          },
+        },
+      },
       colors: {
         primary: '#ff7e5f', // Light theme colors
         secondary: '#feb47b',
@@ -16,9 +51,8 @@ module.exports = {
         'dark-secondary': '#0f0c29', // Darker background, like a late evening sky
         'dark-accent': '#ff5e62', // A strong accent color, representing the last light of sunset
         'dark-text': '#e0e0e0', // Lighter text on a dark background
-        'light-primary': '##f7faff', // Example color, adjust as needed
+        'light-primary': '#f7faff',
         'light-secondary': '#e0e7ff',
-        'light-tertiary': '#d1d7e0',
         'light-accent': '#0057b7',
         'light-accent-hover': '#003a8c',
         'light-text': '#2c3e50',
@@ -31,14 +65,15 @@ module.exports = {
         'gothic-bold-italic': ['gothicBoldItalicFont', 'sans-serif'],
       },
       screens: {
-        // Add custom screen sizes here
-        sm: '640px', // Small screen breakpoint (default is 640px)
-        md: '768px', // Medium screen breakpoint (default is 768px)
-        lg: '1044px', // Custom large screen breakpoint set to 1044px
-        xl: '1280px', // Extra large screen breakpoint (default is 1280px)
-        '2xl': '1536px', // 2xl screen breakpoint (default is 1536px)
+        sm: '640px', // Small screen breakpoint
+        md: '768px', // Medium screen breakpoint
+        lg: '1044px', // Custom large screen breakpoint
+        xl: '1280px', // Extra large screen breakpoint
+        '2xl': '1536px', // 2xl screen breakpoint
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'), // Correctly add the typography plugin
+  ],
 }
