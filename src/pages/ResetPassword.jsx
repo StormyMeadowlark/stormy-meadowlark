@@ -47,7 +47,7 @@ const ResetPassword = () => {
 
       console.log('Password reset successful:', response.data)
       setMessage('Your password has been successfully reset!')
-      navigate('/login') // Redirect to login after success
+      navigate('/account') // Redirect to login after success
     } catch (error) {
       console.error('Password reset failed:', error.response?.data)
       setMessage(
