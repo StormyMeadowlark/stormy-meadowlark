@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -6,9 +6,17 @@ const ResetPassword = () => {
   const location = useLocation()
   const navigate = useNavigate()
 
+  // Parse query parameters from the URL
   const queryParams = new URLSearchParams(location.search)
   const token = queryParams.get('token')
   const tenantId = queryParams.get('tenantId')
+
+  // Ensure the values are not null
+  useEffect(() => {
+    if (!token || !tenantId) {
+      setMessage('Invalid reset link. Please check the URL or contact support.')
+    }
+  }, [token, tenantId])
 
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -26,6 +34,7 @@ const ResetPassword = () => {
     setIsLoading(true)
 
     try {
+      // Ensure the tenantId and token are included in the URL and request
       const response = await axios.post(
         `https://skynetrix.tech/api/v1/users/${tenantId}/reset-password/${token}`,
         { password },
