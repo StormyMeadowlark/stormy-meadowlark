@@ -109,6 +109,11 @@ const Account = () => {
     }
   }
 
+  // Function for handling "Forgot Password"
+  const handleForgotPassword = () => {
+    navigate('/user/forgot-password') // Redirect to forgot password page
+  }
+
   return (
     <div className="bg-light dark:bg-dark-primary text-dark dark:text-dark-text min-h-screen py-40">
       <div className="container mx-auto">
@@ -184,6 +189,18 @@ const Account = () => {
                 <p className="text-red-500 text-center mt-4">{errors.form}</p>
               )}
             </form>
+          )}
+
+          {/* Forgot Password Button */}
+          {isLogin && (
+            <div className="text-center mt-4">
+              <button
+                onClick={handleForgotPassword}
+                className="text-dark-primary dark:text-accent font-bold underline"
+              >
+                Forgot Password?
+              </button>
+            </div>
           )}
 
           {/* Toggle between login and registration */}
