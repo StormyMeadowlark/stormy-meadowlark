@@ -127,7 +127,7 @@ const BlogHome = () => {
                 <h3 className="text-2xl font-gothic-bold mb-4">{post.title}</h3>
                 <p className="text-lg mb-4">{post.excerpt}</p>
                 <Link
-                  to={`/blog/${post._id}`}
+                  to={`/tech&tranquility/${post._id}`}
                   className="text-white underline mt-4 inline-block"
                 >
                   Read More
@@ -208,7 +208,7 @@ const BlogHome = () => {
                 {post.excerpt || 'No Excerpt Available'}
               </p>
               <Link
-                to={`/blog/${post._id}`}
+                to={`/tech&tranquility/${post._id}`}
                 className="text-light-accent dark:text-dark-accent mt-4 inline-block"
               >
                 Read More

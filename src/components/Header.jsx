@@ -1,168 +1,227 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { FaHome, FaEnvelope, FaBlog, FaUser, FaEllipsisH } from 'react-icons/fa'
-import { AiFillSetting } from 'react-icons/ai'
-import GoldStormyMeadowlark from '../assets/images/GoldStormyMeadowlark.png?react'
+import { FaHome, FaEnvelope, FaInfoCircle, FaAngleDown } from 'react-icons/fa'
+import { motion } from 'framer-motion'
+import { AuthContext } from '../context/AuthContext'
 import ThemeToggle from './ThemeToggle'
-import { AuthContext } from '../context/AuthContext' // Import AuthContext
+import GoldStormyMeadowlark from '../assets/images/GoldStormyMeadowlark.png?react'
 
 const Header = () => {
-  const { isLoggedIn, user, logout } = useContext(AuthContext) // Use logout function from context
-  const [isMoreOpen, setIsMoreOpen] = useState(false) // Define state for more menu
+  const { isLoggedIn, logout } = useContext(AuthContext)
+  const [isProfileOpen, setIsProfileOpen] = useState(false)
+  const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false)
+  const [isScrollingUp, setIsScrollingUp] = useState(true) // State to handle scroll direction
+  const profileRef = useRef(null)
+  const moreMenuRef = useRef(null)
+  const prevScrollY = useRef(0) // To store previous scroll position
 
-  const toggleMoreMenu = () => {
-    setIsMoreOpen(!isMoreOpen)
-  }
+  const toggleProfileMenu = () => setIsProfileOpen(!isProfileOpen)
+  const toggleMoreMenu = () => setIsMoreMenuOpen(!isMoreMenuOpen)
+
+  // Handle scrolling direction for header visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      if (currentScrollY > prevScrollY.current) {
+        setIsScrollingUp(false) // Scrolling down
+      } else {
+        setIsScrollingUp(true) // Scrolling up
+      }
+      prevScrollY.current = currentScrollY
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setIsProfileOpen(false)
+      }
+      if (moreMenuRef.current && !moreMenuRef.current.contains(event.target)) {
+        setIsMoreMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   return (
     <>
-      {/* Mobile Header */}
-      <header className="fixed bottom-0 left-0 right-0 z-50 bg-light dark:bg-dark-secondary shadow-lg md:hidden">
-        <nav className="flex justify-between items-center p-4">
-          <Link to="/" className="flex flex-col items-center text-xs">
-            <FaHome className="text-2xl" />
-            <span>Home</span>
-          </Link>
-          <Link to="/services" className="flex flex-col items-center text-xs">
-            <AiFillSetting className="text-2xl" />
-            <span>Services</span>
-          </Link>
-          <Link to="/contact" className="flex flex-col items-center text-xs">
-            <FaEnvelope className="text-2xl" />
-            <span>Contact</span>
-          </Link>
-          <Link
-            to="/tech&tranquility"
-            className="flex flex-col items-center text-xs"
-          >
-            <FaBlog className="text-2xl" />
-            <span>Tech & Tranquility</span>
-          </Link>
-          {/* Conditionally Render Profile or Account */}
-          {isLoggedIn ? (
-            <Link
-              to={'/user/profile'}
-              className="flex flex-col items-center text-xs"
-            >
-              <FaUser className="text-2xl" />
-              <span>Profile</span>
-            </Link>
-          ) : (
-            <Link to="/account" className="flex flex-col items-center text-xs">
-              <FaUser className="text-2xl" />
-              <span>Account</span>
-            </Link>
-          )}
-          <button
-            onClick={toggleMoreMenu}
-            className="flex flex-col items-center text-xs"
-          >
-            <FaEllipsisH className="text-2xl" />
-            <span>More</span>
-          </button>
-        </nav>
-      </header>
-
-      {/* More Menu Popup */}
-      {isMoreOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 flex justify-center items-center">
-          <div className="bg-light dark:bg-dark-secondary p-8 rounded-lg shadow-lg">
-            <button
-              onClick={toggleMoreMenu}
-              className="absolute top-4 right-4 text-xl font-bold text-light-text dark:text-light"
-            >
-              &times;
-            </button>
-            <ul className="space-y-4 text-center">
-              {/* Additional Links Here */}
-              <li>
-                {isLoggedIn && (
-                  <button
-                    onClick={logout}
-                    className="text-dark dark:text-light hover:text-light-accent dark:hover:text-dark-accent"
-                  >
-                    Logout
-                  </button>
-                )}
-              </li>
-              <li>
-                <ThemeToggle />
-              </li>
-            </ul>
-          </div>
-        </div>
-      )}
-
       {/* Desktop Header */}
-      <header className="hidden md:flex justify-between items-center bg-light dark:bg-dark-secondary text-light-text dark:text-light py-4 shadow-lg fixed w-full top-0 z-50">
-        <div className="container mx-auto flex justify-between items-center">
-          <Link to="/" className="flex items-center">
-            <img
+      <motion.header
+        className="fixed top-0 left-0 right-0 z-50 bg-light-secondary dark:bg-dark-primary text-light-text dark:text-dark-text py-4 shadow-lg hidden md:flex"
+        initial={{ opacity: 1, y: 0 }}
+        animate={isScrollingUp ? { opacity: 1, y: 0 } : { opacity: 0, y: -100 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="container max-w-4xl mx-auto flex justify-between items-center px-4">
+          {/* Left Navigation */}
+          <nav className="flex space-x-6">
+            <Link to="/" className="hover:text-accent transition-colors duration-300">
+              Home
+            </Link>
+            <Link to="/about" className="hover:text-accent transition-colors duration-300">
+              About
+            </Link>
+            <Link to="/services" className="hover:text-accent transition-colors duration-300">
+              Services
+            </Link>
+            <Link to="/portfolio" className="hover:text-accent transition-colors duration-300">
+              Portfolio
+            </Link>
+          </nav>
+
+          {/* Center Logo */}
+          <Link to="/" className="flex items-center justify-center">
+            <motion.img
               src={GoldStormyMeadowlark}
               alt="Stormy Meadowlark Logo"
               className="h-16"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+              whileHover={{ scale: 1.1 }}
             />
-            <span className="ml-4 text-2xl md:text-base lg:text-2xl font-bold text-light-text dark:text-light">
-              Stormy Meadowlark
-            </span>
           </Link>
-          <nav className="md:flex md:space-x-4 items-center">
-            <Link
-              to="/about"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
-            >
-              About
-            </Link>
-            <Link
-              to="/services"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
-            >
-              Services
-            </Link>
-            <Link
-              to="/portfolio"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
-            >
-              Portfolio
-            </Link>
-            <Link
-              to="/contact"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
-            >
+
+          {/* Right Navigation */}
+          <div className="flex items-center space-x-6">
+            <Link to="/contact" className="hover:text-accent transition-colors duration-300">
               Contact
             </Link>
-            <Link
-              to="/tech&tranquility"
-              className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
-            >
+            <Link to="/tech&tranquility" className="hover:text-accent transition-colors duration-300">
               Tech & Tranquility
             </Link>
-            {isLoggedIn ? (
-              <Link
-                to={'/user/profile'}
-                className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
-              >
-                Profile
-              </Link>
-            ) : (
-              <Link
-                to="/account"
-                className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
-              >
-                Account
-              </Link>
-            )}
+
+            {/* Profile Dropdown */}
             {isLoggedIn && (
-              <button
-                onClick={logout}
-                className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-300 text-sm"
-              >
-                Logout
-              </button>
+              <div className="relative" ref={profileRef}>
+                <button
+                  className="flex items-center hover:text-accent transition-colors duration-300"
+                  onClick={toggleProfileMenu}
+                >
+                  Profile <FaAngleDown className="ml-1" />
+                </button>
+                {isProfileOpen && (
+                  <motion.ul
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute top-full right-0 mt-2 bg-light-secondary dark:bg-dark-primary shadow-md rounded-lg w-40"
+                  >
+                    <li className="py-2 px-4 hover:bg-accent transition-colors duration-300 cursor-pointer">
+                      <Link to={'/user/profile'}>View Profile</Link>
+                    </li>
+                    <li className="py-2 px-4 hover:bg-accent transition-colors duration-300 cursor-pointer">
+                      <button onClick={logout}>Logout</button>
+                    </li>
+                  </motion.ul>
+                )}
+              </div>
             )}
-          </nav>
-          <ThemeToggle />
+            <ThemeToggle />
+          </div>
         </div>
+      </motion.header>
+
+      {/* Mobile Header at Bottom with Full Menu */}
+      <header className="fixed bottom-0 left-0 right-0 z-50 bg-light-secondary dark:bg-dark-primary text-light-text dark:text-dark-text shadow-lg md:hidden">
+        <nav className="flex justify-between items-center p-4">
+          {/* Home */}
+          <Link to="/" className="flex flex-col items-center text-xs">
+            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }}>
+              <FaHome className="text-2xl" />
+            </motion.div>
+            <span>Home</span>
+          </Link>
+
+          {/* Services */}
+          <Link to="/services" className="flex flex-col items-center text-xs">
+            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }}>
+              <FaInfoCircle className="text-2xl" />
+            </motion.div>
+            <span>Services</span>
+          </Link>
+
+          {/* Centered Logo */}
+          <Link to="/" className="flex flex-col items-center">
+            <motion.img
+              src={GoldStormyMeadowlark}
+              alt="Stormy Meadowlark Logo"
+              className="h-10"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            />
+          </Link>
+
+          {/* Contact */}
+          <Link to="/contact" className="flex flex-col items-center text-xs">
+            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }}>
+              <FaEnvelope className="text-2xl" />
+            </motion.div>
+            <span>Contact</span>
+          </Link>
+
+          {/* More Dropdown */}
+          <div className="relative flex flex-col items-center">
+            <button onClick={toggleMoreMenu} className="focus:outline-none">
+              <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }}>
+                <FaAngleDown className="text-2xl" />
+              </motion.div>
+              <span>More</span>
+            </button>
+            {isMoreMenuOpen && (
+              <>
+                {/* Dimmed background */}
+                <div
+                  className="fixed inset-0 bg-black opacity-50 z-40"
+                  onClick={() => setIsMoreMenuOpen(false)} // Click outside to close
+                ></div>
+
+                {/* More Menu */}
+                <motion.div
+                  initial={{ opacity: 0, y: -50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="fixed inset-0 z-50 flex items-center justify-center"
+                >
+                  <div ref={moreMenuRef} className="bg-light-secondary dark:bg-dark-primary p-4 rounded-lg shadow-lg w-64">
+                    <ul className="text-center">
+                      <li className="py-2 px-4 hover:bg-accent transition-colors duration-300">
+                        <Link to="/about">About</Link>
+                      </li>
+                      <li className="py-2 px-4 hover:bg-accent transition-colors duration-300">
+                        <Link to="/portfolio">Tech & Tranquility</Link>
+                      </li>
+                      <li className="py-2 px-4 hover:bg-accent transition-colors duration-300">
+                        <Link to="/tech&tranquility">Portfolio</Link>
+                      </li>
+                      {isLoggedIn ? (
+                        <li className="py-2 px-4 hover:bg-accent transition-colors duration-300">
+                          <Link to={'/user/profile'}>Profile</Link>
+                        </li>
+                      ) : (
+                        <li className="py-2 px-4 hover:bg-accent transition-colors duration-300">
+                          <Link to="/account">Account</Link>
+                        </li>
+                      )}
+                      <li>
+                        <ThemeToggle />
+                      </li>
+                      <li className="py-2 px-4 hover:bg-accent transition-colors duration-300">
+                        <button onClick={toggleMoreMenu}>Close</button>
+                      </li>
+                    </ul>
+                  </div>
+                </motion.div>
+              </>
+            )}
+          </div>
+        </nav>
       </header>
     </>
   )

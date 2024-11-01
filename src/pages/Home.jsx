@@ -1,217 +1,258 @@
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { motion, useAnimation } from 'framer-motion'
-import { useEffect } from 'react'
-import { useInView } from 'react-intersection-observer'
-import SunsetImage from '../assets/images/AI-Generated-Sunset.webp'
 import LogoImage from '../assets/images/GoldStormyMeadowlark.png?react'
-import Image1 from '../assets/images/DALLE2~1.JPG'
-import Image2 from '../assets/images/DALLE2~2.JPG'
-import Image3 from '../assets/images/DALLE2~3.JPG'
+import CarImage1 from '../assets/images/DALLE2~1.JPG'
+import CarImage2 from '../assets/images/DALLE2~2.JPG'
+import CarImage3 from '../assets/images/DALLE2~3.JPG'
 
 const Home = () => {
-  const controls = useAnimation()
-  const { ref, inView } = useInView({
-    threshold: 0,
-    triggerOnce: false,
-  })
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible')
-    }
-  }, [controls, inView])
-
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
-  }
-
   return (
-    <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-dark-text min-h-screen font-gothic">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden min-h-screen flex flex-col items-center justify-center text-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `url(${SunsetImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            filter: 'brightness(40%)',
-          }}
-        />
+    <div className="main-wrapper min-h-screen bg-light-primary dark:bg-dark-primary text-dark-primary dark:text-light-text font-serif relative overflow-hidden">
+      
+      {/* Hero Section with Cinematic Reveal */}
+      <section className="relative h-screen flex flex-col justify-center items-center bg-gradient-to-br from-light-primary via-light-accent to-light-secondary dark:from-black dark:via-dark-primary dark:to-gray-900 text-center">
         <motion.img
           src={LogoImage}
           alt="Stormy Meadowlark Logo"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          className="w-96 mb-6 pt-10 z-10"
+          initial={{ opacity: 0, y: -100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+          className="w-48 mx-auto mb-12 relative z-20"
         />
+
         <motion.h1
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          className="sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white z-10"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 1.5, ease: 'easeOut' }}
+          className="text-7xl font-extrabold text-dark-text dark:text-white tracking-wide z-20"
         >
-          Elevate Your Digital Presence
+          Elevating Automotive Excellence
         </motion.h1>
         <motion.p
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1.5 }}
-          className="text-4xl mt-4 text-white z-10 max-w-2xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1.2 }}
+          className="text-2xl mt-6 max-w-2xl mx-auto relative z-20 text-dark-text dark:text-light-text"
         >
-          Digital solutions crafted for small businesses to thrive in the online
-          world.
+          Stormy Meadowlark offers tailored, luxury digital solutions for automotive businesses ready to stand above the rest.
         </motion.p>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-          className="mt-8 z-10"
+          transition={{ delay: 1.5, duration: 1 }}
+          className="mt-10 z-20"
         >
-          <div className='pb-20'>
-            <Link
-              to="/contact"
-              className="bg-light-accent dark:bg-dark-secondary text-white font-bold py-3 px-6 rounded-full transition-colors hover:bg-light-accent-hover"
-            >
-              Get Started
-            </Link>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Services Section */}
-      <motion.section
-        ref={ref}
-        variants={sectionVariants}
-        initial="hidden"
-        animate={controls}
-        className="py-16 bg-white dark:bg-dark-secondary text-light-text dark:text-light"
-      >
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Our Services</h2>
-          <p className="text-lg mb-10 max-w-2xl mx-auto">
-            From comprehensive digital strategies to custom web solutions, we
-            help you stand out in the crowded digital landscape.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Service Items */}
-            {[
-              {
-                title: 'Creation Bundles',
-                desc: 'Start your journey with tailored branding, web design, and digital marketing.',
-                link: '/services/initial-creation-bundles',
-              },
-              {
-                title: 'Monthly Packages',
-                desc: 'Continuous growth with our ongoing digital marketing and content management.',
-                link: '/services/ongoing-monthly-packages',
-              },
-              {
-                title: 'Custom Solutions',
-                desc: 'Unique digital solutions to meet your business goals, from development to strategy.',
-                link: '/services/custom-solutions',
-              },
-            ].map((service, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                className="bg-light-secondary dark:bg-dark-primary p-6 rounded-lg shadow-md"
-              >
-                <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
-                <p>{service.desc}</p>
-                <Link
-                  to={service.link}
-                  className="text-light-link dark:text-accent mt-4 inline-block"
-                >
-                  Learn More
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Recent Work Section */}
-      <motion.section
-        ref={ref}
-        variants={sectionVariants}
-        initial="hidden"
-        animate={controls}
-        className="py-16 bg-gradient-to-r from-light-primary to-light-secondary dark:from-dark-primary dark:to-dark-secondary text-center"
-      >
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-6">Our Recent Work</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Project Links */}
-            {[
-              {
-                image: Image1,
-                title: 'HEM Automotive',
-                link: '/projects/hem-automotive',
-              },
-              {
-                image: Image2,
-                title: 'API Gateway',
-                link: '/projects/api-gateway',
-              },
-              {
-                image: Image3,
-                title: 'Solar Athletics Rebrand',
-                link: '/projects/solar-athletics',
-              },
-            ].map((project, index) => (
-              <Link to={project.link} key={index}>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="bg-cover bg-center h-64 rounded-lg shadow-md"
-                  style={{ backgroundImage: `url(${project.image})` }}
-                >
-                  <div className="bg-black bg-opacity-50 h-full flex items-center justify-center">
-                    <h3 className="text-white text-lg font-bold">
-                      {project.title}
-                    </h3>
-                  </div>
-                </motion.div>
-              </Link>
-            ))}
-          </div>
-          <Link
-            to="/portfolio"
-            className="bg-light-accent dark:bg-dark-secondary text-white font-bold py-3 px-6 rounded-full mt-12 transition-colors hover:bg-light-accent-hover"
-          >
-            View Full Portfolio
-          </Link>
-        </div>
-      </motion.section>
-
-      {/* Call to Action */}
-      <motion.section
-        ref={ref}
-        variants={sectionVariants}
-        initial="hidden"
-        animate={controls}
-        className="py-16 bg-gradient-to-r from-light-accent to-light-secondary dark:from-dark-accent dark:to-dark-primary text-center"
-      >
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-6">
-            Let’s Build Something Great
-          </h2>
-          <p className="text-lg mb-8 max-w-2xl mx-auto">
-            Ready to elevate your digital strategy? Contact us to get started!
-          </p>
           <Link
             to="/contact"
-            className="bg-light-accent dark:bg-dark-secondary text-white font-bold py-3 px-6 rounded-full transition-colors hover:bg-light-accent-hover"
+            className="px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover transition-all duration-300"
+           
           >
-            Contact Us
+            Begin Your Journey
           </Link>
+        </motion.div>
+
+        {/* Cinematic Background Reveal */}
+        <motion.div
+          className="absolute inset-0 z-10"
+          style={{ backgroundImage: `url(${CarImage1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+          initial={{ opacity: 0, scale: 1.2 }}
+          animate={{ opacity: 0.5, scale: 1 }}
+          transition={{ duration: 2 }}
+        />
+        <motion.div
+          className="absolute inset-0 bg-black bg-opacity-60 z-10"
+          initial={{ opacity: 0.4 }}
+          animate={{ opacity: 8 }}
+          transition={{ duration: 1 }}
+        />
+      </section>
+
+      {/* Scroll-Based Service Reveals */}
+      <section className="py-24 bg-light-primary dark:bg-black text-dark-primary dark:text-white text-center relative">
+        <motion.h2
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="text-5xl font-extrabold mb-16 tracking-wide"
+        >
+          The Future of Automotive Digital Solutions
+        </motion.h2>
+
+        <div className="flex flex-wrap">
+          {/* Left Text with Parallax */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="w-full md:w-1/2 flex items-center justify-center p-8"
+            style={{ transform: 'translateY(30px)' }}
+          >
+            <div>
+              <h3 className="text-4xl font-bold mb-4">Custom Development</h3>
+              <p className="text-lg mb-6 text-dark-primary dark:text-light-text">
+                Exclusive web platforms, APIs, and more, meticulously designed for automotive success.
+              </p>
+              <Link to="/services/custom-development" className="text-accent dark:text-dark-accent underline">
+                Learn More
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Right Image with 3D Hover */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="w-full md:w-1/2 relative overflow-hidden"
+          >
+            <motion.img
+              src={CarImage2}
+              alt="Custom Development"
+              className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
+            />
+          </motion.div>
         </div>
-      </motion.section>
+
+        {/* Reverse Layout */}
+        <div className="flex flex-wrap mt-16">
+          {/* Left Image with Parallax Hover */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="w-full md:w-1/2 relative overflow-hidden"
+          >
+            <motion.img
+              src={CarImage3}
+              alt="Digital Marketing"
+              className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
+            />
+          </motion.div>
+
+          {/* Right Text Block with Scroll Animation */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="w-full md:w-1/2 flex items-center justify-center p-8"
+            style={{ transform: 'translateY(30px)' }}
+          >
+            <div>
+              <h3 className="text-4xl font-bold mb-4">Targeted Digital Marketing</h3>
+              <p className="text-lg mb-6 text-dark-primary dark:text-light-text">
+                Elevate your brand with tailored, data-driven campaigns that put you ahead in the market.
+              </p>
+              <Link to="/services/digital-marketing" className="text-accent dark:text-dark-accent underline">
+                Learn More
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Immersive API Integration Section */}
+      <section className="relative h-screen bg-gray-900 dark:bg-light-primary text-white dark:text-dark-primary text-center flex items-center justify-center">
+        <div className="absolute inset-0">
+          <motion.img
+            src={CarImage2}
+            alt="API Integration"
+            className="w-full h-full object-cover opacity-30"
+            initial={{ scale: 1.2 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 2 }}
+          />
+        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="relative z-10"
+        >
+          <h2 className="text-6xl font-extrabold mb-8">API Integrations</h2>
+          <p className="text-2xl max-w-2xl mx-auto mb-6">
+            Enhance your automotive platform with seamless, real-time API solutions for superior efficiency and automation.
+          </p>
+          <Link to="/services/api-integrations" className="text-accent hover:text-light-hover  dark:text-dark-accent dark:hover:text-cta-hover">
+            Learn More
+          </Link>
+        </motion.div>
+      </section>
+
+      {/* Portfolio with Cinematic Reveal */}
+      <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-800 dark:from-light-primary dark:via-light-accent dark:to-light-secondary text-center">
+        <h2 className="text-5xl font-extrabold text-white dark:text-dark-primary mb-16 tracking-wide">
+          Our Craftsmanship
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="relative overflow-hidden rounded-lg"
+          >
+            <img
+              src={CarImage1}
+              alt="Project 1"
+              className="w-full h-64 object-cover transform transition-transform hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-2xl font-bold">
+              HEM Automotive
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="relative overflow-hidden rounded-lg"
+          >
+            <img
+              src={CarImage2}
+              alt="Project 2"
+              className="w-full h-64 object-cover transform transition-transform hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-2xl font-bold">
+              API Gateway
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="relative overflow-hidden rounded-lg"
+          >
+            <img
+              src={CarImage3}
+              alt="Project 3"
+              className="w-full h-64 object-cover transform transition-transform hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-2xl font-bold">
+              Solar Athletics Rebrand
+            </div>
+          </motion.div>
+        </div>
+        <Link
+          to="/portfolio"
+          className="mt-12 px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover inline-block"
+        >
+          Explore Our Portfolio
+        </Link>
+      </section>
+
+      {/* Invitation with Elegance */}
+      <section className="py-24 bg-black dark:bg-light-primary text-center text-white dark:text-dark-primary">
+        <h2 className="text-5xl font-extrabold mb-8">Tailored Luxury for Visionaries</h2>
+        <p className="text-xl max-w-3xl mx-auto mb-12">
+          Join us on a journey where your digital presence is crafted to perfection, exclusively for those who demand the best.
+        </p>
+        <Link
+          to="/contact"
+          className="bg-accent dark:bg-dark-accent hover:bg-light-hover dark:hover:bg-cta-hover text-light-text dark:text-dark-text font-bold py-4 px-8 text-xl rounded-full hover:bg-accent-hover dark:hover:bg-dark-accent-hover"
+        >
+          Request a Consultation
+        </Link>
+      </section>
     </div>
   )
 }

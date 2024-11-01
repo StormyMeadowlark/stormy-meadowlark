@@ -46,6 +46,7 @@ module.exports = {
         dark: '#2c3e50',
         light: '#f5f5f5',
         'cta-hover': '#f5576c',
+        'light-hover': '#e06ae8',
         // Dark theme colors
         'dark-primary': '#332940', // A deep purple representing the night sky
         'dark-secondary': '#0f0c29', // Darker background, like a late evening sky

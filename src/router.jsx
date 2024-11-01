@@ -52,7 +52,7 @@ const AppRouter = () => (
         element={<InitialCreationBundles />}
       />
       <Route path="/tech&tranquility" element={<BlogHome />} />
-      <Route path="/blog/:postId" element={<SinglePost />} />
+      <Route path="/tech&tranquility/:postId" element={<SinglePost />} />
       <Route
         path="/careers/frontend-developer"
         element={<FrontendDeveloper />}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion' // Motion for smooth animations
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState('light')
@@ -16,27 +17,22 @@ const ThemeToggle = () => {
   }
 
   return (
-    <div
+    <motion.div
       onClick={toggleTheme}
-      className="relative inline-flex items-center cursor-pointer"
+      className="cursor-pointer flex items-center justify-center p-2 rounded-full transition-colors duration-500 ease-in-out"
+      whileHover={{ scale: 1.05 }} // Slight hover effect for emphasis
+      whileTap={{ scale: 0.95 }} // Tap effect for interaction
     >
-      <input
-        type="checkbox"
-        checked={theme === 'dark'}
-        onChange={toggleTheme}
-        className="sr-only"
-      />
-      <div className="w-14 h-8 bg-light-accent dark:bg-dark-secondary rounded-full shadow-inner transition-colors duration-300 ease-in-out"></div>
-      <div
-        className={`absolute top-0.5 left-0.5 w-7 h-7 bg-white dark:bg-dark-accent rounded-full shadow-md transition-all duration-300 transform ${
-          theme === 'dark' ? 'translate-x-6' : ''
+      <span
+        className={`text-lg font-semibold transition-colors duration-500 ${
+          theme === 'light'
+            ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-transparent bg-clip-text'
+            : 'bg-gradient-to-r from-indigo-500 to-purple-600 text-transparent bg-clip-text'
         }`}
       >
-        <span className="absolute inset-0 flex items-center justify-center text-xl text-dark-primary dark:text-light">
-          {theme === 'light' ? '🌞' : '🌜'}
-        </span>
-      </div>
-    </div>
+        {theme === 'light' ? 'Light' : 'Dark'}
+      </span>
+    </motion.div>
   )
 }
 
