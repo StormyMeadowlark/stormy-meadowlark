@@ -4,7 +4,7 @@ import { FaHome, FaEnvelope, FaInfoCircle, FaAngleDown } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { AuthContext } from '../context/AuthContext'
 import ThemeToggle from './ThemeToggle'
-import GoldStormyMeadowlark from '../assets/images/GoldStormyMeadowlark.png?react'
+import GoldStormyMeadowlark from '../assets/images/StormyMeadowlarkStroke.png?react'
 
 const Header = () => {
   const { isLoggedIn, logout } = useContext(AuthContext)

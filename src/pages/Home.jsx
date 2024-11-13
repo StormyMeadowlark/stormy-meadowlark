@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import LogoImage from '../assets/images/GoldStormyMeadowlark.png?react'
-import CarImage1 from '../assets/images/DALLE2~1.JPG'
+import LogoImage from '../assets/images/StormyMeadowlarkLogoWords.png?react'
+import AdCampaign from '../assets/images/PaidAdCampaign.png?react'
+import CarImage1 from '../assets/images/SunsetCars.png'
 import CarImage2 from '../assets/images/DALLE2~2.JPG'
 import CarImage3 from '../assets/images/DALLE2~3.JPG'
 
 const Home = () => {
   return (
-    <div className="main-wrapper min-h-screen bg-light-primary dark:bg-dark-primary text-dark-primary dark:text-light-text font-serif relative overflow-hidden">
-      
+    <div className="main-wrapper min-h-screen bg-light-primary dark:bg-dark-primary text-dark-primary dark:text-light-text relative overflow-hidden font-gothic">
       {/* Hero Section with Cinematic Reveal */}
       <section className="relative h-screen flex flex-col justify-center items-center bg-gradient-to-br from-light-primary via-light-accent to-light-secondary dark:from-black dark:via-dark-primary dark:to-gray-900 text-center">
         <motion.img
@@ -17,24 +17,26 @@ const Home = () => {
           initial={{ opacity: 0, y: -100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          className="w-48 mx-auto mb-12 relative z-20"
+          className="w-80 mx-auto mb-12 relative z-20"
         />
 
         <motion.h1
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 1.5, ease: 'easeOut' }}
-          className="text-7xl font-extrabold text-dark-text dark:text-white tracking-wide z-20"
+          className="leading-relaxed text-5xl font-extrabold text-dark-text dark:text-white tracking-wide z-20 max-w-7xl"
         >
-          Elevating Automotive Excellence
+          Marketing & Web Design for Your Auto Business
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1.2 }}
-          className="text-2xl mt-6 max-w-2xl mx-auto relative z-20 text-dark-text dark:text-light-text"
+          className="leading-relaxed text-2xl mt-6 max-w-7xl mx-auto relative z-20 text-dark-text dark:text-light-text tracking-wide"
         >
-          Stormy Meadowlark offers tailored, luxury digital solutions for automotive businesses ready to stand above the rest.
+          Stormy Meadowlark helps auto shops and dealerships get more customers
+          and keep them coming back. From custom web design to SEO, digital ads
+          and more, we’ve got you covered.
         </motion.p>
         <motion.div
           initial={{ opacity: 0 }}
@@ -45,16 +47,19 @@ const Home = () => {
           <Link
             to="/contact"
             className="px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover transition-all duration-300"
-           
           >
-            Begin Your Journey
+            Start Growing Your Business
           </Link>
         </motion.div>
 
         {/* Cinematic Background Reveal */}
         <motion.div
           className="absolute inset-0 z-10"
-          style={{ backgroundImage: `url(${CarImage1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+          style={{
+            backgroundImage: `url(${CarImage1})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
           initial={{ opacity: 0, scale: 1.2 }}
           animate={{ opacity: 0.5, scale: 1 }}
           transition={{ duration: 2 }}
@@ -73,9 +78,10 @@ const Home = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-5xl font-extrabold mb-16 tracking-wide"
+          className="text-5xl font-extrabold mb-16 tracking-wide leading-relaxed max-w-7xl mx-auto"
         >
-          The Future of Automotive Digital Solutions
+          Results Driven Digital Marketing & Web Solutions for Auto Shops &
+          Dealerships
         </motion.h2>
 
         <div className="flex flex-wrap">
@@ -88,11 +94,102 @@ const Home = () => {
             style={{ transform: 'translateY(30px)' }}
           >
             <div>
-              <h3 className="text-4xl font-bold mb-4">Custom Development</h3>
-              <p className="text-lg mb-6 text-dark-primary dark:text-light-text">
-                Exclusive web platforms, APIs, and more, meticulously designed for automotive success.
+              <h3 className="text-4xl font-bold mb-4 tracking-wide">
+                Paid Advertisement & Content Production{' '}
+              </h3>
+              <p className="text-lg max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-light-text">
+                Reach your ideal customers with targeted ads and high-quality
+                content crafted to drive automotive success. Our campaigns
+                deliver real-time results you can measure, from new leads to
+                enhanced brand visibility.
               </p>
-              <Link to="/services/custom-development" className="text-accent dark:text-dark-accent underline">
+              <Link
+                to="/services/custom-development"
+                className="text-accent dark:text-dark-accent underline tracking-wide"
+              >
+                Learn More
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Right Image with 3D Hover */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="w-full md:w-1/2 relative overflow-hidden"
+          >
+            <motion.img
+              src={AdCampaign}
+              alt="Custom Development"
+              className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
+            />
+          </motion.div>
+        </div>
+
+        {/* Reverse Layout */}
+        <div className="flex flex-wrap mt-16">
+          {/* Left Image with Parallax Hover */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="w-full md:w-1/2 relative overflow-hidden"
+          >
+            <motion.img
+              src={CarImage3}
+              alt="Digital Marketing"
+              className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
+            />
+          </motion.div>
+
+          {/* Right Text Block with Scroll Animation */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="w-full md:w-1/2 flex items-center justify-center p-8"
+            style={{ transform: 'translateY(30px)' }}
+          >
+            <div>
+              <h3 className="text-4xl font-bold mb-4">
+                Web Design & Development
+              </h3>
+              <p className="text-lg mb-6 text-dark-primary dark:text-light-text">
+                Elevate your brand with tailored, data-driven campaigns that put
+                you ahead in the market.
+              </p>
+              <Link
+                to="/services/digital-marketing"
+                className="text-accent dark:text-dark-accent underline"
+              >
+                Learn More
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="flex flex-wrap">
+          {/* Left Text with Parallax */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="w-full md:w-1/2 flex items-center justify-center p-8"
+            style={{ transform: 'translateY(30px)' }}
+          >
+            <div>
+              <h3 className="text-4xl font-bold mb-4 tracking-wide">
+                Digital Marketing & Reputation Management{' '}
+              </h3>
+              <p className="text-lg tracking-wide mb-6 text-dark-primary dark:text-light-text">
+                Exclusive web platforms, APIs, and more, meticulously designed
+                for automotive success.
+              </p>
+              <Link
+                to="/services/custom-development"
+                className="text-accent dark:text-dark-accent underline tracking-wide"
+              >
                 Learn More
               </Link>
             </div>
@@ -138,11 +235,17 @@ const Home = () => {
             style={{ transform: 'translateY(30px)' }}
           >
             <div>
-              <h3 className="text-4xl font-bold mb-4">Targeted Digital Marketing</h3>
+              <h3 className="text-4xl font-bold mb-4">
+                Strategic Consulting & Brand Development
+              </h3>
               <p className="text-lg mb-6 text-dark-primary dark:text-light-text">
-                Elevate your brand with tailored, data-driven campaigns that put you ahead in the market.
+                Elevate your brand with tailored, data-driven campaigns that put
+                you ahead in the market.
               </p>
-              <Link to="/services/digital-marketing" className="text-accent dark:text-dark-accent underline">
+              <Link
+                to="/services/digital-marketing"
+                className="text-accent dark:text-dark-accent underline"
+              >
                 Learn More
               </Link>
             </div>
@@ -170,9 +273,13 @@ const Home = () => {
         >
           <h2 className="text-6xl font-extrabold mb-8">API Integrations</h2>
           <p className="text-2xl max-w-2xl mx-auto mb-6">
-            Enhance your automotive platform with seamless, real-time API solutions for superior efficiency and automation.
+            Enhance your automotive platform with seamless, real-time API
+            solutions for superior efficiency and automation.
           </p>
-          <Link to="/services/api-integrations" className="text-accent hover:text-light-hover  dark:text-dark-accent dark:hover:text-cta-hover">
+          <Link
+            to="/services/api-integrations"
+            className="text-accent hover:text-light-hover  dark:text-dark-accent dark:hover:text-cta-hover"
+          >
             Learn More
           </Link>
         </motion.div>
@@ -242,9 +349,12 @@ const Home = () => {
 
       {/* Invitation with Elegance */}
       <section className="py-24 bg-black dark:bg-light-primary text-center text-white dark:text-dark-primary">
-        <h2 className="text-5xl font-extrabold mb-8">Tailored Luxury for Visionaries</h2>
+        <h2 className="text-5xl font-extrabold mb-8">
+          Tailored Luxury for Visionaries
+        </h2>
         <p className="text-xl max-w-3xl mx-auto mb-12">
-          Join us on a journey where your digital presence is crafted to perfection, exclusively for those who demand the best.
+          Join us on a journey where your digital presence is crafted to
+          perfection, exclusively for those who demand the best.
         </p>
         <Link
           to="/contact"
