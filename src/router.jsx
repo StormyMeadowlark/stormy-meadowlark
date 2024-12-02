@@ -35,6 +35,7 @@ import BlogManagement from './pages/BlogManagement'
 import ProtectedRoute from './context/ProtectedRoutes' // Import ProtectedRoute
 import RequestPasswordReset from './pages/RequestPasswordReset' 
 import ResetPassword from './pages/ResetPassword' 
+import WebDevelopment from './pages/WebDevelopment'
 
 const AppRouter = () => (
   <Router>
@@ -48,7 +49,7 @@ const AppRouter = () => (
       <Route path="/account" element={<Account />} />
       <Route path="/portfolio" element={<Portfolio />} />
       <Route
-        path="services/initial-creation-bundles"
+        path="services/paid-ads"
         element={<InitialCreationBundles />}
       />
       <Route path="/tech&tranquility" element={<BlogHome />} />
@@ -65,15 +66,15 @@ const AppRouter = () => (
       <Route path="/careers/resume-portal" element={<ResumePortal />} />
       <Route path="/careers" element={<Careers />} />
       <Route
-        path="/services/ongoing-monthly-packages"
+        path="/services/strategy-consulting"
         element={<OngoingPackages />}
       />
-      <Route path="/services/api-access" element={<APIAccess />} />
+      <Route path="/services/web-development" element={<APIAccess />} />
       <Route
-        path="/services/digital-marketing-campaigns"
+        path="/services/digital-marketing"
         element={<DigitalMarketing />}
       />
-      <Route path="/services/custom-solutions" element={<CustomSolutions />} />
+      <Route path="/services/full-stack-development" element={<CustomSolutions />} />
       <Route path="/documents/disclaimer" element={<Disclaimer />} />
       <Route path="/documents/terms-of-service" element={<TermsOfService />} />
       <Route path="/documents/privacy-policy" element={<PrivacyPolicy />} />
@@ -113,6 +114,7 @@ const AppRouter = () => (
         path="/projects/solar-athletics"
         element={<SolarAthleticsProjectPage />}
       />
+      <Route path="/proven-process" element={<WebDevelopment />} />
     </Routes>
     <Footer />
   </Router>

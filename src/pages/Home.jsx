@@ -2,15 +2,55 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import LogoImage from '../assets/images/StormyMeadowlarkLogoWords.png?react'
 import AdCampaign from '../assets/images/PaidAdCampaign.png?react'
-import CarImage1 from '../assets/images/SunsetCars.png'
-import CarImage2 from '../assets/images/DALLE2~2.JPG'
-import CarImage3 from '../assets/images/DALLE2~3.JPG'
+import HeroBackground from '../assets/images/SunsetCars.png?react'
+import WebDevelopment from '../assets/images/WebDevelopment.png?react'
+import DigitalMarketingReputationManagement from '../assets/images/DigitalMarketingReputationManagement.png?react'
+import StrategyConsultationBranding from '../assets/images/StrategyConsultationBranding.png?react'
+import APIIntegrations from '../assets/images/APIIntegrations.png?react'
+import HEMautomotiveMarketingWebsite from '../assets/images/HEMautomotiveMarketingWebsite.png?react'
+import SolarAthleticsRebrand from '../assets/images/Before.png?react'
+import InventoryManagement from '../assets/images/InventoryManagment.png?react'
+
+
+
 
 const Home = () => {
+  const reasons = [
+    {
+      title: 'Industry Expertise',
+      description:
+        'The automotive world is unique, and we get it. From managing customer retention to enhancing online visibility, we focus on the strategies that matter most to your success.',
+    },
+    {
+      title: 'Tailored Solutions',
+      description:
+        'No templates here. We take the time to understand your brand and create marketing, web development, and tech solutions that truly reflect who you are.',
+    },
+    {
+      title: 'For Todays Customers',
+      description:
+        'Your customers are searching, booking, and browsing on their phones. We prioritize mobile-friendly designs and strategies to ensure you’re meeting them where they are.',
+    },
+    {
+      title: 'Data-Driven Results',
+      description:
+        'Everything we do is backed by analytics and performance tracking. You’ll know exactly how your investment is working for you, with real results that make a difference.',
+    },
+    {
+      title: 'Long-Term Partnerships',
+      description:
+        'We’re not just a one-and-done service. We aim to build lasting relationships, growing alongside your business and supporting your evolution.',
+    },
+    {
+      title: 'Innovation To Set You Apart',
+      description:
+        'Staying ahead in the automotive world means embracing new ideas. We bring fresh perspectives and creative solutions to help your shop stand out in a crowded market.',
+    },
+  ]
   return (
-    <div className="main-wrapper min-h-screen bg-light-primary dark:bg-dark-primary text-dark-primary dark:text-light-text relative overflow-hidden font-gothic">
+    <div className="main-wrapper min-h-screen bg-gradient-to-br from-[#d1d7e0] to-[#f7faff] dark:bg-gradient-to-b dark:from-[#332940] dark:to-[#0f0c29] text-dark-primary dark:text-light-text relative overflow-hidden font-gothic">
       {/* Hero Section with Cinematic Reveal */}
-      <section className="relative h-screen flex flex-col justify-center items-center bg-gradient-to-br from-light-primary via-light-accent to-light-secondary dark:from-black dark:via-dark-primary dark:to-gray-900 text-center">
+      <section className="relative h-screen flex flex-col justify-center items-center bg-gradient-to-br from-light-primary via-light-accent to-light-secondary dark:from-dark-secondary dark:to-dark-primary text-center">
         <motion.img
           src={LogoImage}
           alt="Stormy Meadowlark Logo"
@@ -26,13 +66,14 @@ const Home = () => {
           transition={{ delay: 0.5, duration: 1.5, ease: 'easeOut' }}
           className="leading-relaxed text-5xl font-extrabold text-dark-text dark:text-white tracking-wide z-20 max-w-7xl"
         >
-          Marketing & Web Design for Your Auto Business
+          Drive Your Auto Business Forward with Custom Web Design, Marketing, &
+          Development.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1.2 }}
-          className="leading-relaxed text-2xl mt-6 max-w-7xl mx-auto relative z-20 text-dark-text dark:text-light-text tracking-wide"
+          className="leading-relaxed text-2xl mt-6 max-w-7xl mx-auto relative z-20 text-dark-text tracking-wide"
         >
           Stormy Meadowlark helps auto shops and dealerships get more customers
           and keep them coming back. From custom web design to SEO, digital ads
@@ -56,7 +97,7 @@ const Home = () => {
         <motion.div
           className="absolute inset-0 z-10"
           style={{
-            backgroundImage: `url(${CarImage1})`,
+            backgroundImage: `url(${HeroBackground})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -73,7 +114,7 @@ const Home = () => {
       </section>
 
       {/* Scroll-Based Service Reveals */}
-      <section className="py-24 bg-light-primary dark:bg-black text-dark-primary dark:text-white text-center relative">
+      <section className="py-24 text-dark-primary dark:text-white text-center relative">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -97,7 +138,7 @@ const Home = () => {
               <h3 className="text-4xl font-bold mb-4 tracking-wide">
                 Paid Advertisement & Content Production{' '}
               </h3>
-              <p className="text-lg max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-light-text">
+              <p className="text-lg max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
                 Reach your ideal customers with targeted ads and high-quality
                 content crafted to drive automotive success. Our campaigns
                 deliver real-time results you can measure, from new leads to
@@ -137,7 +178,7 @@ const Home = () => {
             className="w-full md:w-1/2 relative overflow-hidden"
           >
             <motion.img
-              src={CarImage3}
+              src={WebDevelopment}
               alt="Digital Marketing"
               className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
             />
@@ -155,9 +196,16 @@ const Home = () => {
               <h3 className="text-4xl font-bold mb-4">
                 Web Design & Development
               </h3>
-              <p className="text-lg mb-6 text-dark-primary dark:text-light-text">
-                Elevate your brand with tailored, data-driven campaigns that put
-                you ahead in the market.
+              <p className="text-lg max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
+                Make a powerful first impression with a custom-built,
+                mobile-friendly website tailored for automotive businesses and
+                service shops. Unlike template sites, our custom website
+                development uses a high-performance tech stack to keep your site
+                fast, reliable, and fully customizable—helping customers find
+                services, book appointments, and learn what sets your shop
+                apart. Designed with your brand's unique characteristics in
+                mind, our responsive websites convert visitors into loyal
+                customers and are built to grow with your business.
               </p>
               <Link
                 to="/services/digital-marketing"
@@ -182,9 +230,12 @@ const Home = () => {
               <h3 className="text-4xl font-bold mb-4 tracking-wide">
                 Digital Marketing & Reputation Management{' '}
               </h3>
-              <p className="text-lg tracking-wide mb-6 text-dark-primary dark:text-light-text">
-                Exclusive web platforms, APIs, and more, meticulously designed
-                for automotive success.
+              <p className="text-lg max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
+                Elevate your shops visibility and trust with tailored digital
+                marketing strategies and proactive reputation management. From
+                targeted ad campaigns to Google reviews, we help you attract,
+                engage, and retain loyal customers, ensuring your shop stands
+                out in the automotive industry.
               </p>
               <Link
                 to="/services/custom-development"
@@ -203,7 +254,7 @@ const Home = () => {
             className="w-full md:w-1/2 relative overflow-hidden"
           >
             <motion.img
-              src={CarImage2}
+              src={DigitalMarketingReputationManagement}
               alt="Custom Development"
               className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
             />
@@ -220,7 +271,7 @@ const Home = () => {
             className="w-full md:w-1/2 relative overflow-hidden"
           >
             <motion.img
-              src={CarImage3}
+              src={StrategyConsultationBranding}
               alt="Digital Marketing"
               className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
             />
@@ -238,9 +289,18 @@ const Home = () => {
               <h3 className="text-4xl font-bold mb-4">
                 Strategic Consulting & Brand Development
               </h3>
-              <p className="text-lg mb-6 text-dark-primary dark:text-light-text">
-                Elevate your brand with tailored, data-driven campaigns that put
-                you ahead in the market.
+              <p className="text-lg max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
+                At Stormy Meadowlark, we help automotive businesses accelerate
+                growth by combining strategic consulting with expert brand
+                development. Our consulting services focus on identifying
+                marketing opportunities, refining customer acquisition
+                strategies, and creating actionable plans to achieve measurable
+                results. At the same time, we develop a strong brand identity
+                that captures your unique story, values, and vision—building
+                trust and making your business stand out in a competitive
+                marketplace. Together, these services empower your shop or
+                dealership to attract, engage, and retain loyal customers while
+                driving long-term success.
               </p>
               <Link
                 to="/services/digital-marketing"
@@ -254,12 +314,12 @@ const Home = () => {
       </section>
 
       {/* Immersive API Integration Section */}
-      <section className="relative h-screen bg-gray-900 dark:bg-light-primary text-white dark:text-dark-primary text-center flex items-center justify-center">
+      <section className="relative h-screen bg-gradient-to-br from-light-primary via-light-accent to-light-secondary dark:from-dark-secondary dark:to-dark-primary text-white dark:text-dark-text text-center flex items-center justify-center">
         <div className="absolute inset-0">
           <motion.img
-            src={CarImage2}
+            src={APIIntegrations}
             alt="API Integration"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-70 dark:opacity-50 blur"
             initial={{ scale: 1.2 }}
             animate={{ scale: 1 }}
             transition={{ duration: 2 }}
@@ -269,12 +329,18 @@ const Home = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="relative z-10"
+          className="relative z-10 bg-light-primary text-light-text dark:bg-dark-primary dark:text-dark-text p-8 rounded-lg shadow-lg"
         >
-          <h2 className="text-6xl font-extrabold mb-8">API Integrations</h2>
-          <p className="text-2xl max-w-2xl mx-auto mb-6">
-            Enhance your automotive platform with seamless, real-time API
-            solutions for superior efficiency and automation.
+          <h2 className="text-6xl font-extrabold mb-8 tracking-wide">
+            Custom Full-Stack Development
+          </h2>
+          <p className="text-2xl max-w-4xl mx-auto mb-6 tracking-wide">
+            Take your business to the next level with fully customized digital
+            solutions designed specifically for auto shops and dealerships. From
+            backend infrastructure to seamless frontend design, our full-stack
+            development services provide everything you need to deliver
+            outstanding customer experiences. Whether it’s API integrations,
+            dynamic web apps, or scalable platforms, we build it all.
           </p>
           <Link
             to="/services/api-integrations"
@@ -285,82 +351,110 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* Portfolio with Cinematic Reveal */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-800 dark:from-light-primary dark:via-light-accent dark:to-light-secondary text-center">
-        <h2 className="text-5xl font-extrabold text-white dark:text-dark-primary mb-16 tracking-wide">
-          Our Craftsmanship
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="relative overflow-hidden rounded-lg"
-          >
-            <img
-              src={CarImage1}
-              alt="Project 1"
-              className="w-full h-64 object-cover transform transition-transform hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-2xl font-bold">
-              HEM Automotive
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="relative overflow-hidden rounded-lg"
-          >
-            <img
-              src={CarImage2}
-              alt="Project 2"
-              className="w-full h-64 object-cover transform transition-transform hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-2xl font-bold">
-              API Gateway
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="relative overflow-hidden rounded-lg"
-          >
-            <img
-              src={CarImage3}
-              alt="Project 3"
-              className="w-full h-64 object-cover transform transition-transform hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-2xl font-bold">
-              Solar Athletics Rebrand
-            </div>
-          </motion.div>
+      <section className="relative py-24 text-center">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-5xl font-extrabold mb-12 tracking-wide text-light-text dark:text-dark-text">
+            Why Auto Shops & Dealerships Choose Stormy Meadowlark
+          </h2>
+          <h3 className="text-xl mb-12 tracking-wide text-light-text dark:text-dark-text">
+            We don’t just market your business—we help your shop soar.
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {reasons.map((reason, index) => (
+              <div
+                key={index}
+                className="p-6 bg-dark-primary bg-opacity-70 rounded-lg hover:scale-105 transform transition-transform duration-300"
+              >
+                <h3 className="text-3xl font-bold mb-4 tracking-wide text-dark-text">
+                  {reason.title}
+                </h3>
+                <p className="text-lg tracking-wide text-dark-text">
+                  {reason.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-        <Link
-          to="/portfolio"
-          className="mt-12 px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover inline-block"
-        >
-          Explore Our Portfolio
-        </Link>
+      </section>
+
+      {/* Portfolio with Cinematic Reveal */}
+      <section className="bg-gradient-to-br from-[#460696] to-[#ff5e62] text-center ">
+        <div className="py-24 bg-dark-secondary bg-opacity-50">
+          <h2 className="text-5xl font-extrabold text-white dark:text-dark-text mb-16 tracking-wide">
+            Our Craftsmanship
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="relative overflow-hidden rounded-lg"
+            >
+              <img
+                src={HEMautomotiveMarketingWebsite}
+                alt="Project 1"
+                className="w-full h-64 object-cover transform transition-transform hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-2xl font-bold">
+                HEM Automotive Branding, Web Development & Marketing
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="relative overflow-hidden"
+            >
+              <img
+                src={InventoryManagement}
+                alt="Project 2"
+                className="w-full h-64 object-cover transform transition-transform hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-2xl font-bold">
+                Full Stack Inventory Management System
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="relative overflow-hidden rounded-lg"
+            >
+              <img
+                src={SolarAthleticsRebrand}
+                alt="Project 3"
+                className="w-full h-64 object-cover transform transition-transform hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-2xl font-bold">
+                Solar Athletics Rebrand
+              </div>
+            </motion.div>
+          </div>
+          <Link
+            to="/portfolio"
+            className="mt-12 px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover inline-block"
+          >
+            Explore Our Portfolio
+          </Link>
+        </div>
       </section>
 
       {/* Invitation with Elegance */}
-      <section className="py-24 bg-black dark:bg-light-primary text-center text-white dark:text-dark-primary">
+      <section className="py-24 text-center text-light-text dark:text-dark-text">
         <h2 className="text-5xl font-extrabold mb-8">
-          Tailored Luxury for Visionaries
+          Shift Gears with Custom Solutions
         </h2>
         <p className="text-xl max-w-3xl mx-auto mb-12">
-          Join us on a journey where your digital presence is crafted to
-          perfection, exclusively for those who demand the best.
+          Let’s elevate your business with innovative, tailored strategies
+          designed for those ready to stand out and soar.
         </p>
         <Link
           to="/contact"
           className="bg-accent dark:bg-dark-accent hover:bg-light-hover dark:hover:bg-cta-hover text-light-text dark:text-dark-text font-bold py-4 px-8 text-xl rounded-full hover:bg-accent-hover dark:hover:bg-dark-accent-hover"
         >
-          Request a Consultation
+          Let's Get Started
         </Link>
       </section>
     </div>
