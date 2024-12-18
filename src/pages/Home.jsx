@@ -57,7 +57,7 @@ const Home = () => {
           initial={{ opacity: 0, y: -100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          className="w-80 mx-auto mb-12 relative z-20"
+          className="w-52 mx-auto my-12 relative z-20"
         />
 
         <motion.h1
