@@ -24,8 +24,20 @@ const About = () => (
             About Stormy Meadowlark
           </h1>
           <p className="text-lg max-w-lg mx-auto">
-          Stormy Meadowlark exists to empower independent auto repair shops and dealerships with digital solutions that truly reflect who they are. We believe that your business deserves more than cookie-cutter templates or one-size-fits-all platforms. That’s why we specialize in creating custom websites, innovative marketing strategies, and tailored tools designed to help you connect with your customers and stand out in a competitive market.<br></br><br></br>
-          Our mission is simple: to make sure your digital presence works as hard as you do. We combine industry knowledge, cutting-edge technology, and a commitment to quality to deliver solutions that help your business thrive—not just today, but for the long haul. At Stormy Meadowlark, every project is personal because we know that your success is what matters most.
+            Stormy Meadowlark exists to empower independent auto repair shops
+            and dealerships with digital solutions that truly reflect who they
+            are. We believe that your business deserves more than cookie-cutter
+            templates or one-size-fits-all platforms. That’s why we specialize
+            in creating custom websites, innovative marketing strategies, and
+            tailored tools designed to help you connect with your customers and
+            stand out in a competitive market.<br></br>
+            <br></br>
+            Our mission is simple: to make sure your digital presence works as
+            hard as you do. We combine industry knowledge, cutting-edge
+            technology, and a commitment to quality to deliver solutions that
+            help your business thrive—not just today, but for the long haul. At
+            Stormy Meadowlark, every project is personal because we know that
+            your success is what matters most.
           </p>
         </div>
         <div className="md:w-1/2 p-4">
@@ -56,15 +68,37 @@ const About = () => (
         <div className="md:w-1/2 p-4">
           <h2 className="text-3xl font-gothic-bold mb-4">Our Story</h2>
           <p className="text-lg max-w-lg mx-auto">
-          Stormy Meadowlark was inspired by the resilience and optimism of the meadowlark. After a storm, this bird is one of the first to start singing, a symbol of hope and strength. That message is at the heart of what we do: no matter the challenges, you can weather the storm and come out stronger—and we’re here to help you do it.
-<br></br><br></br>
-The idea for Stormy Meadowlark came from seeing how often independent auto repair shops and dealerships were overlooked in the digital world. These businesses, built on hard work and trust, deserve tools and strategies that reflect their dedication—not cookie-cutter solutions that don’t fit their needs. I wanted to create an agency that not only delivers results but also stands by businesses as a true partner through every challenge.
-<br></br><br></br>
-At Stormy Meadowlark, we specialize in custom digital solutions tailored to your shop’s unique identity. From websites built from scratch to creative marketing strategies, everything we do is designed to help you stand out and thrive in a competitive market. We believe that with the right tools and support, you can face any challenge and come out singing on the other side.
-<br></br><br></br>
-This agency isn’t just about solving problems—it’s about building something meaningful. Stormy Meadowlark is here to help your business not just survive but grow, with a focus on innovation, trust, and long-term success.
-<br></br><br></br>
-Let’s weather the storm together.
+            Stormy Meadowlark was inspired by the resilience and optimism of the
+            meadowlark. After a storm, this bird is one of the first to start
+            singing, a symbol of hope and strength. That message is at the heart
+            of what we do: no matter the challenges, you can weather the storm
+            and come out stronger—and we’re here to help you do it.
+            <br></br>
+            <br></br>
+            The idea for Stormy Meadowlark came from seeing how often
+            independent auto repair shops and dealerships were overlooked in the
+            digital world. These businesses, built on hard work and trust,
+            deserve tools and strategies that reflect their dedication—not
+            cookie-cutter solutions that don’t fit their needs. I wanted to
+            create an agency that not only delivers results but also stands by
+            businesses as a true partner through every challenge.
+            <br></br>
+            <br></br>
+            At Stormy Meadowlark, we specialize in custom digital solutions
+            tailored to your shop’s unique identity. From websites built from
+            scratch to creative marketing strategies, everything we do is
+            designed to help you stand out and thrive in a competitive market.
+            We believe that with the right tools and support, you can face any
+            challenge and come out singing on the other side.
+            <br></br>
+            <br></br>
+            This agency isn’t just about solving problems—it’s about building
+            something meaningful. Stormy Meadowlark is here to help your
+            business not just survive but grow, with a focus on innovation,
+            trust, and long-term success.
+            <br></br>
+            <br></br>
+            Let’s weather the storm together.
           </p>
         </div>
       </div>
@@ -89,11 +123,15 @@ Let’s weather the storm together.
               alt="Innovation"
               className="mb-4 w-20 h-20"
             />
-            <h3 className="text-xl font-gothic-bold mb-2">Innovation</h3>
+            <h3 className="text-xl font-gothic-bold mb-2">
+              Driven to Overcome
+            </h3>
             <p>
-              We are dedicated to staying ahead of the curve, using the latest
-              technologies and creative approaches to deliver cutting-edge
-              solutions.
+              Just like your business doesn’t quit when faced with a tough job,
+              neither do we. We embrace challenges head-on, knowing that growth
+              comes from persistence and hard work. At Stormy Meadowlark, we’re
+              here to help your business weather the storm and come out stronger
+              on the other side.
             </p>
           </motion.div>
           <motion.div
@@ -105,11 +143,14 @@ Let’s weather the storm together.
               alt="Integrity"
               className="mb-4 w-20 h-20"
             />
-            <h3 className="text-xl font-gothic-bold mb-2">Integrity</h3>
+            <h3 className="text-xl font-gothic-bold mb-2">
+              Built Like It Matters
+            </h3>
             <p>
-              Our relationships are built on trust and transparency. We believe
-              in delivering on our promises and maintaining the highest
-              standards in everything we do.
+              In your shop, every repair is done with care and precision—because
+              the details matter. We bring that same craftsmanship to everything
+              we create, delivering solutions that are customized, practical,
+              and built to last.
             </p>
           </motion.div>
           <motion.div
@@ -121,11 +162,14 @@ Let’s weather the storm together.
               alt="Client-Centric"
               className="mb-4 w-20 h-20"
             />
-            <h3 className="text-xl font-gothic-bold mb-2">Client-Centric</h3>
+            <h3 className="text-xl font-gothic-bold mb-2">
+              Your Business, Your Voice
+            </h3>
             <p>
-              Your business is our priority. We work closely with you to
-              understand your unique needs and tailor our services to help you
-              achieve your goals.
+              Just like every car has its own story, so does your business.
+              We’re here to help you stand out by finding the tools and
+              strategies that work best for you, giving you the confidence to
+              connect with your customers and grow your business on your terms.
             </p>
           </motion.div>
         </div>
@@ -150,12 +194,46 @@ Let’s weather the storm together.
           <h3 className="text-2xl font-gothic-bold">Ashlee</h3>
           <p className="text-lg mb-4">Founder & CEO</p>
           <p className="text-md max-w-xl mx-auto">
-            As the founder of Stormy Meadowlark, I am passionate about blending
-            technology and creativity to help small businesses succeed in the
-            digital age. With a deep understanding of both the challenges and
-            opportunities faced by entrepreneurs, I bring a personal touch to
-            every project, ensuring tailored digital solutions that truly
-            resonate.
+            Hi, I’m Ashlee, the founder & CEO of Stormy Meadowlark. This agency
+            is more than a business—it’s a reflection of my journey, my values,
+            and my determination to make a difference. 
+            <br></br><br></br>
+            My path here hasn’t been
+            traditional. From nearly completing a PhD in microbiology to diving
+            headfirst into the world of digital marketing and web development,
+            I’ve always sought to combine creativity with problem-solving. My
+            experience working hands-on with HEM Automotive opened my eyes to
+            the challenges small businesses face—especially in industries like
+            automotive, where hard work and dedication often go unnoticed in the
+            digital space. 
+            <br></br><br></br>
+            Stormy Meadowlark was born out of a desire to change
+            that. I saw an opportunity to build something meaningful: a partner
+            for independent auto shops and small dealerships that not only
+            understands their struggles but also delivers tailored, impactful
+            solutions that truly reflect who they are. 
+            <br></br><br>
+            </br>
+            For me, this isn’t just
+            about websites or marketing campaigns—it’s about empowering
+            businesses to grow, thrive, and connect with their customers in ways
+            they never thought possible. Inspired by the resilience of the
+            meadowlark, I believe in facing challenges head-on and finding a way
+            to rise stronger, no matter the storm. 
+            <br></br><br></br>
+            Whether it’s crafting custom
+            solutions or helping you navigate the complexities of the digital
+            world, I’m here to ensure your success—because your story, your
+            business, and your growth matter. 
+            <br></br><br></br>
+            Let’s build something incredible
+            together.
+            <br></br><br></br>
+            Ashlee
+            <br></br>
+            Founder & CEO, Stormy Meadowlark
+            <br></br>
+            "Innovation in Every Shift, Customization in Every Solution"
           </p>
         </div>
       </div>
@@ -188,8 +266,8 @@ Let’s weather the storm together.
         <p className="text-lg max-w-2xl mx-auto mb-8">
           Whether you&apos;re looking to build a cutting-edge website, create
           compelling content, or develop a robust digital marketing strategy,
-          Stormy Meadowlark is here to help you succeed. Let&apos;s collaborate to
-          create something extraordinary.
+          Stormy Meadowlark is here to help you succeed. Let&apos;s collaborate
+          to create something extraordinary.
         </p>
         <Link
           to="/contact"
