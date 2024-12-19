@@ -10,12 +10,14 @@ const InitialCreationBundles = () => (
       transition={{ duration: 1.2 }}
     >
       <h1 className="text-8xl font-extrabold text-center mb-12 tracking-wide text-shadow">
-        Initial Creation Bundles
+        Paid Ads and Content That Drive Engagement and Growth
       </h1>
       <p className="text-center text-xl max-w-4xl mx-auto mb-16 leading-relaxed">
-        Choose the bundle that best fits your business needs and let us help you
-        create a strong foundation for success. Each bundle offers a range of
-        services to build and elevate your digital presence.
+        In today’s digital world, reaching your ideal customers requires more
+        than just showing up—it takes the right message delivered in the right
+        place at the right time. At Stormy Meadowlark, we specialize in crafting
+        high-performing paid ad campaigns and compelling content that bring
+        measurable results for auto repair shops and dealerships.
       </p>
     </motion.div>
 
