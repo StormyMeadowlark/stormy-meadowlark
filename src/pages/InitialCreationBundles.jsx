@@ -1,24 +1,32 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+
 
 const InitialCreationBundles = () => (
   <div className="bg-gradient-to-b from-light-primary to-light-secondary dark:from-dark-primary dark:to-dark-secondary text-light-text dark:text-light min-h-screen font-gothic">
     {/* Main Header */}
     <motion.div
-      className="container mx-auto py-40"
+      className="container mx-auto py-40 text-center"
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2 }}
     >
-      <h1 className="text-8xl font-extrabold text-center mb-12 tracking-wide text-shadow">
-        Paid Ads and Content That Drive Engagement and Growth
+      <h1 className="text-center text-4xl max-w-4xl mx-auto font-extrabold mb-12 tracking-wide text-shadow">
+        Drive More Leads & Build Your Brand with Strategic Ads & Engaging Content
       </h1>
       <p className="text-center text-xl max-w-4xl mx-auto mb-16 leading-relaxed">
         In today’s digital world, reaching your ideal customers requires more
         than just showing up—it takes the right message delivered in the right
         place at the right time. At Stormy Meadowlark, we specialize in crafting
-        high-performing paid ad campaigns and compelling content that bring
+        expertly managed ad campaigns and scroll-stopping content that bring
         measurable results for auto repair shops and dealerships.
       </p>
+      <Link
+            to="/contact"
+            className="px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover inline-block"
+          >
+            Book Your Consultation Now
+          </Link>
     </motion.div>
 
     {/* Services Section */}

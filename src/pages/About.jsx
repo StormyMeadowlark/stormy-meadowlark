@@ -6,6 +6,13 @@ import InnovationImage from '../assets/images/InnovationImage.jpg?react'
 import IntegrityImage from '../assets/images/IntegrityImage.jpg?react'
 import ClientCentricImage from '../assets/images/ClientCentricImage.jpg?react'
 import HeadshotImage from '../assets/images/Ashlee-Headshot.png?react'
+import AshleeSitting from '../assets/images/Ashlee_Sitting.png?react'
+import Bentley from '../assets/images/Bentley.png?react'
+import Desk from '../assets/images/Desk.png?react'
+import Headlights from '../assets/images/Headlights.png?react'
+import Jeep_Flexin from '../assets/images/Jeep_Flexin.png?react'
+import Sunset from '../assets/images/Sunset_Cheer_Comp_1.png?react'
+
 
 
 
@@ -42,7 +49,7 @@ const About = () => (
         </div>
         <div className="md:w-1/2 p-4">
           <img
-            src={AboutImage}
+            src={Desk}
             alt="About Stormy Meadowlark"
             className="w-full rounded-lg shadow-md"
           />
@@ -60,7 +67,7 @@ const About = () => (
       <div className="container mx-auto flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 p-4 order-last md:order-first">
           <img
-            src={OurStoryImage}
+            src={Sunset}
             alt="Our Story"
             className="w-full rounded-lg shadow-md"
           />
@@ -119,7 +126,7 @@ const About = () => (
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src={InnovationImage}
+              src={Jeep_Flexin}
               alt="Innovation"
               className="mb-4 w-20 h-20"
             />
@@ -139,7 +146,7 @@ const About = () => (
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src={IntegrityImage}
+              src={Bentley}
               alt="Integrity"
               className="mb-4 w-20 h-20"
             />
@@ -158,7 +165,7 @@ const About = () => (
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src={ClientCentricImage}
+              src={Headlights}
               alt="Client-Centric"
               className="mb-4 w-20 h-20"
             />
@@ -187,7 +194,7 @@ const About = () => (
         <h2 className="text-3xl font-gothic-bold mb-8">Meet the Founder</h2>
         <div className="flex flex-col items-center max-w-3xl mx-auto">
           <img
-            src={HeadshotImage}
+            src={AshleeSitting}
             alt="Ashlee"
             className="w-40 h-40 rounded-full mb-4"
           />
