@@ -1,33 +1,165 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-
+import RightPersonImage from '../assets/images/Desk.png?react'
+import RightMessageImage from '../assets/images/Headlights.png?react'
+import RightPlaceImage from '../assets/images/Jeep_Flexin.png?react'
+import RightTimeImage from '../assets/images/Sunset_Cheer_Comp_1.png?react'
 
 const InitialCreationBundles = () => (
-  <div className="bg-gradient-to-b from-light-primary to-light-secondary dark:from-dark-primary dark:to-dark-secondary text-light-text dark:text-light min-h-screen font-gothic">
+  <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-light min-h-screen font-gothic">
     {/* Main Header */}
     <motion.div
-      className="container mx-auto py-40 text-center"
+      className="relative mx-auto py-40 text-center  rounded-lg shadow-lg"
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2 }}
     >
-      <h1 className="text-center text-4xl max-w-4xl mx-auto font-extrabold mb-12 tracking-wide text-shadow">
-        Drive More Leads & Build Your Brand with Strategic Ads & Engaging Content
-      </h1>
-      <p className="text-center text-xl max-w-4xl mx-auto mb-16 leading-relaxed">
-        In today’s digital world, reaching your ideal customers requires more
-        than just showing up—it takes the right message delivered in the right
-        place at the right time. At Stormy Meadowlark, we specialize in crafting
-        expertly managed ad campaigns and scroll-stopping content that bring
-        measurable results for auto repair shops and dealerships.
-      </p>
-      <Link
+      <div className="absolute inset-0 bg-pattern-dots dark:bg-pattern-grid opacity-20 z-0"></div>
+      <div className="relative z-10">
+        <h1 className="text-center text-5xl max-w-4xl mx-auto font-extrabold mb-12 tracking-wide text-shadow">
+          Drive More Leads & Build Your Brand with Strategic Ads & Engaging
+          Content
+        </h1>
+        <p className="text-center text-xl max-w-4xl mx-auto mb-16 leading-relaxed">
+          At Stormy Meadowlark, we know marketing is about more than just being
+          seen. It’s about connecting with the{' '}
+          <span className="italic">right people</span> in the{' '}
+          <span className="italic">right place</span> at the{' '}
+          <span className="italic">right time</span> with the{' '}
+          <span className="italic">right message</span>. That’s why we developed
+          our signature R⁴ Method for Ads Success—a straightforward,
+          results-driven process that blends ad campaign management with
+          scroll-stopping content created to grab attention and spark action.
+          Every piece we produce is rooted in the R⁴ Method for Ad Success,
+          ensuring it feels authentic, connects meaningfully, and delivers
+          results where it matters most.
+        </p>
+        <div className="bg-gradient-to-r from-light-accent to-light-primary dark:from-dark-secondary dark:to-dark-primary">
+          <p className="text-center text-3xl max-w-4xl mx-auto mb-16 leading-relaxed font-extrabold">
+            Ready to Spark Results?
+          </p>
+          <p className="text-center text-xl max-w-4xl mx-auto mb-16 leading-relaxed">
+            Take the guesswork out of your marketing. With the R⁴ Method for Ad
+            Success, we’ll help you stand out, connect authentically, and drive
+            meaningful growth. Let’s get started today.{' '}
+          </p>
+          <Link
             to="/contact"
             className="px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover inline-block"
           >
             Book Your Consultation Now
           </Link>
+        </div>
+      </div>
     </motion.div>
+
+    {/* Why Paid Ads Matter for Automotive Shops */}
+    <motion.section
+      className="mx-auto py-24 text-center bg-gradient-to-br from-light-secondary to-light-primary dark:from-dark-secondary dark:to-dark-accent relative rounded-lg shadow-lg"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+    >
+      <div className="absolute inset-0 bg-pattern-light dark:bg-pattern-dots opacity-10 z-0"></div>
+      <div className="relative z-10">
+        <h2 className="text-4xl font-extrabold mb-8 tracking-wide">
+          Why Paid Ads Matter for Your Shop
+        </h2>
+        <p className="text-xl max-w-3xl mx-auto leading-relaxed">
+          As an automotive shop or dealership, you rely on attracting the right
+          customers to grow your business. Paid ads let you target local drivers
+          searching for services, showcase your unique offerings, and drive
+          consistent foot traffic to your shop or showroom.
+        </p>
+        <p className="text-xl max-w-3xl mx-auto mt-8 leading-relaxed">
+          With the right strategy, you can appear at the top of search results
+          when customers look for "auto repair near me" or "used cars for sale."
+          We'll help you capture that attention and convert it into loyal
+          customers.
+        </p>
+      </div>
+    </motion.section>
+
+    {/* The R⁴ Method Sections */}
+    {[
+      {
+        title: 'Right Person',
+        description:
+          'Understand your ideal customers. Are they busy professionals needing quick service? Families seeking reliable vehicles? We identify your key audiences to ensure your ads speak directly to their needs.',
+        image: RightPersonImage,
+      },
+      {
+        title: 'Right Place',
+        description:
+          'Meet your customers where they are. Whether it’s Google Ads, Facebook, or Instagram, we focus on the platforms where your audience spends their time.',
+        image: RightPlaceImage,
+      },
+      {
+        title: 'Right Time',
+        description:
+          'Timing is everything. We ensure your ads are shown during peak times when your audience is most likely to engage, like during commutes or downtime.',
+        image: RightTimeImage,
+      },
+      {
+        title: 'Right Message',
+        description:
+          'Create content that matters. From ads showcasing your services to engaging social posts that build trust, we craft messages that resonate and inspire action.',
+        image: RightMessageImage,
+      },
+    ].map((section, index) => (
+      <motion.section
+        key={index}
+        className={`mx-auto py-24 text-center flex flex-col-reverse md:flex-row items-center relative ${
+          index % 2 === 0
+            ? 'bg-pattern-dots'
+            : 'bg-gradient-to-r from-light-primary via-light-secondary to-light-primary dark:from-dark-secondary dark:via-dark-primary dark:to-dark-secondary'
+        } rounded-lg shadow-lg`}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.2 + index * 0.2 }}
+      >
+        <motion.div
+          className="md:w-1/2 p-8 relative z-10"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        >
+          <h2 className="text-3xl font-extrabold mb-4 tracking-wide">
+            {section.title}
+          </h2>
+          <p className="text-xl leading-relaxed">{section.description}</p>
+        </motion.div>
+        <div className="md:w-1/2 relative">
+          <img
+            src={section.image}
+            alt={section.title}
+            className="w-full rounded-lg shadow-lg transform transition-transform hover:scale-110"
+          />
+        </div>
+      </motion.section>
+    ))}
+
+    {/* Final Call to Action */}
+    <motion.section
+      className="container mx-auto py-24 text-center bg-light-primary dark:bg-dark-primary bg-pattern-grid"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 2 }}
+    >
+      <h2 className="text-3xl font-extrabold mb-8 tracking-wide">
+        Let’s Take Your Shop to the Next Level
+      </h2>
+      <p className="text-xl max-w-4xl mx-auto mb-16 leading-relaxed">
+        The R⁴ Method is designed to help automotive businesses grow with
+        confidence. Let’s create ads and content that drive measurable results
+        for your shop or dealership.
+      </p>
+      <Link
+        to="/contact"
+        className="px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover inline-block"
+      >
+        Start Your Journey Now
+      </Link>
+    </motion.section>
 
     {/* Services Section */}
     <motion.section
