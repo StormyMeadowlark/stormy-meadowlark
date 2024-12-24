@@ -34,22 +34,6 @@ const InitialCreationBundles = () => (
           ensuring it feels authentic, connects meaningfully, and delivers
           results where it matters most.
         </p>
-        <div className="bg-gradient-to-r from-light-accent to-light-primary dark:from-dark-secondary dark:to-dark-primary">
-          <p className="text-center text-3xl max-w-4xl mx-auto mb-16 leading-relaxed font-extrabold">
-            Ready to Spark Results?
-          </p>
-          <p className="text-center text-xl max-w-4xl mx-auto mb-16 leading-relaxed">
-            Take the guesswork out of your marketing. With the R⁴ Method for Ad
-            Success, we’ll help you stand out, connect authentically, and drive
-            meaningful growth. Let’s get started today.{' '}
-          </p>
-          <Link
-            to="/contact"
-            className="px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover inline-block"
-          >
-            Book Your Consultation Now
-          </Link>
-        </div>
       </div>
     </motion.div>
 
@@ -78,68 +62,87 @@ const InitialCreationBundles = () => (
           customers.
         </p>
       </div>
+
     </motion.section>
-
-    {/* The R⁴ Method Sections */}
-    {[
-      {
-        title: 'Right Person',
-        description:
-          'Understand your ideal customers. Are they busy professionals needing quick service? Families seeking reliable vehicles? We identify your key audiences to ensure your ads speak directly to their needs.',
-        image: RightPersonImage,
-      },
-      {
-        title: 'Right Place',
-        description:
-          'Meet your customers where they are. Whether it’s Google Ads, Facebook, or Instagram, we focus on the platforms where your audience spends their time.',
-        image: RightPlaceImage,
-      },
-      {
-        title: 'Right Time',
-        description:
-          'Timing is everything. We ensure your ads are shown during peak times when your audience is most likely to engage, like during commutes or downtime.',
-        image: RightTimeImage,
-      },
-      {
-        title: 'Right Message',
-        description:
-          'Create content that matters. From ads showcasing your services to engaging social posts that build trust, we craft messages that resonate and inspire action.',
-        image: RightMessageImage,
-      },
-    ].map((section, index) => (
-      <motion.section
-        key={index}
-        className={`mx-auto py-24 text-center flex flex-col-reverse md:flex-row items-center relative ${
-          index % 2 === 0
-            ? 'bg-pattern-dots'
-            : 'bg-gradient-to-r from-light-primary via-light-secondary to-light-primary dark:from-dark-secondary dark:via-dark-primary dark:to-dark-secondary'
-        } rounded-lg shadow-lg`}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1.2 + index * 0.2 }}
-      >
-        <motion.div
-          className="md:w-1/2 p-8 relative z-10"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-        >
-          <h2 className="text-3xl font-extrabold mb-4 tracking-wide">
-            {section.title}
-          </h2>
-          <p className="text-xl leading-relaxed">{section.description}</p>
-        </motion.div>
-        <div className="md:w-1/2 relative">
-          <img
-            src={section.image}
-            alt={section.title}
-            className="w-full rounded-lg shadow-lg transform transition-transform hover:scale-110"
-          />
+<motion.section>
+<div className=" bg-gradient-to-r from-light-accent to-light-primary dark:from-dark-secondary dark:to-dark-primary">
+          <p className="text-center text-3xl max-w-4xl mx-auto mb-16 leading-relaxed font-extrabold">
+            Ready to Spark Results?
+          </p>
+          <p className="text-center text-xl max-w-4xl mx-auto mb-16 leading-relaxed">
+            Take the guesswork out of your marketing. With the R⁴ Method for Ad
+            Success, we’ll help you stand out, connect authentically, and drive
+            meaningful growth. Let’s get started today.{' '}
+          </p>
+          <div className="flex flex-1 justify-center">
+          <Link
+            to="/contact"
+            className=" px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover inline-block"
+          >
+            Book Your Consultation Now
+          </Link>
+          </div>
         </div>
-      </motion.section>
-    ))}
+</motion.section>
 
-    {/* Final Call to Action */}
-    <motion.section
+
+   {/* R⁴ Method Section */}
+   <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mx-auto py-24 max-w-5xl">
+   <div className="mb-12">
+    <h2 className="text-4xl font-extrabold text-accent mb-4">
+      The R⁴ Method for Ad Success
+    </h2>
+    <p className="text-xl max-w-4xl mx-auto leading-relaxed">
+      Discover our proven approach to marketing success by focusing on the right person, in the right place, at the right time, with the right message. The R⁴ Method ensures every campaign connects and delivers impactful results.
+    </p>
+  </div>
+      {[
+        {
+          title: 'Right Person',
+          description:
+            'Understand your ideal customers. Are they busy professionals needing quick service? Families seeking reliable vehicles? We identify your key audiences to ensure your ads speak directly to their needs.',
+          image: RightPersonImage,
+          icon: '🎯',
+        },
+        {
+          title: 'Right Place',
+          description:
+            'Meet your customers where they are. Whether it’s Google Ads, Facebook, or Instagram, we focus on the platforms where your audience spends their time.',
+          image: RightPlaceImage,
+          icon: '📍',
+        },
+        {
+          title: 'Right Time',
+          description:
+            'Timing is everything. We ensure your ads are shown during peak times when your audience is most likely to engage, like during commutes or downtime.',
+          image: RightTimeImage,
+          icon: '⏰',
+        },
+        {
+          title: 'Right Message',
+          description:
+            'Create content that matters. From ads showcasing your services to engaging social posts that build trust, we craft messages that resonate and inspire action.',
+          image: RightMessageImage,
+          icon: '💬',
+        },
+      ].map((section, index) => (
+        <div
+          key={index}
+          className="relative p-6 rounded-lg shadow-lg text-center text-light-text dark:text-dark-text"
+          style={{ backgroundImage: `url(${section.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
+          <div className="bg-dark-primary bg-opacity-60 p-4 rounded-lg">
+            <span className="text-6xl mb-4 block">{section.icon}</span>
+            <h3 className="text-3xl font-extrabold text-accent mb-4">
+              {section.title}
+            </h3>
+            <p className="text-xl leading-relaxed px-4">
+              {section.description}
+            </p>
+          </div>
+        </div>
+      ))}
+      <motion.section
       className="container mx-auto py-24 text-center bg-light-primary dark:bg-dark-primary bg-pattern-grid"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -160,189 +163,133 @@ const InitialCreationBundles = () => (
         Start Your Journey Now
       </Link>
     </motion.section>
+    </section>
 
-    {/* Services Section */}
+
+    {/* Final Call to Action */}
+    <section className="bg-light-secondary dark:bg-dark-secondary py-24 text-center">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl font-extrabold text-accent mb-8">
+          Proven Results
+        </h2>
+        <p className="text-xl max-w-4xl mx-auto leading-relaxed mb-12">
+          Our campaigns deliver measurable outcomes that matter to your business. From increasing call rates to boosting website traffic, we focus on strategies that drive real growth.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="p-6 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+            <h3 className="text-3xl font-bold text-accent mb-4">9% Call Rate</h3>
+            <p className="text-lg">Achieved call rates as high as 9% on select ad campaigns.</p>
+          </div>
+          <div className="p-6 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+            <h3 className="text-3xl font-bold text-accent mb-4">200% Traffic Increase</h3>
+            <p className="text-lg">Doubled website traffic within three months for key clients.</p>
+          </div>
+          <div className="p-6 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+            <h3 className="text-3xl font-bold text-accent mb-4">3x ROI</h3>
+            <p className="text-lg">Generated three times the return on investment through targeted campaigns.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <motion.section
-      className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 pb-24"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.4 }}
-    >
-      {/* Starter Creation Bundle */}
-      <motion.div
-        className="p-8 bg-white dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
-        whileHover={{ scale: 1.05 }}
-      >
-        {/* Decorative Element */}
-        <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary rounded-full opacity-20 transform rotate-12"></div>
+  className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 pb-24"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 1.4 }}
+>
+  {/* Ads Packages */}
+  <motion.div
+    className="p-8 bg-white dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
+    whileHover={{ scale: 1.05 }}
+  >
+    <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary rounded-full opacity-20 transform rotate-12"></div>
+    <h2 className="text-3xl font-gothic-bold mb-4">Basic Ads Package</h2>
+    <p className="text-4xl font-extrabold mb-4 text-accent">Starting at $3,000</p>
+    <ul className="text-left list-disc list-inside mb-4 space-y-2">
+      <li><b>Google Ads Setup:</b> Keyword research and campaign creation.</li>
+      <li><b>Meta Ads Setup:</b> Audience targeting and ad design.</li>
+      <li><b>1 Month Optimization:</b> Basic performance tracking and adjustments.</li>
+    </ul>
+    <p className="italic text-gray-500 mt-4">Perfect for businesses new to paid ads.</p>
+  </motion.div>
 
-        <h2 className="text-3xl font-gothic-bold mb-4">
-          Initial Creation Bundle
-        </h2>
-        <p className="text-4xl font-extrabold mb-4 text-accent">
-          Starting at $6,000
-        </p>
-        <ul className="text-left list-disc list-inside mb-4 space-y-2">
-          <li>
-            <b>Custom Website Development:</b> Multi-page website (up to 10
-            pages) with a responsive design optimized for both desktop and
-            mobile, tailored to the client’s brand and business needs.
-          </li>
-          <li>
-            <b>Mobile and Desktop Optimization:</b> Ensuring the website is
-            fully optimized for both desktop and mobile devices.
-          </li>
-          <li>
-            <b>Basic SEO Setup:</b> Foundational SEO elements, including meta
-            tags, alt text, and keyword integration to improve search engine
-            visibility.
-          </li>
-          <li>
-            <b>Initial Brand Guide & Voice Guide:</b> Simplified brand guide
-            including color palette, typography, logo usage, and basic guidance
-            on defining the brand’s tone and messaging.
-          </li>
-          <li>
-            <b>Social Media Setup:</b> Setting up or optimizing profiles on
-            Google My Business, Facebook, and Instagram to align with the brand.
-          </li>
-          <li>
-            <b>Basic Social Media Strategy Session:</b> One-hour consultation to
-            help the client effectively use social media platforms.
-          </li>
-          <li>
-            <b>1 Month of Content Creation:</b> Includes 8 branded social media
-            posts, utilizing stock images or basic photography.
-          </li>
-          <li>
-            <b>Basic API Integration:</b> Simple API integration to connect the
-            website with essential services (like email sign-ups, contact forms,
-            or social media feeds).
-          </li>
-          <li>
-            <b>Post-Launch Support:</b> One-month of post-launch support for
-            updates, maintenance, and a follow-up consultation.
-          </li>
-        </ul>
-        <p className="italic text-gray-500 mt-4">
-          Perfect for new businesses looking to establish a strong digital
-          presence with foundational tools and strategies.
-        </p>
-      </motion.div>
-      {/* Growth Creation Bundle */}
-      <motion.div
-        className="p-8 bg-white dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
-        whileHover={{ scale: 1.05 }}
-      >
-        {/* Decorative Element */}
-        <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary rounded-full opacity-20 transform rotate-12"></div>
+  <motion.div
+    className="p-8 bg-white dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
+    whileHover={{ scale: 1.05 }}
+  >
+    <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary rounded-full opacity-20 transform rotate-12"></div>
+    <h2 className="text-3xl font-gothic-bold mb-4">Growth Ads Package</h2>
+    <p className="text-4xl font-extrabold mb-4 text-accent">Starting at $6,000</p>
+    <ul className="text-left list-disc list-inside mb-4 space-y-2">
+      <li><b>Google & Meta Ads:</b> Advanced targeting and ad variations.</li>
+      <li><b>Retargeting Campaigns:</b> Focused on conversions.</li>
+      <li><b>Performance Analytics:</b> Monthly reporting and strategy updates.</li>
+    </ul>
+    <p className="italic text-gray-500 mt-4">For scaling businesses ready to grow.</p>
+  </motion.div>
 
-        <h2 className="text-3xl font-gothic-bold mb-4">
-          Growth Creation Bundle
-        </h2>
-        <p className="text-4xl font-extrabold mb-4 text-accent">
-          Starting at $12,500
-        </p>
-        <ul className="text-left list-disc list-inside mb-4 space-y-2">
-          <li>
-            <b>Custom Web Application Development:</b> Development of a
-            customized web application (e.g., customer portal, booking system,
-            or e-commerce platform) with essential features tailored to the
-            client's needs.
-          </li>
-          <li>
-            <b>Responsive Design and Cross-Platform Compatibility:</b> Ensuring
-            smooth performance across all devices and browsers.
-          </li>
-          <li>
-            <b>Enhanced SEO Strategy:</b> Comprehensive SEO audit and strategy,
-            including keyword research, competitor analysis, and content
-            optimization to drive traffic.
-          </li>
-          <li>
-            <b>Brand Identity Package:</b> Logo design, brand style guide, and
-            voice and messaging guide to establish and maintain a strong brand
-            presence.
-          </li>
-          <li>
-            <b>Basic API Development and Integration:</b> API portal development
-            for essential integrations (e.g., payment gateways, CRM tools).
-          </li>
-          <li>
-            <b>Initial Digital Marketing Campaign Setup:</b> Setup for Google
-            Ads and Meta Ads, including a campaign consultation session.
-          </li>
-          <li>
-            <b>Social Media Content Creation:</b> 3 months of content creation,
-            including 12 posts per month and basic social media management.
-          </li>
-          <li>
-            <b>Post-Launch Consulting:</b> 3 months of consulting (up to 8 hours
-            per month) for ongoing support and strategy optimization.
-          </li>
-        </ul>
-        <p className="italic text-gray-500 mt-4">
-          Ideal for growing businesses ready to expand their digital reach and
-          improve their brand presence through strategic marketing.
-        </p>
-      </motion.div>
+  <motion.div
+    className="p-8 bg-white dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
+    whileHover={{ scale: 1.05 }}
+  >
+    <div className="absolute -top-10 -right-10 w-40 h-40 bg-tertiary rounded-full opacity-20 transform rotate-12"></div>
+    <h2 className="text-3xl font-gothic-bold mb-4">Premium Ads Package</h2>
+    <p className="text-4xl font-extrabold mb-4 text-accent">Starting at $12,000</p>
+    <ul className="text-left list-disc list-inside mb-4 space-y-2">
+      <li><b>Multi-Channel Campaigns:</b> Google, Meta, YouTube, and TikTok.</li>
+      <li><b>Custom Ad Creatives:</b> High-quality visuals and video ads.</li>
+      <li><b>Detailed Analytics:</b> Insights and advanced optimization.</li>
+    </ul>
+    <p className="italic text-gray-500 mt-4">Comprehensive solution for high ROI.</p>
+  </motion.div>
 
-      {/* Premium Creation Bundle */}
-      <motion.div
-        className="p-8 bg-white dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
-        whileHover={{ scale: 1.05 }}
-      >
-        {/* Decorative Element */}
-        <div className="absolute -top-10 -right-10 w-40 h-40 bg-tertiary rounded-full opacity-20 transform rotate-12"></div>
+  {/* Content Packages */}
+  <motion.div
+    className="p-8 bg-white dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
+    whileHover={{ scale: 1.05 }}
+  >
+    <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary rounded-full opacity-20 transform rotate-12"></div>
+    <h2 className="text-3xl font-gothic-bold mb-4">Basic Content Package</h2>
+    <p className="text-4xl font-extrabold mb-4 text-accent">Starting at $2,000</p>
+    <ul className="text-left list-disc list-inside mb-4 space-y-2">
+      <li><b>Photography Session:</b> 20 professional photos.</li>
+      <li><b>Stock Video Clips:</b> 5 branded stock video edits.</li>
+      <li><b>Basic Graphics:</b> 5 social media visuals.</li>
+    </ul>
+    <p className="italic text-gray-500 mt-4">Best for small businesses needing foundational visuals.</p>
+  </motion.div>
 
-        <h2 className="text-3xl font-gothic-bold mb-4">
-          Premium Creation Bundle
-        </h2>
-        <p className="text-4xl font-extrabold mb-4 text-accent">
-          Starting at $15,000
-        </p>
-        <ul className="text-left list-disc list-inside mb-4 space-y-2">
-          <li>
-            <b>Comprehensive Website and Web Application Development:</b> Custom
-            multi-page website and web application with essential features like
-            user authentication, interactive forms, and dynamic content.
-          </li>
-          <li>
-            <b>Enhanced User Experience (UX) Design:</b> Ensuring responsive
-            design and cross-platform compatibility for a seamless user
-            experience.
-          </li>
-          <li>
-            <b>Advanced SEO Implementation:</b> Advanced SEO strategy, including
-            a focused audit, on-page optimization, and local SEO setup.
-          </li>
-          <li>
-            <b>Full-Scale Branding and Strategy Package:</b> Complete brand
-            identity and content creation, including social media graphics and
-            1-2 blog posts.
-          </li>
-          <li>
-            <b>Basic API Development and Integration:</b> Essential API
-            integrations and simplified API portal setup.
-          </li>
-          <li>
-            <b>Multi-Channel Digital Marketing Campaign Setup:</b> Setup for
-            Google Ads, Meta Ads, LinkedIn, and strategy consultation for
-            YouTube and TikTok.
-          </li>
-          <li>
-            <b>3 Months of Social Media Management and Analytics:</b> Content
-            scheduling, posting, and monthly performance reporting, with up to 6
-            consultation hours per month.
-          </li>
-        </ul>
-        <p className="italic text-gray-500 mt-4">
-          Designed for businesses looking for an all-inclusive package to
-          dominate their digital landscape with comprehensive tools and ongoing
-          support.
-        </p>
-      </motion.div>
-    </motion.section>
+  <motion.div
+    className="p-8 bg-white dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
+    whileHover={{ scale: 1.05 }}
+  >
+    <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary rounded-full opacity-20 transform rotate-12"></div>
+    <h2 className="text-3xl font-gothic-bold mb-4">Growth Content Package</h2>
+    <p className="text-4xl font-extrabold mb-4 text-accent">Starting at $5,000</p>
+    <ul className="text-left list-disc list-inside mb-4 space-y-2">
+      <li><b>Full Photography Session:</b> 50 professional photos.</li>
+      <li><b>Custom Video Edits:</b> 10 branded video clips.</li>
+      <li><b>Branded Graphics:</b> 10 custom designs for ads or social media.</li>
+    </ul>
+    <p className="italic text-gray-500 mt-4">Ideal for businesses looking to enhance their visual identity.</p>
+  </motion.div>
+
+  <motion.div
+    className="p-8 bg-white dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
+    whileHover={{ scale: 1.05 }}
+  >
+    <div className="absolute -top-10 -right-10 w-40 h-40 bg-tertiary rounded-full opacity-20 transform rotate-12"></div>
+    <h2 className="text-3xl font-gothic-bold mb-4">Premium Content Package</h2>
+    <p className="text-4xl font-extrabold mb-4 text-accent">Starting at $10,000</p>
+    <ul className="text-left list-disc list-inside mb-4 space-y-2">
+      <li><b>Comprehensive Photography:</b> 100 professional photos.</li>
+      <li><b>High-End Video Production:</b> 20 branded video clips with professional editing.</li>
+      <li><b>Custom Content Strategy:</b> Includes graphic design, animations, and tailored assets.</li>
+    </ul>
+    <p className="italic text-gray-500 mt-4">For businesses seeking premium visual content solutions.</p>
+  </motion.div>
+</motion.section>
 
     {/* Related Services and Call to Action */}
     <motion.div

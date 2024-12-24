@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import PaidAdsImage from '../assets/images/PaidAdCampaign.png?react'
-import WebDevImage from '../assets/images/WebDevelopment.png?react'
-import DigitalMarketingImage from '../assets/images/DigitalMarketingReputationManagement.png?react'
-import StrategyConsultingImage from '../assets/images/StrategyConsultationBranding.png?react'
-import APIIntegrationImage from '../assets/images/APIIntegrations.png?react'
-import ContactImage from '../assets/images/StormyMeadowlarkRoad.png?react'
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import PaidAdsImage from '../assets/images/PaidAdCampaign.png?react';
+import WebDevImage from '../assets/images/WebDevelopment.png?react';
+import DigitalMarketingImage from '../assets/images/DigitalMarketingReputationManagement.png?react';
+import StrategyConsultingImage from '../assets/images/StrategyConsultationBranding.png?react';
+import APIIntegrationImage from '../assets/images/APIIntegrations.png?react';
+import ContactImage from '../assets/images/StormyMeadowlarkRoad.png?react';
 
 const Services = () => {
   const services = [
@@ -40,7 +40,7 @@ const Services = () => {
     {
       title: 'Custom Full Stack Development',
       description:
-        'Elevate your auto business with custom digital solutions. From backend infrastructure to seamless frontend design, we deliver API integrations, dynamic web apps, and scalable platforms for exceptional customer experiences',
+        'Elevate your auto business with custom digital solutions. From backend infrastructure to seamless frontend design, we deliver API integrations, dynamic web apps, and scalable platforms for exceptional customer experiences.',
       image: APIIntegrationImage,
       link: '/services/full-stack-development',
     },
@@ -51,7 +51,7 @@ const Services = () => {
       image: ContactImage,
       link: '/contact',
     },
-  ]
+  ];
 
   return (
     <div className="main-wrapper min-h-screen bg-gradient-to-br from-[#f7faff] to-[#d1d7e0] dark:bg-gradient-to-b dark:from-[#332940] dark:to-[#0f0c29] text-dark-primary dark:text-light-text font-gothic">
@@ -103,37 +103,84 @@ const Services = () => {
           ))}
         </div>
       </section>
-      {/* Proven Process Section */}
-      <section className="bg-gradient-to-br from-[#460696] to-[#ff5e62] text-center text-dark-text">
-        <div className="py-24 bg-dark-secondary bg-opacity-50">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="text-5xl font-extrabold mb-8 tracking-wide"
-          >
-            Our Proven Process
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 1 }}
-            className="text-xl max-w-4xl mx-auto mb-12 tracking-wide"
-          >
-            At Stormy Meadowlark, we don’t just provide services—we follow a
-            proven process that ensures results. From initial strategy to
-            ongoing support, we’re committed to helping your business soar.
-          </motion.p>
-          <Link
-            to="/proven-process"
-            className="bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold py-4 px-8 text-xl rounded-full hover:bg-light-hover dark:hover:bg-cta-hover"
-          >
-            Learn About Our Process
-          </Link>
+      {/* Testimonials Section */}
+      <section className="py-20 bg-light-secondary dark:bg-dark-secondary">
+        <div className="text-center mb-12">
+          <h2 className="text-5xl font-extrabold mb-6">What Our Clients Say</h2>
+          <p className="text-lg max-w-4xl mx-auto">Here’s how we’ve helped businesses like yours succeed.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {/* Add testimonials dynamically here */}
+          <div className="p-6 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+            <p className="text-lg italic mb-4">“Stormy Meadowlark transformed our online presence. Traffic increased by 45% in just 3 months!”</p>
+            <p className="font-bold">- John D., Auto Shop Owner</p>
+          </div>
+          {/* Add more testimonials */}
         </div>
       </section>
+      {/* FAQ Section */}
+      <section className="py-20 bg-gradient-to-br from-[#0f0c29] to-[#332940] text-light-text">
+        <div className="text-center mb-12">
+          <h2 className="text-5xl font-extrabold mb-6">Frequently Asked Questions</h2>
+          <p className="text-lg max-w-4xl mx-auto">Have questions? We’ve got answers.</p>
+        </div>
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-6">
+            <h3 className="text-2xl font-bold mb-2">How long does it take to build a custom website?</h3>
+            <p className="text-lg">Typically, 4-8 weeks depending on complexity.</p>
+          </div>
+          {/* Add more FAQs dynamically */}
+        </div>
+      </section>
+      {/* Portfolio Section */}
+      <section className="py-20 bg-light-primary dark:bg-dark-primary">
+        <div className="text-center mb-12">
+          <h2 className="text-5xl font-extrabold mb-6">Our Portfolio</h2>
+          <p className="text-lg max-w-4xl mx-auto">See our recent work and how we’ve helped clients achieve their goals.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {/* Add portfolio items dynamically */}
+          <div className="p-6 bg-white dark:bg-dark-secondary rounded-lg shadow-lg">
+            <img
+              src="/path/to/image.jpg"
+              alt="Project Title"
+              className="w-full h-40 object-cover rounded-md mb-4"
+            />
+            <h3 className="text-2xl font-bold mb-2">Project Title</h3>
+            <p className="text-lg">Brief description of the project and results.</p>
+          </div>
+          {/* Add more portfolio items */}
+        </div>
+      </section>
+      {/* Blog Highlights Section */}
+      <section className="py-20 bg-gradient-to-br from-[#f093fb] to-[#feb47b] text-dark-text">
+        <div className="text-center mb-12">
+          <h2 className="text-5xl font-extrabold mb-6">From Our Blog</h2>
+          <p className="text-lg max-w-4xl mx-auto">Stay updated with insights and tips to grow your business.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {/* Add blog posts dynamically */}
+          <div className="p-6 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+            <h3 className="text-2xl font-bold mb-2">Top 10 Marketing Strategies for Auto Shops in 2024</h3>
+            <p className="text-lg mb-4">Learn actionable tips to enhance your shop’s visibility.</p>
+            <Link to="/blog/post-title" className="text-accent underline">Read More</Link>
+          </div>
+          {/* Add more blog posts */}
+        </div>
+      </section>
+      {/* Final Call-to-Action Section */}
+      <section className="py-20 bg-dark-primary text-light-text text-center">
+        <h2 className="text-5xl font-extrabold mb-6">Ready to Elevate Your Business?</h2>
+        <p className="text-lg mb-8">Contact us today to start your journey with Stormy Meadowlark.</p>
+        <Link
+          to="/contact"
+          className="bg-accent text-dark-primary font-bold py-4 px-8 text-xl rounded-full hover:bg-light-hover"
+        >
+          Get Started Now
+        </Link>
+      </section>
     </div>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;
