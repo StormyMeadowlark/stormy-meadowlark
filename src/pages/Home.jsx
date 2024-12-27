@@ -145,7 +145,7 @@ const Home = () => {
                 enhanced brand visibility.
               </p>
               <Link
-                to="/services/custom-development"
+                to="/services/paid-ads"
                 className="text-accent dark:text-dark-accent underline tracking-wide"
               >
                 Learn More
@@ -208,7 +208,7 @@ const Home = () => {
                 customers and are built to grow with your business.
               </p>
               <Link
-                to="/services/digital-marketing"
+                to="/services/web-development"
                 className="text-accent dark:text-dark-accent underline"
               >
                 Learn More
@@ -238,7 +238,7 @@ const Home = () => {
                 out in the automotive industry.
               </p>
               <Link
-                to="/services/custom-development"
+                to="/services/digital-marketing"
                 className="text-accent dark:text-dark-accent underline tracking-wide"
               >
                 Learn More
@@ -303,7 +303,7 @@ const Home = () => {
                 driving long-term success.
               </p>
               <Link
-                to="/services/digital-marketing"
+                to="/services/strategy-consulting"
                 className="text-accent dark:text-dark-accent underline"
               >
                 Learn More
@@ -343,7 +343,7 @@ const Home = () => {
             dynamic web apps, or scalable platforms, we build it all.
           </p>
           <Link
-            to="/services/api-integrations"
+            to="/services/full-stack-development"
             className="text-accent hover:text-light-hover  dark:text-dark-accent dark:hover:text-cta-hover"
           >
             Learn More
