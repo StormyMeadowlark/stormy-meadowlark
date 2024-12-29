@@ -332,18 +332,13 @@ const Home = () => {
           className="relative z-10 bg-light-primary text-light-text dark:bg-dark-primary dark:text-dark-text p-8 rounded-lg shadow-lg"
         >
           <h2 className="text-6xl font-extrabold mb-8 tracking-wide">
-            Custom Full-Stack Development
+          Your All-In-One Marketing & Consulting Hub
           </h2>
           <p className="text-2xl max-w-4xl mx-auto mb-6 tracking-wide">
-            Take your business to the next level with fully customized digital
-            solutions designed specifically for auto shops and dealerships. From
-            backend infrastructure to seamless frontend design, our full-stack
-            development services provide everything you need to deliver
-            outstanding customer experiences. Whether it’s API integrations,
-            dynamic web apps, or scalable platforms, we build it all.
+          Stormy Meadowlark is your all-in-one partner for automotive business growth. From modern, mobile-first websites to laser-focused ad campaigns, reputation management, and culture consulting, we streamline your digital presence so you can focus on delivering top-tier service. Experience consistent branding, effortless management, and real results—crafted to reflect your unique values and drive long-term success.
           </p>
           <Link
-            to="/services/full-stack-development"
+            to="/services/marketing-consulting-hub"
             className="text-accent hover:text-light-hover  dark:text-dark-accent dark:hover:text-cta-hover"
           >
             Learn More

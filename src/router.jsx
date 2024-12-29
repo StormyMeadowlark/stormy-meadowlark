@@ -74,7 +74,7 @@ const AppRouter = () => (
         path="/services/digital-marketing"
         element={<DigitalMarketing />}
       />
-      <Route path="/services/full-stack-development" element={<CustomSolutions />} />
+      <Route path="/services/marketing-consulting-hub" element={<CustomSolutions />} />
       <Route path="/documents/disclaimer" element={<Disclaimer />} />
       <Route path="/documents/terms-of-service" element={<TermsOfService />} />
       <Route path="/documents/privacy-policy" element={<PrivacyPolicy />} />

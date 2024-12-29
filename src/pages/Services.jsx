@@ -38,11 +38,11 @@ const Services = () => {
       link: '/services/strategy-consulting',
     },
     {
-      title: 'Custom Full Stack Development',
+      title: 'All-In-One Marketing & Consulting Hub',
       description:
-        'Elevate your auto business with custom digital solutions. From backend infrastructure to seamless frontend design, we deliver API integrations, dynamic web apps, and scalable platforms for exceptional customer experiences.',
+        "Explore comprehensive solutions, designed to align every facet of your digital and operational strategy. Whether it’s building a cutting-edge website, launching high-performing ad campaigns, or infusing your brand’s culture into every customer touchpoint, our services are tailored to maximize your impact and help your automotive business soar.",
       image: APIIntegrationImage,
-      link: '/services/full-stack-development',
+      link: '/services/marketing-consulting-hub',
     },
     {
       title: 'Contact Us',
@@ -112,22 +112,34 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {/* Add testimonials dynamically here */}
           <div className="p-6 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
-            <p className="text-lg italic mb-4">“Stormy Meadowlark transformed our online presence. Traffic increased by 45% in just 3 months!”</p>
-            <p className="font-bold">- John D., Auto Shop Owner</p>
+            <p className="text-lg font-bold  mb-4">We’re Gathering Your Feedback!</p>
+            <p>Your experience fuels our innovation. Ask us how you can get your<span className='font-extrabold'> first month of service free </span> by sharing your honest review. </p>
+            <br></br>
+            <p>Whether it’s about our solutions, your growth, or how we’ve partnered with your business, your voice helps us deliver even more customized, impactful results.</p>
+            <br></br>
+            <p className="font-bold pb-8">Let’s talk—your story matters.</p>
+            <div>
+            <Link
+          to="/contact"
+          className="bg-accent text-dark-primary font-bold py-4 px-8 text-xl rounded-full hover:bg-light-hover"
+        >
+          Contact Us Now!
+        </Link>
+        </div>
           </div>
           {/* Add more testimonials */}
         </div>
       </section>
       {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-br from-[#0f0c29] to-[#332940] text-light-text">
+      <section className="py-20 bg-gradient-to-br from-[#0f0c29] to-[#332940] text-dark-text">
         <div className="text-center mb-12">
           <h2 className="text-5xl font-extrabold mb-6">Frequently Asked Questions</h2>
           <p className="text-lg max-w-4xl mx-auto">Have questions? We’ve got answers.</p>
         </div>
         <div className="max-w-4xl mx-auto">
           <div className="mb-6">
-            <h3 className="text-2xl font-bold mb-2">How long does it take to build a custom website?</h3>
-            <p className="text-lg">Typically, 4-8 weeks depending on complexity.</p>
+            <h3 className="text-2xl font-bold mb-2"></h3>
+            <p className="text-lg"></p>
           </div>
           {/* Add more FAQs dynamically */}
         </div>
