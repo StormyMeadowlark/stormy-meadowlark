@@ -344,7 +344,7 @@ const InitialCreationBundles = () => (
 
     {/* Call to Action */}
     <motion.div
-      className="bg-gradient-to-br from-light-secondary to-light-primary dark:from-dark-secondary dark:to-dark-accent text-light py-20 text-center"
+      className="bg-gradient-to-br from-light-secondary to-light-primary dark:from-dark-secondary dark:to-dark-accent text-light-text dark:text-dark-text py-20 text-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.8 }}
@@ -356,12 +356,12 @@ const InitialCreationBundles = () => (
         Ready to take the next step? Contact us today to discuss your needs and
         find the perfect bundle to start your journey towards digital success.
       </p>
-      <a
-        href="/contact"
-        className="bg-light-secondary text-dark-primary py-4 px-8 rounded-full font-gothic-bold text-2xl hover:bg-dark-secondary hover:text-light transition duration-300 transform hover:scale-105"
+      <Link
+        to="/contact"
+        className="px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-light-text font-bold text-xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover inline-block"
       >
-        Get Started
-      </a>
+        Start Your Journey Now
+      </Link>
     </motion.div>
   </div>
 )
