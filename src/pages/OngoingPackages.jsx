@@ -451,7 +451,7 @@ const OngoingPackages = () => (
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
         {/* Package 1: Brand Audit */}
-        <div className="p-8 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+        <div className="p-8 bg-white dark:bg-dark-secondary rounded-lg shadow-lg">
           <h3 className="text-2xl font-bold text-accent mb-4">
             Brand Essentials
           </h3>
@@ -475,7 +475,7 @@ const OngoingPackages = () => (
         </div>
 
         {/* Package 2: Brand Refresh */}
-        <div className="p-8 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+        <div className="p-8 bg-white dark:bg-dark-secondary rounded-lg shadow-lg">
           <h3 className="text-2xl font-bold text-accent mb-4">
             Local Brand Optimization
           </h3>
@@ -498,7 +498,7 @@ const OngoingPackages = () => (
         </div>
 
         {/* Package 3: Full Rebrand & Strategy */}
-        <div className="p-8 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+        <div className="p-8 bg-white dark:bg-dark-secondary rounded-lg shadow-lg">
           <h3 className="text-2xl font-bold text-accent mb-4">
             Brand Refresh Package
           </h3>
@@ -524,7 +524,7 @@ const OngoingPackages = () => (
         </div>
 
         {/* Package 4: Full Rebrand & Strategy */}
-        <div className="p-8 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+        <div className="p-8 bg-white dark:bg-dark-secondary rounded-lg shadow-lg">
           <h3 className="text-2xl font-bold text-accent mb-4">
             Strategic Brand Alignment
           </h3>
@@ -553,7 +553,7 @@ const OngoingPackages = () => (
         </div>
 
         {/* Package 5: Full Rebrand & Strategy */}
-        <div className="p-8 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+        <div className="p-8 bg-white dark:bg-dark-secondary rounded-lg shadow-lg">
           <h3 className="text-2xl font-bold text-accent mb-4">
             Comprehensive Rebrand
           </h3>
@@ -584,7 +584,7 @@ const OngoingPackages = () => (
         </div>
 
         {/* Package 6: Full Rebrand & Strategy */}
-        <div className="p-8 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+        <div className="p-8 bg-white dark:bg-dark-secondary rounded-lg shadow-lg">
           <h3 className="text-2xl font-bold text-accent mb-4">
             Long-Term Brand Partnership
           </h3>

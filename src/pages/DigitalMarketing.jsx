@@ -340,7 +340,7 @@ const DigitalMarketing = () => (
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
           {/* 1. Basic (No Content) */}
-          <div className="p-8 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+          <div className="p-8 bg-white dark:bg-dark-secondary rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold text-accent mb-4">Starter</h3>
             <p className="text-3xl font-extrabold mb-4 text-accent">$500/mo</p>
             <ul className="list-disc list-inside text-left mb-4">
@@ -357,7 +357,7 @@ const DigitalMarketing = () => (
           </div>
 
           {/* 2. Basic + Content */}
-          <div className="p-8 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+          <div className="p-8 bg-white dark:bg-dark-secondary rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold text-accent mb-4">
               Cruise Control
             </h3>
@@ -375,7 +375,7 @@ const DigitalMarketing = () => (
           </div>
 
           {/* 3. Growth (No Content) */}
-          <div className="p-8 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+          <div className="p-8 bg-white dark:bg-dark-secondary rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold text-accent mb-4">Turbo Boost</h3>
             <p className="text-3xl font-extrabold mb-4 text-accent">
               $1,000/mo
@@ -395,7 +395,7 @@ const DigitalMarketing = () => (
           </div>
 
           {/* 4. Growth + Content */}
-          <div className="p-8 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+          <div className="p-8 bg-white dark:bg-dark-secondary rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold text-accent mb-4">
               Performance Package
             </h3>
@@ -416,7 +416,7 @@ const DigitalMarketing = () => (
           </div>
 
           {/* 5. Premium (No Content) */}
-          <div className="p-8 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+          <div className="p-8 bg-white dark:bg-dark-secondary rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold text-accent mb-4">
               Full Throttle
             </h3>
@@ -437,7 +437,7 @@ const DigitalMarketing = () => (
           </div>
 
           {/* 6. Premium + Content */}
-          <div className="p-8 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+          <div className="p-8 bg-white dark:bg-dark-secondary rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold text-accent mb-4">
               The Ultimate Drive
             </h3>
@@ -446,7 +446,11 @@ const DigitalMarketing = () => (
             </p>
             <ul className="list-disc list-inside text-left mb-4">
               <li>Everything in Full Throttle</li>
-              <li>Daily Social Posting Across Multiple Platforms (Facebook, Instagram, TikTok, LinkedIn, Snapchat, Industry Specific Forums ect.)</li>
+              <li>
+                Daily Social Posting Across Multiple Platforms (Facebook,
+                Instagram, TikTok, LinkedIn, Snapchat, Industry Specific Forums
+                ect.)
+              </li>
               <li>
                 Professional-Grade Photo/Video Production (on-site if
                 applicable)
