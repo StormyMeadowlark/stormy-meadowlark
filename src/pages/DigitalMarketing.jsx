@@ -27,8 +27,8 @@ const DigitalMarketing = () => (
         </h1>
         <p className="text-center text-xl max-w-4xl mx-auto mb-16 leading-relaxed">
           At Stormy Meadowlark, we take a holistic approach to digital marketing
-          that’s rooted in **local SEO**, **social media**, **reputation
-          management**, and **industry-specific directory listings**. Whether
+          that’s rooted in <span className='italic'>local SEO</span>, <span className='italic'>social media</span>, <span className='italic'>reputation
+          management</span>, and <span className='italic'>industry-specific directory listings</span>. Whether
           you need an active social presence, consistent 5-star reviews, or
           optimized listings that drive local traffic, our customizable packages
           ensure you get the perfect fit for your automotive business. And if
@@ -47,8 +47,9 @@ const DigitalMarketing = () => (
     {/* 
       Why Local SEO & Reputation Matter 
     */}
+    <div className='bg-gradient-to-br from-light-secondary to-light-primary dark:from-dark-secondary dark:to-dark-accent rounded-lg shadow-lg'>
     <motion.section
-      className="mx-auto py-24 text-center bg-gradient-to-br from-light-secondary to-light-primary dark:from-dark-secondary dark:to-dark-accent relative rounded-lg shadow-lg"
+      className="max-w-4xl mx-auto py-24 text-center relative "
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
@@ -62,10 +63,10 @@ const DigitalMarketing = () => (
           <div>
             <p className="text-xl leading-relaxed mb-8">
               Your online presence isn’t just about being visible—it’s about
-              showing up in the **right** places and **looking great** when you
+              showing up in the <span className='italic'>right</span> places and <span className='italic'>looking great</span> when you
               do. That means:
             </p>
-            <ul className="text-xl leading-relaxed list-disc list-inside mb-8">
+            <ul className="text-xl leading-relaxed list-disc list-inside mb-8 text-left">
               <li>
                 <b>Optimized Google Business Profile & Yelp Listings:</b> We
                 keep your info up-to-date, respond to reviews, and add fresh
@@ -98,7 +99,7 @@ const DigitalMarketing = () => (
         </div>
       </div>
     </motion.section>
-
+    </div>
     {/* 
       Real Results: Impact 
     */}
