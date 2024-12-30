@@ -215,7 +215,7 @@ const InitialCreationBundles = () => (
 
     <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary rounded-full opacity-20 transform rotate-12"></div>
     <h2 className="text-3xl font-gothic-bold mb-4">Starter Ads Package</h2>
-    <p className="text-4xl font-extrabold mb-4 text-accent">Starting at $500</p>
+    <p className="text-4xl font-extrabold mb-4 text-accent">$500</p>
     <p><b>Focus:</b> Basic ads management for small shops just starting with paid Advertising. Simple and affordable</p>
     <ul className="text-left list-disc list-inside mb-4 space-y-2">
       <li><b>Google or Meta Ads Setup:</b> Keyword research (Google) or audience targeting (Meta) and campaign creation.</li>
@@ -233,7 +233,7 @@ const InitialCreationBundles = () => (
   >
     <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary rounded-full opacity-20 transform rotate-12"></div>
     <h2 className="text-3xl font-gothic-bold mb-4">Growth Ads Package</h2>
-    <p className="text-4xl font-extrabold mb-4 text-accent">Starting at $1,000</p>
+    <p className="text-4xl font-extrabold mb-4 text-accent">$1,000</p>
     <p><b>Focus:</b> Expand your reach and drive more leads</p>
     <ul className="text-left list-disc list-inside mb-4 space-y-2">
       <li><b>Google & Meta Ads:</b> 3-5 campaigns for different services, promotions or vehicles</li>
@@ -252,7 +252,7 @@ const InitialCreationBundles = () => (
   >
     <div className="absolute -top-10 -right-10 w-40 h-40 bg-tertiary rounded-full opacity-20 transform rotate-12"></div>
     <h2 className="text-3xl font-gothic-bold mb-4">Dominator Ads Package</h2>
-    <p className="text-4xl font-extrabold mb-4 text-accent">Starting at $2,000</p>
+    <p className="text-4xl font-extrabold mb-4 text-accent">$2,000</p>
     <p><b>Focus:</b> Full-funnel ad strategy, comprehensive retargeting and aggressive scaling for maximum lead generation</p>
     <ul className="text-left list-disc list-inside mb-4 space-y-2">
       <li><b>Comprehensive Multi-Channel Campaigns:</b>Google, Meta, YouTube, and TikTok or LinkedIn. Including advanced keyword research, audience segmentation, and competitor analysis</li>
@@ -269,7 +269,7 @@ const InitialCreationBundles = () => (
   >
     <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary rounded-full opacity-20 transform rotate-12"></div>
     <h2 className="text-3xl font-gothic-bold mb-4">Starter Content Package</h2>
-    <p className="text-4xl font-extrabold mb-4 text-accent">Starting at $750</p>
+    <p className="text-4xl font-extrabold mb-4 text-accent">$750</p>
     <ul className="text-left list-disc list-inside mb-4 space-y-2">
       <li><b>Photography Session:</b> 20 professional photos.</li>
       <li><b>Video Clips:</b> 5 simple video edits using shop-provided footage. Basic edits include text overlays, music, and transitions.</li>
@@ -286,7 +286,7 @@ const InitialCreationBundles = () => (
   >
     <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary rounded-full opacity-20 transform rotate-12"></div>
     <h2 className="text-3xl font-gothic-bold mb-4">Growth Content Package</h2>
-    <p className="text-4xl font-extrabold mb-4 text-accent">Starting at $1,500</p>
+    <p className="text-4xl font-extrabold mb-4 text-accent">$1,500</p>
     <ul className="text-left list-disc list-inside mb-4 space-y-2">
       <li><b>Full Photography Session:</b> 50 professional photos.</li>
       <li><b>Custom Video Edits:</b> 10 branded video clips using shop-provided footage.</li>
@@ -303,7 +303,7 @@ const InitialCreationBundles = () => (
   >
     <div className="absolute -top-10 -right-10 w-40 h-40 bg-tertiary rounded-full opacity-20 transform rotate-12"></div>
     <h2 className="text-3xl font-gothic-bold mb-4">Professional Content Package</h2>
-    <p className="text-4xl font-extrabold mb-4 text-accent">Starting at $3,000</p>
+    <p className="text-4xl font-extrabold mb-4 text-accent">$3,000</p>
     <ul className="text-left list-disc list-inside mb-4 space-y-2">
       <li><b>Comprehensive Photography:</b> 100 professional photos.</li>
       <li><b>High-End Video Production:</b> 20 branded video clips with professional editing.</li>

@@ -502,7 +502,7 @@ const OngoingPackages = () => (
           <h3 className="text-2xl font-bold text-accent mb-4">
             Brand Refresh Package
           </h3>
-          <p className="text-3xl font-extrabold mb-4 text-accent">$2,000+</p>
+          <p className="text-3xl font-extrabold mb-4 text-accent">$2,000</p>
           <ul className="list-disc list-inside text-left mb-4">
             <li>Everything in the Local Brand Optimization Package.</li>
             <li>
@@ -528,7 +528,7 @@ const OngoingPackages = () => (
           <h3 className="text-2xl font-bold text-accent mb-4">
             Strategic Brand Alignment
           </h3>
-          <p className="text-3xl font-extrabold mb-4 text-accent">$3,500+</p>
+          <p className="text-3xl font-extrabold mb-4 text-accent">$3,500</p>
           <ul className="list-disc list-inside text-left mb-4">
             <li>Everything in the Brand Refresh Package.</li>
             <li>
