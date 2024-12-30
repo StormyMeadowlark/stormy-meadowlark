@@ -55,7 +55,7 @@ const AllInOneSolutionsLanding = () => {
         />
         <div className="relative z-10 max-w-5xl mx-auto px-6">
           <h1 className="text-5xl font-extrabold mb-8 tracking-wide text-shadow">
-            Your All-In-One Marketing & Consulting Hub
+            FComplete Marketing Solutions
           </h1>
           <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-8">
             Stop juggling multiple vendors. Let Stormy Meadowlark handle your

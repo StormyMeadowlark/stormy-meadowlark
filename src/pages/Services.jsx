@@ -38,9 +38,9 @@ const Services = () => {
       link: '/services/strategy-consulting',
     },
     {
-      title: 'Custom Full Stack Development',
+      title: 'Complete Marketing Solutions',
       description:
-        'Elevate your auto business with custom digital solutions. From backend infrastructure to seamless frontend design, we deliver API integrations, dynamic web apps, and scalable platforms for exceptional customer experiences.',
+        'Elevate your auto business with complete marketing solutions. From branding and strategy to lead generation and retention we work with you to act as your all in-one-marketing partner.',
       image: APIIntegrationImage,
       link: '/services/full-stack-development',
     },
