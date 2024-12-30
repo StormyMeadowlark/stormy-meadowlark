@@ -80,7 +80,7 @@ const Services = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: index * 0.2 }}
-              className="relative bg-dark-primary bg-opacity-70 p-8 rounded-lg shadow-lg hover:scale-105 transform transition-transform duration-300"
+              className="relative bg-dark-primary dark:bg-dark-secondary bg-opacity-70 p-8 rounded-lg shadow-lg hover:scale-105 transform transition-transform duration-300"
             >
               <img
                 src={service.image}
