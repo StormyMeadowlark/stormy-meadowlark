@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import HeadshotImage from '../assets/images/Ashlee-Headshot.png?react'
+import HeadshotImage from '../assets/images/Ashlee_Headshot.png?react'
 import axios from 'axios'
 
 const BlogHome = () => {
