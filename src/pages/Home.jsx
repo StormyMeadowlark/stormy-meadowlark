@@ -6,7 +6,7 @@ import HeroBackground from '../assets/images/HomePageHero.png?react'
 import WebDevelopment from '../assets/images/WebDevelopment.png?react'
 import DigitalMarketingReputationManagement from '../assets/images/DigitalMarketingReputationManagement.png?react'
 import StrategyConsultationBranding from '../assets/images/StrategyConsultationBranding.png?react'
-import APIIntegrations from '../assets/images/APIIntegrations.png?react'
+import APIIntegrations from '../assets/images/HEM1.png?react'
 import HEMautomotiveMarketingWebsite from '../assets/images/HEMautomotiveMarketingWebsite.png?react'
 import SolarAthleticsRebrand from '../assets/images/Before.png?react'
 import InventoryManagement from '../assets/images/InventoryManagment.png?react'
@@ -48,9 +48,9 @@ const Home = () => {
     },
   ]
   return (
-    <div className="main-wrapper min-h-screen bg-gradient-to-br from-[#d1d7e0] to-[#f7faff] dark:bg-gradient-to-b dark:from-[#332940] dark:to-[#0f0c29] text-dark-primary dark:text-light-text relative overflow-hidden font-gothic">
+    <div className="main-wrapper bg-gradient-to-br  from-[#d1d7e0] to-[#f7faff] dark:bg-gradient-to-b dark:from-[#332940] dark:to-[#0f0c29] text-dark-primary dark:text-light-text relative overflow-hidden font-gothic">
       {/* Hero Section with Cinematic Reveal */}
-      <section className="relative h-screen flex flex-col justify-center items-center bg-gradient-to-br from-light-primary via-light-accent to-light-secondary dark:from-dark-secondary dark:to-dark-primary text-center">
+      <section className="relative h-screen flex flex-col justify-center items-center bg-gradient-to-br from-light-primary via-light-accent to-light-secondary dark:from-dark-secondary dark:to-dark-primary text-center ">
         <motion.img
           src={LogoImage}
           alt="Stormy Meadowlark Logo"
@@ -64,7 +64,7 @@ const Home = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 1.5, ease: 'easeOut' }}
-          className="leading-relaxed text-5xl font-extrabold text-dark-text dark:text-white tracking-wide z-20 max-w-7xl"
+          className="leading-relaxed lg:text-5xl md:text-3xl text-xl font-extrabold text-dark-text dark:text-white tracking-wide z-20 max-w-7xl"
         >
           Drive Your Auto Business Forward with Custom Web Design, Marketing, &
           Development.
@@ -73,7 +73,7 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1.2 }}
-          className="leading-relaxed text-2xl mt-6 max-w-7xl mx-auto relative z-20 text-dark-text tracking-wide"
+          className="leading-relaxed lg:text-2xl md:text-xl text-base mt-6 max-w-7xl mx-auto relative z-20 text-dark-text tracking-wide"
         >
           Stormy Meadowlark helps auto shops and dealerships get more customers
           and keep them coming back. From custom web design to SEO, digital ads
@@ -87,7 +87,7 @@ const Home = () => {
         >
           <Link
             to="/contact"
-            className="px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover transition-all duration-300"
+            className=" text-base md:text-xl lg:text-3xl px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold rounded-full dark:hover:bg-cta-hover hover:bg-light-hover transition-all duration-300"
           >
             Start Growing Your Business
           </Link>
@@ -119,7 +119,7 @@ const Home = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-5xl font-extrabold mb-16 tracking-wide leading-relaxed max-w-7xl mx-auto"
+          className="text-2xl md:text-3xl lg:text-5xl font-extrabold mb-16 tracking-wide leading-relaxed max-w-7xl mx-auto px-4"
         >
           Results Driven Digital Marketing & Web Solutions for Auto Shops &
           Dealerships
@@ -135,10 +135,10 @@ const Home = () => {
             style={{ transform: 'translateY(30px)' }}
           >
             <div>
-              <h3 className="text-4xl font-bold mb-4 tracking-wide">
+              <h3 className="text-lg md:text-2xl lg:text-4xl font-bold mb-4 tracking-wide">
                 Paid Advertisement & Content Production{' '}
               </h3>
-              <p className="text-lg max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
+              <p className="text-base md:text-lg lg:text-xl max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
                 Reach your ideal customers with targeted ads and high-quality
                 content crafted to drive automotive success. Our campaigns
                 deliver real-time results you can measure, from new leads to
@@ -193,10 +193,10 @@ const Home = () => {
             style={{ transform: 'translateY(30px)' }}
           >
             <div>
-              <h3 className="text-4xl font-bold mb-4">
+              <h3 className="text-lg md:text-2xl lg:text-4xl font-bold mb-4">
                 Web Design & Development
               </h3>
-              <p className="text-lg max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
+              <p className="text-base md:text-lg lg:text-xl max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
                 Make a powerful first impression with a custom-built,
                 mobile-friendly website tailored for automotive businesses and
                 service shops. Unlike template sites, our custom website
@@ -227,10 +227,10 @@ const Home = () => {
             style={{ transform: 'translateY(30px)' }}
           >
             <div>
-              <h3 className="text-4xl font-bold mb-4 tracking-wide">
+              <h3 className="text-lg md:text-2xl lg:text-4xl font-bold mb-4 tracking-wide">
                 Digital Marketing & Reputation Management{' '}
               </h3>
-              <p className="text-lg max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
+              <p className="text-base md:text-lg lg:text-xl max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
                 Elevate your shops visibility and trust with tailored digital
                 marketing strategies and proactive reputation management. From
                 targeted ad campaigns to Google reviews, we help you attract,
@@ -286,10 +286,10 @@ const Home = () => {
             style={{ transform: 'translateY(30px)' }}
           >
             <div>
-              <h3 className="text-4xl font-bold mb-4">
+              <h3 className="text-lg md:text-2xl lg:text-4xl font-bold mb-4">
                 Strategic Consulting & Brand Development
               </h3>
-              <p className="text-lg max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
+              <p className="text-base md:text-lg lg:text-xl max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
                 At Stormy Meadowlark, we help automotive businesses accelerate
                 growth by combining strategic consulting with expert brand
                 development. Our consulting services focus on identifying
@@ -331,11 +331,17 @@ const Home = () => {
           transition={{ duration: 1 }}
           className="relative z-10 bg-light-primary text-light-text dark:bg-dark-primary dark:text-dark-text p-8 rounded-lg shadow-lg"
         >
-          <h2 className="text-6xl font-extrabold mb-8 tracking-wide">
-          Your All-In-One Marketing & Consulting Hub
+          <h2 className="text-lg md:text-2xl lg:text-4xl font-extrabold mb-8 tracking-wide">
+            Your All-In-One Marketing & Consulting Hub
           </h2>
-          <p className="text-2xl max-w-4xl mx-auto mb-6 tracking-wide">
-          Stormy Meadowlark is your all-in-one partner for automotive business growth. From modern, mobile-first websites to laser-focused ad campaigns, reputation management, and culture consulting, we streamline your digital presence so you can focus on delivering top-tier service. Experience consistent branding, effortless management, and real results—crafted to reflect your unique values and drive long-term success.
+          <p className="text-base md:text-lg lg:text-xl max-w-4xl mx-auto mb-6 tracking-wide">
+            Stormy Meadowlark is your all-in-one partner for automotive business
+            growth. From modern, mobile-first websites to laser-focused ad
+            campaigns, reputation management, and culture consulting, we
+            streamline your digital presence so you can focus on delivering
+            top-tier service. Experience consistent branding, effortless
+            management, and real results—crafted to reflect your unique values
+            and drive long-term success.
           </p>
           <Link
             to="/services/marketing-consulting-hub"
@@ -348,10 +354,10 @@ const Home = () => {
 
       <section className="relative py-24 text-center">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-5xl font-extrabold mb-12 tracking-wide text-light-text dark:text-dark-text">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-extrabold mb-12 tracking-wide text-light-text dark:text-dark-text">
             Why Auto Shops & Dealerships Choose Stormy Meadowlark
           </h2>
-          <h3 className="text-xl mb-12 tracking-wide text-light-text dark:text-dark-text">
+          <h3 className="text-xl md:text-2xl lg:text-3xl mb-12 tracking-wide text-light-text dark:text-dark-text">
             We don’t just market your business—we help your shop soar.
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -360,10 +366,10 @@ const Home = () => {
                 key={index}
                 className="p-6 bg-dark-primary bg-opacity-70 rounded-lg hover:scale-105 transform transition-transform duration-300"
               >
-                <h3 className="text-3xl font-bold mb-4 tracking-wide text-dark-text">
+                <h3 className="text-lg md:text-2xl lg:text-4xl font-bold mb-4 tracking-wide text-dark-text">
                   {reason.title}
                 </h3>
-                <p className="text-lg tracking-wide text-dark-text">
+                <p className="text-sm md:text-base lg:text-lg tracking-wide text-dark-text">
                   {reason.description}
                 </p>
               </div>
@@ -375,7 +381,7 @@ const Home = () => {
       {/* Portfolio with Cinematic Reveal */}
       <section className="bg-gradient-to-br from-[#460696] to-[#ff5e62] text-center ">
         <div className="py-24 bg-dark-secondary bg-opacity-50">
-          <h2 className="text-5xl font-extrabold text-white dark:text-dark-text mb-16 tracking-wide">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-white dark:text-dark-text mb-16 tracking-wide">
             Our Craftsmanship
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
@@ -390,7 +396,7 @@ const Home = () => {
                 alt="Project 1"
                 className="w-full h-64 object-cover transform transition-transform hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-2xl font-bold">
+              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-lg md:text-2xl lg:text-4xl font-bold">
                 HEM Automotive Branding, Web Development & Marketing
               </div>
             </motion.div>
@@ -406,7 +412,7 @@ const Home = () => {
                 alt="Project 2"
                 className="w-full h-64 object-cover transform transition-transform hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-2xl font-bold">
+              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-lg md:text-2xl lg:text-4xl font-bold">
                 Full Stack Inventory Management System
               </div>
             </motion.div>
@@ -422,32 +428,74 @@ const Home = () => {
                 alt="Project 3"
                 className="w-full h-64 object-cover transform transition-transform hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-2xl font-bold">
+              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-lg md:text-2xl lg:text-4xl font-bold">
                 Solar Athletics Rebrand
               </div>
             </motion.div>
           </div>
           <Link
             to="/portfolio"
-            className="mt-12 px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover inline-block"
+            className="mt-12 px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-lg md:text-2xl lg:text-4xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover inline-block"
           >
             Explore Our Portfolio
           </Link>
         </div>
       </section>
-
+      <section className="py-20 bg-light-secondary dark:bg-dark-secondary text-light-text dark:text-dark-text">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-extrabold mb-6">
+            What Our Clients Say
+          </h2>
+          <p className="text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto">
+            Here’s how we’ve helped businesses like yours succeed.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {/* Add testimonials dynamically here */}
+          <div className="p-6 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+            <p className="text-lg font-bold  mb-4">
+              We’re Gathering Your Feedback!
+            </p>
+            <p>
+              Your experience fuels our innovation. Ask us how you can get your
+              <span className="font-extrabold">
+                {' '}
+                first month of service free{' '}
+              </span>{' '}
+              by sharing your honest review.{' '}
+            </p>
+            <br></br>
+            <p>
+              Whether it’s about our solutions, your growth, or how we’ve
+              partnered with your business, your voice helps us deliver even
+              more customized, impactful results.
+            </p>
+            <br></br>
+            <p className="font-bold pb-8">Let’s talk—your story matters.</p>
+            <div>
+              <Link
+                to="/contact"
+                className="bg-accent text-dark-primary font-bold py-4 px-8 text-xl rounded-full hover:bg-light-hover"
+              >
+                Contact Us Now!
+              </Link>
+            </div>
+          </div>
+          {/* Add more testimonials */}
+        </div>
+      </section>
       {/* Invitation with Elegance */}
       <section className="py-24 text-center text-light-text dark:text-dark-text">
-        <h2 className="text-5xl font-extrabold mb-8">
+        <h2 className="text-2xl md:text-3xl lg:text-5xl font-extrabold mb-8">
           Shift Gears with Custom Solutions
         </h2>
-        <p className="text-xl max-w-3xl mx-auto mb-12">
+        <p className="text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto mb-12">
           Let’s elevate your business with innovative, tailored strategies
           designed for those ready to stand out and soar.
         </p>
         <Link
           to="/contact"
-          className="bg-accent dark:bg-dark-accent hover:bg-light-hover dark:hover:bg-cta-hover text-light-text dark:text-dark-text font-bold py-4 px-8 text-xl rounded-full hover:bg-accent-hover dark:hover:bg-dark-accent-hover"
+          className="bg-accent dark:bg-dark-accent hover:bg-light-hover dark:hover:bg-cta-hover text-light-text dark:text-dark-text font-bold py-4 px-8 text-lg md:text-2xl lg:text-4xl rounded-full hover:bg-accent-hover dark:hover:bg-dark-accent-hover"
         >
           Let's Get Started
         </Link>

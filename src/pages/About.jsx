@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import AshleeSitting from '../assets/images/Ashlee_Sitting.png?react'
-import Bentley from '../assets/images/Bentley.png?react'
+import Bentley from '../assets/images/BuiltToLast.png?react'
 import Desk from '../assets/images/Desk.png?react'
-import Headlights from '../assets/images/Headlights.png?react'
-import Jeep_Flexin from '../assets/images/Jeep_Flexin.png?react'
+import Headlights from '../assets/images/YourBusiness.png?react'
+import Jeep_Flexin from '../assets/images/DrivenToOvercome.png?react'
 import Sunset from '../assets/images/Sunset_Cheer_Comp_1.png?react'
 
 
@@ -21,7 +21,7 @@ const About = () => (
     >
       <div className="container mx-auto flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 p-4">
-          <h1 className="text-6xl md:text-8xl font-gothic-bold text-center mb-8">
+          <h1 className="text-5xl md:text-7xl font-gothic-bold text-center mb-8">
             About Stormy Meadowlark
           </h1>
           <p className="text-lg max-w-lg mx-auto">
@@ -139,11 +139,7 @@ const About = () => (
             className="p-6 bg-light-tertiary dark:bg-dark-primary rounded-lg shadow-md flex flex-col items-center"
             whileHover={{ scale: 1.05 }}
           >
-            <img
-              src={Bentley}
-              alt="Integrity"
-              className="mb-4 w-20 h-20"
-            />
+            <img src={Bentley} alt="Integrity" className="mb-4 w-20 h-20" />
             <h3 className="text-xl font-gothic-bold mb-2">
               Built Like It Matters
             </h3>
@@ -197,39 +193,40 @@ const About = () => (
           <p className="text-md max-w-xl mx-auto">
             Hi, I’m Ashlee, the founder & CEO of Stormy Meadowlark. This agency
             is more than a business—it’s a reflection of my journey, my values,
-            and my determination to make a difference. 
-            <br></br><br></br>
-            My path here hasn’t been
-            traditional. From nearly completing a PhD in microbiology to diving
-            headfirst into the world of digital marketing and web development,
-            I’ve always sought to combine creativity with problem-solving. My
-            experience working hands-on with HEM Automotive opened my eyes to
-            the challenges small businesses face—especially in industries like
-            automotive, where hard work and dedication often go unnoticed in the
-            digital space. 
-            <br></br><br></br>
-            Stormy Meadowlark was born out of a desire to change
-            that. I saw an opportunity to build something meaningful: a partner
-            for independent auto shops and small dealerships that not only
-            understands their struggles but also delivers tailored, impactful
-            solutions that truly reflect who they are. 
-            <br></br><br>
-            </br>
-            For me, this isn’t just
-            about websites or marketing campaigns—it’s about empowering
-            businesses to grow, thrive, and connect with their customers in ways
-            they never thought possible. Inspired by the resilience of the
-            meadowlark, I believe in facing challenges head-on and finding a way
-            to rise stronger, no matter the storm. 
-            <br></br><br></br>
-            Whether it’s crafting custom
-            solutions or helping you navigate the complexities of the digital
-            world, I’m here to ensure your success—because your story, your
-            business, and your growth matter. 
-            <br></br><br></br>
-            Let’s build something incredible
-            together.
-            <br></br><br></br>
+            and my determination to make a difference.
+            <br></br>
+            <br></br>
+            My path here hasn’t been traditional. From nearly completing a PhD
+            in microbiology to diving headfirst into the world of digital
+            marketing and web development, I’ve always sought to combine
+            creativity with problem-solving. My experience working hands-on with
+            HEM Automotive opened my eyes to the challenges small businesses
+            face—especially in industries like automotive, where hard work and
+            dedication often go unnoticed in the digital space.
+            <br></br>
+            <br></br>
+            Stormy Meadowlark was born out of a desire to change that. I saw an
+            opportunity to build something meaningful: a partner for independent
+            auto shops and small dealerships that not only understands their
+            struggles but also delivers tailored, impactful solutions that truly
+            reflect who they are.
+            <br></br>
+            <br></br>
+            For me, this isn’t just about websites or marketing campaigns—it’s
+            about empowering businesses to grow, thrive, and connect with their
+            customers in ways they never thought possible. Inspired by the
+            resilience of the meadowlark, I believe in facing challenges head-on
+            and finding a way to rise stronger, no matter the storm.
+            <br></br>
+            <br></br>
+            Whether it’s crafting custom solutions or helping you navigate the
+            complexities of the digital world, I’m here to ensure your
+            success—because your story, your business, and your growth matter.
+            <br></br>
+            <br></br>
+            Let’s build something incredible together.
+            <br></br>
+            <br></br>
             Ashlee
             <br></br>
             Founder & CEO, Stormy Meadowlark
@@ -247,10 +244,47 @@ const About = () => (
       animate={{ opacity: 1 }}
       transition={{ duration: 2.2 }}
     >
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-gothic-bold mb-8">What Our Clients Say</h2>
-        <div className="space-y-8 max-w-4xl mx-auto"></div>
-      </div>
+      <section className="py-20 bg-light-secondary dark:bg-dark-secondary">
+        <div className="text-center mb-12">
+          <h2 className="text-5xl font-extrabold mb-6">What Our Clients Say</h2>
+          <p className="text-lg max-w-4xl mx-auto">
+            Here’s how we’ve helped businesses like yours succeed.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {/* Add testimonials dynamically here */}
+          <div className="p-6 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
+            <p className="text-lg font-bold  mb-4">
+              We’re Gathering Your Feedback!
+            </p>
+            <p>
+              Your experience fuels our innovation. Ask us how you can get your
+              <span className="font-extrabold">
+                {' '}
+                first month of service free{' '}
+              </span>{' '}
+              by sharing your honest review.{' '}
+            </p>
+            <br></br>
+            <p>
+              Whether it’s about our solutions, your growth, or how we’ve
+              partnered with your business, your voice helps us deliver even
+              more customized, impactful results.
+            </p>
+            <br></br>
+            <p className="font-bold pb-8">Let’s talk—your story matters.</p>
+            <div>
+              <Link
+                to="/contact"
+                className="bg-accent text-dark-primary font-bold py-4 px-8 text-xl rounded-full hover:bg-light-hover"
+              >
+                Contact Us Now!
+              </Link>
+            </div>
+          </div>
+          {/* Add more testimonials */}
+        </div>
+      </section>
     </motion.section>
 
     {/* Call to Action */}
