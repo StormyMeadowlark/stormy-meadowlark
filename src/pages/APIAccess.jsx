@@ -13,7 +13,7 @@ import TemplateComparisonImage from '../assets/images/Headlights.png?react';
 import VideoPlaceholder from '../assets/images/SolarAthletricsRebrand.png?react';
 
 const ApiAccess = () => (
-  <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-light min-h-screen font-gothic">
+  <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-light min-h-screen font-gothic p-3">
     {/* 
       Main Header 
       - Straightforward introduction to your services.
@@ -26,7 +26,7 @@ const ApiAccess = () => (
     >
       <div className="absolute inset-0 bg-pattern-dots dark:bg-pattern-grid opacity-20 z-0"></div>
       <div className="relative z-10">
-        <h1 className="text-center text-5xl max-w-4xl mx-auto font-extrabold mb-12 tracking-wide text-shadow text-accent">
+        <h1 className="text-center text-4xl md:text-3xl lg:text-5xl max-w-4xl mx-auto font-extrabold mb-12 tracking-wide text-shadow text-accent ">
           Web Design & Development Tailored for Your Success
         </h1>
         <p className="text-center text-xl max-w-4xl mx-auto mb-16 leading-relaxed">
@@ -244,7 +244,7 @@ const ApiAccess = () => (
         <img
           src={VideoPlaceholder}
           alt="Video Placeholder"
-          className="rounded-lg shadow-lg max-w-md"
+          className="rounded-lg shadow-lg w-[75%]"
         />
       </div>
       <p className="text-xl leading-relaxed max-w-3xl mx-auto">

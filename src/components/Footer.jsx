@@ -42,13 +42,15 @@ const Footer = () => {
 
   return (
     <footer className="bg-indigo-200 dark:bg-dark-primary text-dark dark:text-light py-10">
-      <div className="container mx-auto px-8 md:px-16 lg:px-24 flex flex-col md:flex-row justify-between items-center">
+      <div className="container mx-auto px-8 md:px-16 lg:px-24 flex flex-col lg:flex-row justify-between items-center">
         <div className="mb-6 md:mb-0">
           <h2 className="text-3xl font-heading text-dark dark:text-light">
             Stormy Meadowlark
           </h2>
           <p className="text-indigo-800 dark:text-gray-400">
-            Tranquility Among the Storm
+            Innovation in Every Shift
+            <br></br>
+            Customization in Every Solution.
           </p>
         </div>
 
@@ -191,7 +193,7 @@ const Footer = () => {
       </div>
 
       <div className="mt-8 text-center text-indigo-800 dark:text-gray-400 text-sm">
-        <p>&copy; 2024 Stormy Meadowlark. All rights reserved.</p>
+        <p>&copy; 2025 Stormy Meadowlark. All rights reserved.</p>
       </div>
     </footer>
   )

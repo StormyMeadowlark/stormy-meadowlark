@@ -6,7 +6,7 @@ import RightPlaceImage from '../assets/images/Jeep_Flexin.png?react'
 import RightTimeImage from '../assets/images/Sunset_Cheer_Comp_1.png?react'
 
 const InitialCreationBundles = () => (
-  <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-light min-h-screen font-gothic">
+  <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-light min-h-screen font-gothic p-3">
     {/* Main Header */}
     <motion.div
       className="relative mx-auto py-40 text-center  rounded-lg shadow-lg"

@@ -10,7 +10,7 @@ import CaseStudyAfterImage from '../assets/images/Bentley.png?react';
 import VideoPlaceholder from '../assets/images/AboutImage.jpg?react';
 
 const OngoingPackages = () => (
-  <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-light min-h-screen font-gothic">
+  <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-light min-h-screen font-gothic p-2">
     {/*
       1. Main Header 
       - Big, bold introduction to your strategic consulting & brand development service.
@@ -356,7 +356,7 @@ const OngoingPackages = () => (
           <img
             src={VideoPlaceholder}
             alt="Video Placeholder"
-            className="rounded-lg shadow-lg max-w-md"
+            className="rounded-lg shadow-lg w-[75%]"
           />
         </div>
         <div className="text-xl leading-relaxed max-w-4xl mx-auto">

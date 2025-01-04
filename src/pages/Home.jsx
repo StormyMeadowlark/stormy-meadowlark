@@ -412,7 +412,7 @@ const Home = () => {
                 alt="Project 2"
                 className="w-full h-64 object-cover transform transition-transform hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-base md:text-lg lg:text-xl font-bold">
+              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-base md:text-lg lg:text-xl font-bold p-2">
                 Full Stack Inventory Management System
               </div>
             </motion.div>

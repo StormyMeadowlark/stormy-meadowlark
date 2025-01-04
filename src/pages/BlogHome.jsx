@@ -101,7 +101,7 @@ const BlogHome = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
         >
-          <h1 className="text-8xl mb-4">Tech & Tranquility</h1>
+          <h1 className="text-5xl mb-4">Tech & Tranquility</h1>
           <p className="text-xl max-w-2xl mx-auto">
             Explore our latest insights, tips, and stories to help you navigate
             the digital storm with tranquility and purpose.

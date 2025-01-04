@@ -97,10 +97,10 @@ const Contact = () => {
   ]
 
   return (
-    <div className="min-h-screen py-40 bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 dark:from-dark-primary dark:via-dark-secondary dark:to-dark-accent text-dark dark:text-light">
+    <div className="min-h-screen py-40 bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 dark:from-dark-primary dark:via-dark-secondary dark:to-dark-accent text-dark dark:text-light p-2">
       <div className="container mx-auto">
         <motion.h1
-          className="text-6xl font-Gothic text-center mb-8 text-dark-primary dark:text-light"
+          className="text-5xl font-Gothic text-center mb-8 text-dark-primary dark:text-light"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}

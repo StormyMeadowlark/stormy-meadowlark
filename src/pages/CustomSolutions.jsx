@@ -29,7 +29,7 @@ const AllInOneSolutionsLanding = () => {
         transition={{ duration: 1 }}
       >
         <div className="relative z-10 max-w-5xl mx-auto px-6">
-          <h1 className="text-5xl font-extrabold mb-8 tracking-wide text-shadow text-accent">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-8 tracking-wide text-shadow text-accent">
             Comprehensive Shop Growth Solutions
           </h1>
           <div className="text-xl max-w-3xl mx-auto leading-relaxed mb-8">

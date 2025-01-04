@@ -5,10 +5,10 @@ import StormyMeadowlark from '../assets/images/StormyMeadowlark.webp?react'
 import SolarAthleticsLogo from '../assets/images/Different-Fonts-With-Logo.svg?react'
 
 const Portfolio = () => (
-  <div className="bg-light dark:bg-dark-primary text-dark dark:text-light min-h-screen py-40">
+  <div className="bg-light dark:bg-dark-primary text-dark dark:text-light min-h-screen py-40 p-2">
     <div className="container mx-auto">
       <motion.h1
-        className="text-8xl text-center mb-12 text-dark-primary dark:text-light"
+        className="text-5xl text-center mb-12 text-dark-primary dark:text-light"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}
@@ -30,7 +30,7 @@ const Portfolio = () => (
           <img
             src={HEMAutomotiveOverview1}
             alt="HEM Automotive Project"
-            className="w-full md:w-1/2 mb-4 md:mb-0 md:mr-8"
+            className="w-[75%] md:w-1/2 mb-4 md:mb-0 md:mr-8"
           />
           <div className="md:w-1/2">
             <p className="text-lg font-gothic text-dark-primary dark:text-light">

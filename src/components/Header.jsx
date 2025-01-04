@@ -60,16 +60,28 @@ const Header = () => {
         <div className="container max-w-4xl mx-auto flex justify-between items-center px-4">
           {/* Left Navigation */}
           <nav className="flex space-x-6">
-            <Link to="/" className="hover:text-accent transition-colors duration-300">
+            <Link
+              to="/"
+              className="hover:text-accent transition-colors duration-300"
+            >
               Home
             </Link>
-            <Link to="/about" className="hover:text-accent transition-colors duration-300">
+            <Link
+              to="/about"
+              className="hover:text-accent transition-colors duration-300"
+            >
               About
             </Link>
-            <Link to="/services" className="hover:text-accent transition-colors duration-300">
+            <Link
+              to="/services"
+              className="hover:text-accent transition-colors duration-300"
+            >
               Services
             </Link>
-            <Link to="/portfolio" className="hover:text-accent transition-colors duration-300">
+            <Link
+              to="/portfolio"
+              className="hover:text-accent transition-colors duration-300"
+            >
               Portfolio
             </Link>
           </nav>
@@ -89,10 +101,16 @@ const Header = () => {
 
           {/* Right Navigation */}
           <div className="flex items-center space-x-6">
-            <Link to="/contact" className="hover:text-accent transition-colors duration-300">
+            <Link
+              to="/contact"
+              className="hover:text-accent transition-colors duration-300"
+            >
               Contact
             </Link>
-            <Link to="/tech&tranquility" className="hover:text-accent transition-colors duration-300">
+            <Link
+              to="/tech&tranquility"
+              className="hover:text-accent transition-colors duration-300"
+            >
               Tech & Tranquility
             </Link>
 
@@ -169,7 +187,10 @@ const Header = () => {
           {/* More Dropdown */}
           <div className="relative flex flex-col items-center">
             <button onClick={toggleMoreMenu} className="focus:outline-none">
-              <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <FaAngleDown className="text-2xl" />
               </motion.div>
               <span>More</span>
@@ -189,16 +210,19 @@ const Header = () => {
                   transition={{ duration: 0.5 }}
                   className="fixed inset-0 z-50 flex items-center justify-center"
                 >
-                  <div ref={moreMenuRef} className="bg-light-secondary dark:bg-dark-primary p-4 rounded-lg shadow-lg w-64">
+                  <div
+                    ref={moreMenuRef}
+                    className="bg-light-secondary dark:bg-dark-primary p-4 rounded-lg shadow-lg w-64"
+                  >
                     <ul className="text-center">
                       <li className="py-2 px-4 hover:bg-accent transition-colors duration-300">
                         <Link to="/about">About</Link>
                       </li>
                       <li className="py-2 px-4 hover:bg-accent transition-colors duration-300">
-                        <Link to="/portfolio">Tech & Tranquility</Link>
+                        <Link to="/portfolio">Portfolio</Link>
                       </li>
                       <li className="py-2 px-4 hover:bg-accent transition-colors duration-300">
-                        <Link to="/tech&tranquility">Portfolio</Link>
+                        <Link to="/tech&tranquility">Tech & Tranquility</Link>
                       </li>
                       {isLoggedIn ? (
                         <li className="py-2 px-4 hover:bg-accent transition-colors duration-300">

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 const ConsultingStrategy = () => (
-<div className="bg-light dark:bg-dark-primary text-dark dark:text-light min-h-screen py-40">
+<div className="bg-light dark:bg-dark-primary text-dark dark:text-light min-h-screen py-40 p-2">
     <div className="container mx-auto">
       <motion.h1
         className="text-8xl font-cursive text-center mb-12 text-dark-primary dark:text-light"
