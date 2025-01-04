@@ -87,7 +87,7 @@ const Home = () => {
         >
           <Link
             to="/contact"
-            className=" text-base md:text-xl lg:text-3xl px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold rounded-full dark:hover:bg-cta-hover hover:bg-light-hover transition-all duration-300"
+            className=" text-base md:text-lg lg:text-xl px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold rounded-full dark:hover:bg-cta-hover hover:bg-light-hover transition-all duration-300"
           >
             Start Growing Your Business
           </Link>
@@ -135,7 +135,7 @@ const Home = () => {
             style={{ transform: 'translateY(30px)' }}
           >
             <div>
-              <h3 className="text-lg md:text-2xl lg:text-4xl font-bold mb-4 tracking-wide">
+              <h3 className="text-base md:text-lg lg:text-xl font-bold mb-4 tracking-wide">
                 Paid Advertisement & Content Production{' '}
               </h3>
               <p className="text-base md:text-lg lg:text-xl max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
@@ -193,7 +193,7 @@ const Home = () => {
             style={{ transform: 'translateY(30px)' }}
           >
             <div>
-              <h3 className="text-lg md:text-2xl lg:text-4xl font-bold mb-4">
+              <h3 className="text-base md:text-lg lg:text-xl font-bold mb-4">
                 Web Design & Development
               </h3>
               <p className="text-base md:text-lg lg:text-xl max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
@@ -227,7 +227,7 @@ const Home = () => {
             style={{ transform: 'translateY(30px)' }}
           >
             <div>
-              <h3 className="text-lg md:text-2xl lg:text-4xl font-bold mb-4 tracking-wide">
+              <h3 className="text-base md:text-lg lg:text-xl font-bold mb-4 tracking-wide">
                 Digital Marketing & Reputation Management{' '}
               </h3>
               <p className="text-base md:text-lg lg:text-xl max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
@@ -286,7 +286,7 @@ const Home = () => {
             style={{ transform: 'translateY(30px)' }}
           >
             <div>
-              <h3 className="text-lg md:text-2xl lg:text-4xl font-bold mb-4">
+              <h3 className="text-base md:text-lg lg:text-xl font-bold mb-4">
                 Strategic Consulting & Brand Development
               </h3>
               <p className="text-base md:text-lg lg:text-xl max-w-4xl tracking-wide mb-6 text-dark-primary dark:text-dark-text">
@@ -331,7 +331,7 @@ const Home = () => {
           transition={{ duration: 1 }}
           className="relative z-10 bg-light-primary text-light-text dark:bg-dark-primary dark:text-dark-text p-8 rounded-lg shadow-lg"
         >
-          <h2 className="text-lg md:text-2xl lg:text-4xl font-extrabold mb-8 tracking-wide">
+          <h2 className="text-base md:text-lg lg:text-xl font-extrabold mb-8 tracking-wide">
             Your All-In-One Marketing & Consulting Hub
           </h2>
           <p className="text-base md:text-lg lg:text-xl max-w-4xl mx-auto mb-6 tracking-wide">
@@ -366,7 +366,7 @@ const Home = () => {
                 key={index}
                 className="p-6 bg-dark-primary bg-opacity-70 rounded-lg hover:scale-105 transform transition-transform duration-300"
               >
-                <h3 className="text-lg md:text-2xl lg:text-4xl font-bold mb-4 tracking-wide text-dark-text">
+                <h3 className="text-base md:text-lg lg:text-xl font-bold mb-4 tracking-wide text-dark-text">
                   {reason.title}
                 </h3>
                 <p className="text-sm md:text-base lg:text-lg tracking-wide text-dark-text">
@@ -396,7 +396,7 @@ const Home = () => {
                 alt="Project 1"
                 className="w-full h-64 object-cover transform transition-transform hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-lg md:text-2xl lg:text-4xl font-bold">
+              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-base md:text-lg lg:text-xl font-bold">
                 HEM Automotive Branding, Web Development & Marketing
               </div>
             </motion.div>
@@ -412,7 +412,7 @@ const Home = () => {
                 alt="Project 2"
                 className="w-full h-64 object-cover transform transition-transform hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-lg md:text-2xl lg:text-4xl font-bold">
+              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-base md:text-lg lg:text-xl font-bold">
                 Full Stack Inventory Management System
               </div>
             </motion.div>
@@ -428,14 +428,14 @@ const Home = () => {
                 alt="Project 3"
                 className="w-full h-64 object-cover transform transition-transform hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-lg md:text-2xl lg:text-4xl font-bold">
+              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-base md:text-lg lg:text-xl font-bold">
                 Solar Athletics Rebrand
               </div>
             </motion.div>
           </div>
           <Link
             to="/portfolio"
-            className="mt-12 px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-lg md:text-2xl lg:text-4xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover inline-block"
+            className="mt-12 px-10 py-4 bg-accent dark:bg-dark-accent text-light-text dark:text-dark-text font-bold text-base md:text-lg lg:text-xl rounded-full dark:hover:bg-cta-hover hover:bg-light-hover inline-block"
           >
             Explore Our Portfolio
           </Link>
@@ -495,7 +495,7 @@ const Home = () => {
         </p>
         <Link
           to="/contact"
-          className="bg-accent dark:bg-dark-accent hover:bg-light-hover dark:hover:bg-cta-hover text-light-text dark:text-dark-text font-bold py-4 px-8 text-lg md:text-2xl lg:text-4xl rounded-full hover:bg-accent-hover dark:hover:bg-dark-accent-hover"
+          className="bg-accent dark:bg-dark-accent hover:bg-light-hover dark:hover:bg-cta-hover text-light-text dark:text-dark-text font-bold py-4 px-8 text-base md:text-lg lg:text-xl rounded-full hover:bg-accent-hover dark:hover:bg-dark-accent-hover"
         >
           Let's Get Started
         </Link>

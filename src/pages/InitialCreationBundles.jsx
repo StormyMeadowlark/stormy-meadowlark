@@ -201,7 +201,7 @@ const InitialCreationBundles = () => (
      Advertisement & Content Production Packages
     </div>
     <motion.section
-  className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 p-24"
+  className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:p-8 lg:p-12 pt-12"
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
   transition={{ duration: 1.4 }}
@@ -209,7 +209,7 @@ const InitialCreationBundles = () => (
   {/* Ads Packages */}
 
   <motion.div
-    className="p-8 bg-white dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
+    className=" p-8 bg-white dark:bg-dark-secondary text-dark-primary dark:text-light rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
     whileHover={{ scale: 1.05 }}
   >
 

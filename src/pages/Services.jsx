@@ -174,10 +174,10 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {/* Add blog posts dynamically */}
           <div className="p-6 bg-white dark:bg-dark-primary rounded-lg shadow-lg">
-            <h3 className="text-2xl font-bold mb-2">
+            <h3 className="text-2xl font-bold mb-2 text-light-text dark:text-dark-text">
               Top 10 Marketing Strategies for Auto Shops in 2024
             </h3>
-            <p className="text-lg mb-4">
+            <p className="text-lg mb-4 text-light-text dark:text-dark-text">
               Learn actionable tips to enhance your shop’s visibility.
             </p>
             <Link to="/blog/post-title" className="text-accent underline">
@@ -188,11 +188,11 @@ const Services = () => {
         </div>
       </section>
       {/* Final Call-to-Action Section */}
-      <section className="py-20 bg-dark-primary text-light-text dark:text-dark-text text-center">
-        <h2 className="text-5xl font-extrabold mb-6">
+      <section className="py-20 bg-gradient-to-r from-light-primary via-light-secondary to-light-primary dark:from-dark-secondary dark:via-dark-primary dark:to-dark-secondary text-center">
+        <h2 className="text-5xl font-extrabold mb-6 dark:text-dark-text">
           Ready to Elevate Your Business?
         </h2>
-        <p className="text-lg mb-8">
+        <p className="text-lg mb-8 dark:text-dark-text">
           Contact us today to start your journey with Stormy Meadowlark.
         </p>
         <Link
