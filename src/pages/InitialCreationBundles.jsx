@@ -1,9 +1,14 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import RightPersonImage from '../assets/images/Desk.png?react'
-import RightMessageImage from '../assets/images/Headlights.png?react'
+import RightPersonImage from '../assets/images/Capture.JPG?react'
+import RightPersonIcon from '../assets/images/RightPerson.png?react'
+import RightMessageImage from '../assets/images/MessageImage.png?react'
+import RightMessageIcon from '../assets/images/RightMessage.png?react'
 import RightPlaceImage from '../assets/images/Jeep_Flexin.png?react'
+import RightPlaceIcon from '../assets/images/RightLocation.png?react'
 import RightTimeImage from '../assets/images/Sunset_Cheer_Comp_1.png?react'
+import RightTimeIcon from '../assets/images/RightTime.png?react'
+
 
 const InitialCreationBundles = () => (
   <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-light min-h-screen font-gothic p-3">
@@ -102,37 +107,38 @@ const InitialCreationBundles = () => (
           description:
             'Understand your ideal customers. Are they busy professionals needing quick service? Families seeking reliable vehicles? We identify your key audiences to ensure your ads speak directly to their needs.',
           image: RightPersonImage,
-          icon: '🎯',
+          icon: RightPersonIcon,
         },
         {
           title: 'Right Place',
           description:
             'Meet your customers where they are. Whether it’s Google Ads, Facebook, or Instagram, we focus on the platforms where your audience spends their time.',
           image: RightPlaceImage,
-          icon: '📍',
+          icon: RightPlaceIcon,
         },
         {
           title: 'Right Time',
           description:
             'Timing is everything. We ensure your ads are shown during peak times when your audience is most likely to engage, like during commutes or downtime.',
           image: RightTimeImage,
-          icon: '⏰',
+          icon: RightTimeIcon,
         },
         {
           title: 'Right Message',
           description:
             'Create content that matters. From ads showcasing your services to engaging social posts that build trust, we craft messages that resonate and inspire action.',
           image: RightMessageImage,
-          icon: '💬',
+          icon: RightMessageIcon,
         },
       ].map((section, index) => (
         <div
           key={index}
-          className="relative p-6 rounded-lg shadow-lg text-center text-dark-text"
-          style={{ backgroundImage: `url(${section.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+          className="relative p-6 rounded-lg shadow-lg text-center text-dark-text place-content-center"
+          style={{ backgroundImage: `url(${section.image})`, backgroundSize: 'cover', backgroundPosition: 'Top' }}
         >
-          <div className="bg-dark-primary bg-opacity-60 p-4 rounded-lg">
-            <span className="text-6xl mb-4 block">{section.icon}</span>
+          <div className="bg-dark-primary bg-opacity-90 p-4 rounded-lg">
+            <span className="text-6xl mb-4 block">
+            <img src={section.icon} className='max-w-20 object-center mx-auto'/></span>
             <h3 className="text-3xl font-extrabold text-accent mb-4">
               {section.title}
             </h3>
