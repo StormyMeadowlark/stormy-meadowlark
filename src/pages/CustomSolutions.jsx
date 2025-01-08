@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 
 // Replace these image imports with your own assets or placeholders
 import HeroImage from '../assets/images/1.png?react'
-import PainPointImage from '../assets/images/2.png?react'
-import CultureImage from '../assets/images/APIIntegrations.png?react'
-import TestimonialImage from '../assets/images/Before.png?react'
+import PainPointImage from '../assets/images/PainPoint.png?react'
+import CultureImage from '../assets/images/CoreValues.png?react'
+import TestimonialImage from '../assets/images/GrowingTrust.png?react'
+import ViewBefore from '../assets/images/ViewsBefore.png?react'
+import HEMautoBrand from '../assets/images/HEMautoBrand.png?react'
 import ProcessImage from '../assets/images/Bentley.png?react'
 import TimelineImage from '../assets/images/Desk.png?react'
 import PlaceholderVideo from '../assets/images/DigitalCar.png?react'
@@ -151,7 +153,7 @@ const AllInOneSolutionsLanding = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
               <img
-                src="#"
+                src={ViewBefore}
                 alt="Brand Story"
                 className="rounded-lg shadow-lg mb-8"
               />
@@ -164,7 +166,7 @@ const AllInOneSolutionsLanding = () => {
             </div>
             <div>
               <img
-                src="#"
+                src={HEMautoBrand}
                 alt="Brand Positioning"
                 className="rounded-lg shadow-lg mb-8"
               />

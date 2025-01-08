@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 // Example images – adjust to your actual file paths
-import WebDesignImage from '../assets/images/Desk.png?react';
-import FullStackImage from '../assets/images/1.png?react';
-import MobileFirstImage from '../assets/images/2.png?react';
-import SEODiagramImage from '../assets/images/AboutImage.jpg?react';
-import ImpactImage from '../assets/images/Before.png?react';
-import SuccessImage from '../assets/images/Bentley.png?react';
+import WebDesignImage from '../assets/images/ResponsiveWebDevelopment.png?react';
+import TemplateSite from '../assets/images/TemplateSite.png?react';
+import MobileFirstImage from '../assets/images/ResponsiveWebDesign.png?react';
+import CustomSite from '../assets/images/CustomSite.png?react';
+import SEODiagramImage from '../assets/images/SEOImage.png?react';
+import Integrations from '../assets/images/Integrations.png?react';
 import TrueCustomImage from '../assets/images/DigitalCar.png?react';
 import TemplateComparisonImage from '../assets/images/Headlights.png?react';
-import VideoPlaceholder from '../assets/images/SolarAthletricsRebrand.png?react';
+import VideoPlaceholder from '../assets/images/ProcessWebsite.jpg?react';
 
 const ApiAccess = () => (
   <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-light min-h-screen font-gothic p-3">
@@ -96,7 +96,7 @@ const ApiAccess = () => (
             </div>
             <div>
               <img
-                src={SuccessImage}
+                src={WebDesignImage}
                 alt="Success"
                 className="rounded-lg shadow-lg"
               />
@@ -124,7 +124,7 @@ const ApiAccess = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src={ImpactImage}
+              src={MobileFirstImage}
               alt="Impact"
               className="rounded-lg shadow-lg"
             />
@@ -180,7 +180,7 @@ const ApiAccess = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <img
-              src={TrueCustomImage}
+              src={CustomSite}
               alt="True Custom"
               className="rounded-lg shadow-lg mb-8"
             />
@@ -201,7 +201,7 @@ const ApiAccess = () => (
           </div>
           <div>
             <img
-              src={TemplateComparisonImage}
+              src={TemplateSite}
               alt="Template Comparison"
               className="rounded-lg shadow-lg mb-8"
             />
@@ -453,7 +453,7 @@ const ApiAccess = () => (
           </div>
           <div>
             <img
-              src={FullStackImage}
+              src={Integrations}
               alt="Advanced Integrations"
               className="rounded-lg shadow-lg"
             />

@@ -2,12 +2,17 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 // Example images – adjust to your actual file paths
-import StrategyImage from '../assets/images/1.png?react';
-import BrandStoryImage from '../assets/images/2.png?react';
-import PositioningImage from '../assets/images/Desk.png?react';
+import StrategyImage from '../assets/images/HEMBranding.png?react';
+import BrandStoryImage from '../assets/images/BrandStory.png?react';
+import PositioningImage from '../assets/images/BrandPosition.png?react';
 import CaseStudyBeforeImage from '../assets/images/Before.png?react';
 import CaseStudyAfterImage from '../assets/images/Bentley.png?react';
-import VideoPlaceholder from '../assets/images/AboutImage.jpg?react';
+import VideoPlaceholder from '../assets/images/DidYouKnow.png?react';
+import BeforeOne from '../assets/images/Facebook2023HEM.png?react';
+import Google2024HEM from '../assets/images/Google2024HEM.png?react'
+import AfterOne from '../assets/images/Facebook2024HEM.png?react'
+import Brand from '../assets/images/HEMBrand.png?react'
+
 
 const OngoingPackages = () => (
   <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-light min-h-screen font-gothic p-2">
@@ -127,22 +132,22 @@ const OngoingPackages = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src={CaseStudyBeforeImage}
+              src={BeforeOne}
               alt="Before Rebrand"
               className="rounded-lg shadow-lg mb-8"
             />
             <img
-              src={CaseStudyAfterImage}
+              src={Google2024HEM}
               alt="After Rebrand"
               className="rounded-lg shadow-lg"
             />
             <img
-              src={CaseStudyBeforeImage}
+              src={AfterOne}
               alt="Before Rebrand"
               className="rounded-lg shadow-lg mb-8"
             />
             <img
-              src={CaseStudyAfterImage}
+              src={Brand}
               alt="After Rebrand"
               className="rounded-lg shadow-lg"
             />

@@ -2,12 +2,12 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 // Replace these with your own image imports
-import ReputationMonitorImage from '../assets/images/Desk.png?react';
-import ReputationImpactImage from '../assets/images/Before.png?react';
-import ReputationSuccessImage from '../assets/images/Bentley.png?react';
-import SocialProofImage from '../assets/images/Headlights.png?react';
+import ReputationMonitorImage from '../assets/images/SEOAndListings.png?react';
+import ReputationImpactImage from '../assets/images/Calls.png?react';
+import ReputationSuccessImage from '../assets/images/ReputationManagement.png?react';
+import SocialProofImage from '../assets/images/GeoTaggingImages.JPG?react';
 import LocalSEOImage from '../assets/images/AboutImage.jpg?react';
-import VideoPlaceholder from '../assets/images/SolarAthletricsRebrand.png?react';
+import VideoPlaceholder from '../assets/images/VideoMarketing.png?react';
 
 const DigitalMarketing = () => (
   <div className="bg-light-primary dark:bg-dark-primary text-light-text dark:text-light min-h-screen font-gothic p-2">
@@ -136,9 +136,9 @@ const DigitalMarketing = () => (
             <ul className="text-xl leading-relaxed list-disc list-inside text-left">
               <li>
                 <b>
-                  A 102.7% increase in calls from their Google Business Profile
+                  A 11.6% increase in calls from their Google Business Profile
                 </b>{' '}
-                in October 2024 compared to October 2023, connecting them to
+                in August - December 2024 compared to August - December 2023, connecting them to
                 more customers than ever.
               </li>
               <li>
