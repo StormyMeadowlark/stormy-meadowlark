@@ -206,23 +206,23 @@ const OngoingPackages = () => (
                 <b>Increased Website Traffic:</b>
                 <ul className="text-xl leading-relaxed list-disc list-inside text-left ml-8">
                   <li>408 new visitors in September</li>
-                  <li>1,500 new visitors in December</li>
+                  <li>1,700 new visitors in December</li>
                 </ul>
               </li>
               <li>
                 <b>Boosted Organic Search Visibility:</b>
                 <ul className="text-xl leading-relaxed list-disc list-inside text-left ml-8">
                   <li>61 visitors from organic search in September</li>
-                  <li>1,500 visitors from organic search in December</li>
+                  <li>1,675 visitors from organic search in December</li>
                 </ul>
               </li>
               <li>
                 <b>Higher Customer Engagement:</b>
                 <ul className="text-xl leading-relaxed list-disc list-inside text-left ml-8">
                   <li>
-                    Form inquiries doubled, growing from 7 to 15 per month.
+                    Phone calls from ads grew from 1 to 4 per month. With 3 phone call leads from the first week of January, 2025. 
                   </li>
-                  <li>Website clicks grew to 39 by December.</li>
+                  <li>Organic website clicks grew from 41 to 88 by December.</li>
                 </ul>
               </li>
               <li>
@@ -249,6 +249,7 @@ const OngoingPackages = () => (
               </li>
               <li>Using analytics to uncover more opportunities for growth.</li>
               <li>Ensuring consistent branding across all new services.</li>
+              <li>Implementing customer retention strategies.</li>
             </ul>
           </div>
         </div>
@@ -257,7 +258,7 @@ const OngoingPackages = () => (
         </p>
         <p className="text-xl mb-4">
           Thanks to their revamped brand and online presence, HEM Automotive is
-          now a trusted name in both auto repair and vehicle sales. They’ve seen
+          now becoming a trusted name in both auto repair and vehicle sales in their market. They’ve seen
           measurable growth in website traffic, customer engagement, and
           business opportunities.
         </p>
