@@ -36,6 +36,7 @@ import ProtectedRoute from './context/ProtectedRoutes' // Import ProtectedRoute
 import RequestPasswordReset from './pages/RequestPasswordReset' 
 import ResetPassword from './pages/ResetPassword' 
 import WebDevelopment from './pages/WebDevelopment'
+import NotFound404 from './pages/Redirect'
 
 const AppRouter = () => (
   <Router>
@@ -115,6 +116,7 @@ const AppRouter = () => (
         element={<SolarAthleticsProjectPage />}
       />
       <Route path="/proven-process" element={<WebDevelopment />} />
+      <Route path="*" element={<NotFound404 />} />
     </Routes>
     <Footer />
   </Router>
